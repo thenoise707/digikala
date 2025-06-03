@@ -1,0 +1,2350 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>دیجی‌کالا</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="top-bar">
+  <span id="top-bar-message">پشتیبانی 24 ساعته آماده خدمت‌رسانی به شماست</span>
+</div>
+
+<script>
+  const topBar = document.getElementById("top-bar");
+  const topBarMessage = document.getElementById("top-bar-message");
+  const messages = [
+    "تخفیف ویژه فقط تا پایان هفته!",
+    "ارسال رایگان برای سفارش‌های بالای 200 هزار تومان",
+    "جدیدترین محصولات دیجیکالا را از دست ندهید",
+    "پشتیبانی 24 ساعته آماده خدمت‌رسانی به شماست"
+  ];
+  let messageIndex = 0;
+
+  function changeMessage() {
+    if (topBarMessage) {
+      topBarMessage.style.opacity = 0;
+      setTimeout(() => {
+        messageIndex = (messageIndex + 1) % messages.length;
+        topBarMessage.textContent = messages[messageIndex];
+        topBarMessage.style.opacity = 1;
+      }, 500);
+    }
+  }
+  setInterval(changeMessage, 3900);
+</script>
+<!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
+<div id="fixed-header">
+  <header class="bg-white border-bottom py-2 px-3 d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3">
+    <div class="d-flex align-items-center logo-container-custom">
+      <img src="https://www.digikala.com/statics/img/svg/logo.svg" style="height:40px" alt="لوگو دیجی‌کالا" />
+      <div class="d-lg-none d-flex gap-2 button-group-custom-mobile">
+        <a id="notify-btn" class="text-decoration-none text-dark fs-5 ms-3">🔔</a>
+      </div>
+    </div>
+    <div class="flex-grow-1 w-100 mt-2 mt-lg-0 header-search-box-container ms-lg-auto">
+      <input type="text" class="form-control" placeholder="جستجو در دیجی‌کالا" />
+    </div>
+    <div class="d-none d-lg-flex button-group-custom align-items-center">
+      <a id="notify-btn" class="text-decoration-none text-dark fs-5 ms-3">🔔</a>
+
+      <div class="vr mx-2"></div>
+
+      <a id="login-btn" class="text-decoration-none text-dark d-flex align-items-center custom-login-box">
+        ورود | ثبت‌نام
+        <img src="https://cdn-icons-png.flaticon.com/512/32/32213.png" alt="فلش" width="18" height="18" class="me-1"> </a>
+
+      <div class="vr mx-2"></div>
+
+      <a id="cart-btn" class="text-decoration-none text-dark fs-5 me-2">🛒</a>
+    </div>
+  </header>
+
+  <nav class="bg-white border-bottom py-2 px-3 d-flex flex-wrap flex-lg-nowrap justify-content-center justify-content-lg-start gap-3 align-items-center d-none d-lg-flex">
+    <div class="main-nav-links d-flex align-items-center gap-3">
+      <div class="category-dropdown-container position-relative">
+        <button class="category-dropdown-btn">
+          <img src="https://cdn-icons-png.flaticon.com/512/130/130918.png" alt="دسته بندی" width="20" height="20" style="margin-left: 8px;">
+          دسته‌بندی کالاها
+        </button>
+        <div class="category-dropdown-content">
+          <ul class="category-main-list">
+            <li data-main-category="digital-goods">
+              <img src="https://cdn-icons-png.flaticon.com/512/2972/2972100.png" alt="کالای دیجیتال" style="margin-left: 8px;"> کالای دیجیتال
+            </li>
+            <li data-main-category="car-tools-industrial">
+              <img src="https://cdn-icons-png.flaticon.com/512/1822/1822844.png" alt="خودرو، ابزار و تجهیزات صنعتی" style="margin-left: 8px;"> خودرو، ابزار و تجهیزات صنعتی
+            </li>
+            <li data-main-category="home-appliances">
+              <img src="https://cdn-icons-png.flaticon.com/512/3306/3306877.png" alt="لوازم خانگی" style="margin-left: 8px;"> لوازم خانگی
+            </li>
+            <li data-main-category="fashion-apparel">
+                <img src="https://cdn-icons-png.flaticon.com/512/869/869502.png" alt="مد و پوشاک" style="margin-left: 8px;"> مد و پوشاک
+            </li>
+            <li data-main-category="beauty-health">
+                <img src="https://cdn-icons-png.flaticon.com/512/2585/2585354.png" alt="زیبایی و سلامت" style="margin-left: 8px;"> زیبایی و سلامت
+            </li>
+            <li data-main-category="sports-travel">
+                <img src="https://cdn-icons-png.flaticon.com/512/1080/1080994.png" alt="ورزش و سفر" style="margin-left: 8px;"> ورزش و سفر
+            </li>
+            <li data-main-category="books-stationery-art">
+                <img src="https://cdn-icons-png.flaticon.com/512/3593/3593005.png" alt="کتاب، لوازم تحریر و هنر" style="margin-left: 8px;"> کتاب، لوازم تحریر و هنر
+            </li>
+            <li data-main-category="toys-baby">
+                <img src="https://cdn-icons-png.flaticon.com/512/3315/3315187.png" alt="اسباب بازی، کودک و نوزاد" style="margin-left: 8px;"> اسباب بازی، کودک و نوزاد
+            </li>
+            <li data-main-category="supermarket-goods">
+                <img src="https://cdn-icons-png.flaticon.com/512/385/385017.png" alt="کالاهای سوپرمارکتی" style="margin-left: 8px;"> کالاهای سوپرمارکتی
+            </li>
+          </ul>
+
+          <div class="category-sub-content">
+            <div class="default-sub-message">با هاور بر روی دسته‌بندی‌های اصلی، زیرمجموعه‌ها را مشاهده کنید.</div>
+
+            <div class="sub-category-content-item" data-main-category-id="digital-goods">
+                <div class="row g-3 g-sm-2">
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">موبایل</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">گوشی موبایل</a></li>
+                            <li><a href="#" class="text-decoration-none">لوازم جانبی موبایل</a></li>
+                            <li><a href="#" class="text-decoration-none">هدفون، هدست و هندزفری</a></li>
+                            <li><a href="#" class="text-decoration-none">پاوربانک (شارژر همراه)</a></li>
+                            <li><a href="#" class="text-decoration-none">کارت حافظه</a></li>
+                            <li><a href="#" class="text-decoration-none">ساعت هوشمند</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">لپ‌تاپ، کامپیوتر و تبلت</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">لپ‌تاپ</a></li>
+                            <li><a href="#" class="text-decoration-none">کامپیوتر All-in-One</a></li>
+                            <li><a href="#" class="text-decoration-none">تبلت</a></li>
+                            <li><a href="#" class="text-decoration-none">کامپیوتر و تجهیزات جانبی</a></li>
+                            <li><a href="#" class="text-decoration-none">مانیتور</a></li>
+                            <li><a href="#" class="text-decoration-none">هارد دیسک، SSD و فلش</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">دوربین</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">دوربین عکاسی</a></li>
+                            <li><a href="#" class="text-decoration-none">لوازم جانبی دوربین</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">صوتی و تصویری</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">تلویزیون</a></li>
+                            <li><a href="#" class="text-decoration-none">اسپیکر (بلندگو)</a></li>
+                            <li><a href="#" class="text-decoration-none">هدفون و هدست</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">کنسول بازی</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">کنسول بازی</a></li>
+                            <li><a href="#" class="text-decoration-none">لوازم جانبی کنسول</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">ماشین‌های اداری و لوازم جانبی</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">پرینتر</a></li>
+                            <li><a href="#" class="text-decoration-none">اسکنر</a></li>
+                            <li><a href="#" class="text-decoration-none">کاغذ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-category-content-item" data-main-category-id="car-tools-industrial">
+                <div class="row g-3 g-sm-2">
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">لوازم یدکی خودرو</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">روغن موتور</a></li>
+                            <li><a href="#" class="text-decoration-none">فیلتر هوا</a></li>
+                            <li><a href="#" class="text-decoration-none">باتری خودرو</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">ابزار برقی</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">دریل</a></li>
+                            <li><a href="#" class="text-decoration-none">فرز</a></li>
+                            <li><a href="#" class="text-decoration-none">اره برقی</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">ابزار دستی</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">آچار</a></li>
+                            <li><a href="#" class="text-decoration-none">پیچ‌گوشتی</a></li>
+                            <li><a href="#" class="text-decoration-none">انبر</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-category-content-item" data-main-category-id="home-appliances">
+                <div class="row g-3 g-sm-2">
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">لوازم خانگی برقی</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">یخچال و فریزر</a></li>
+                            <li><a href="#" class="text-decoration-none">ماشین لباسشویی</a></li>
+                            <li><a href="#" class="text-decoration-none">جاروبرقی</a></li>
+                            <li><a href="#" class="text-decoration-none">مایکروویو</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">لوازم آشپزخانه</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">سرویس قابلمه</a></li>
+                            <li><a href="#" class="text-decoration-none">ظروف پخت و پز</a></li>
+                            <li><a href="#" class="text-decoration-none">سرویس غذاخوری</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">دکوراسیون</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">مبلمان</a></li>
+                            <li><a href="#" class="text-decoration-none">فرش</a></li>
+                            <li><a href="#" class="text-decoration-none">پرده</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-category-content-item" data-main-category-id="fashion-apparel">
+                <div class="row g-3 g-sm-2">
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">پوشاک مردانه</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">تی‌شرت و پولوشرت</a></li>
+                            <li><a href="#" class="text-decoration-none">پیراهن</a></li>
+                            <li><a href="#" class="text-decoration-none">شلوار</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">پوشاک زنانه</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">مانتو</a></li>
+                            <li><a href="#" class="text-decoration-none">شال و روسری</a></li>
+                            <li><a href="#" class="text-decoration-none">شومیز و بلوز زنانه</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">کیف و کفش</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">کیف زنانه</a></li>
+                            <li><a href="#" class="text-decoration-none">کفش مردانه</a></li>
+                            <li><a href="#" class="text-decoration-none">کفش زنانه</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-category-content-item" data-main-category-id="beauty-health">
+                <div class="row g-3 g-sm-2">
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">لوازم آرایشی</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">آرایش صورت</a></li>
+                            <li><a href="#" class="text-decoration-none">آرایش چشم و ابرو</a></li>
+                            <li><a href="#" class="text-decoration-none">آرایش لب</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">عطر و ادکلن</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">عطر زنانه</a></li>
+                            <li><a href="#" class="text-decoration-none">عطر مردانه</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">لوازم بهداشتی</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">شامپو</a></li>
+                            <li><a href="#" class="text-decoration-none">صابون</a></li>
+                            <li><a href="#" class="text-decoration-none">خمیر دندان</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-category-content-item" data-main-category-id="sports-travel">
+                <div class="row g-3 g-sm-2">
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">لوازم ورزشی</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">پوشاک ورزشی</a></li>
+                            <li><a href="#" class="text-decoration-none">کفش ورزشی</a></li>
+                            <li><a href="#" class="text-decoration-none">تجهیزات ورزشی</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">دوچرخه و لوازم جانبی</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">دوچرخه</a></li>
+                            <li><a href="#" class="text-decoration-none">کلاه دوچرخه‌سواری</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-category-content-item" data-main-category-id="books-stationery-art">
+                <div class="row g-3 g-sm-2">
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">کتاب و مجلات</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">کتاب چاپی</a></li>
+                            <li><a href="#" class="text-decoration-none">کتاب صوتی</a></li>
+                            <li><a href="#" class="text-decoration-none">مجله</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">لوازم تحریر</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">خودکار</a></li>
+                            <li><a href="#" class="text-decoration-none">مداد</a></li>
+                            <li><a href="#" class="text-decoration-none">دفتر</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-category-content-item" data-main-category-id="toys-baby">
+                <div class="row g-3 g-sm-2">
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">اسباب بازی</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">عروسک و فیگور</a></li>
+                            <li><a href="#" class="text-decoration-none">ماشین بازی</a></li>
+                            <li><a href="#" class="text-decoration-none">لگو</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">لوازم سیسمونی</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">کالسکه</a></li>
+                            <li><a href="#" class="text-decoration-none">صندلی غذاخوری</a></li>
+                            <li><a href="#" class="text-decoration-none">پوشک</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-category-content-item" data-main-category-id="supermarket-goods">
+                <div class="row g-3 g-sm-2">
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">لبنیات</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">شیر</a></li>
+                            <li><a href="#" class="text-decoration-none">ماست</a></li>
+                            <li><a href="#" class="text-decoration-none">پنیر</a></li>
+                        </ul>
+                    </div>
+                    <div class="category-sub-group col-12 col-md-6 col-lg-4">
+                        <h4 class="fw-bold mb-2">خواربار</h4>
+                        <ul class="list-unstyled p-0">
+                            <li><a href="#" class="text-decoration-none">برنج</a></li>
+                            <li><a href="#" class="text-decoration-none">روغن</a></li>
+                            <li><a href="#" class="text-decoration-none">شکر</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <a href="#" class="text-decoration-none text-dark">پرفروش‌ترین‌ها</a>
+      <a href="#" class="text-decoration-none text-dark">سوپرمارکت</a>
+      <a href="#" class="text-decoration-none text-dark">دیجی‌کالای من</a>
+      <a href="#" class="text-decoration-none text-dark">سوالی دارید؟</a>
+      <a href="#" class="text-decoration-none text-dark">فروشنده شوید!</a>
+    </div>
+
+    <a href="#" class="text-decoration-none text-primary d-flex align-items-center ms-auto mt-2 mt-lg-0">
+      <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="آیکون مکان" style="width: 18px; height: 18px; margin-left: 6px;">
+      شهر خود را انتخاب کنید
+    </a>
+  </nav>
+</div>
+<script>
+// انتخابگرهای عناصر
+const categoryDropdownContainer = document.querySelector('.category-dropdown-container');
+const categoryDropdownBtn = document.querySelector('.category-dropdown-btn'); // دکمه "دسته‌بندی کالاها"
+const categoryDropdownContent = document.querySelector('.category-dropdown-content'); // محتوای دراپ‌داون
+const categoryMainList = document.querySelector('.category-main-list');
+const allMainCategoryItems = categoryMainList.querySelectorAll('li');
+const defaultSubMessage = categoryDropdownContainer.querySelector('.default-sub-message');
+const allSubCategoryContentItems = categoryDropdownContainer.querySelectorAll('.sub-category-content-item');
+
+// تابع برای نمایش یا پنهان کردن دراپ‌داون اصلی
+function toggleDropdown() {
+    // کلاس 'show' را به محتوای دراپ‌داون اضافه یا حذف می‌کند
+    categoryDropdownContent.classList.toggle('show');
+
+    // هنگام باز شدن دراپ‌داون، پیام پیش‌فرض را نشان دهید و زیردسته‌ها را پنهان کنید
+    if (categoryDropdownContent.classList.contains('show')) {
+        if (defaultSubMessage) {
+            defaultSubMessage.style.display = 'flex';
+        }
+        allSubCategoryContentItems.forEach(item => {
+            item.style.display = 'none';
+        });
+        // اطمینان از عدم فعال بودن آیتمی در لیست اصلی
+        allMainCategoryItems.forEach(li => li.classList.remove('active'));
+    }
+}
+
+// تابع برای مدیریت هاور روی دسته‌بندی‌های اصلی (نمایش زیردسته‌ها)
+function handleMainCategoryHover(event) {
+    // حذف کلاس 'active' از تمام آیتم‌های دسته‌بندی اصلی
+    allMainCategoryItems.forEach(li => li.classList.remove('active'));
+    // اضافه کردن کلاس 'active' به آیتم فعلی که ماوس روی آن قرار گرفته
+    event.currentTarget.classList.add('active');
+
+    // دریافت ID دسته‌بندی انتخاب شده از ویژگی data-main-category
+    const selectedCategoryId = event.currentTarget.dataset.mainCategory;
+
+    // پنهان کردن پیام پیش‌فرض
+    if (defaultSubMessage) {
+        defaultSubMessage.style.display = 'none';
+    }
+
+    // پنهان کردن تمام محتواهای زیردسته
+    allSubCategoryContentItems.forEach(item => {
+        item.style.display = 'none';
+    });
+
+    // نمایش محتوای زیردسته مربوط به آیتم انتخاب شده
+    const targetSubContent = categoryDropdownContainer.querySelector(`.sub-category-content-item[data-main-category-id="${selectedCategoryId}"]`);
+    if (targetSubContent) {
+        targetSubContent.style.display = 'flex'; // یا 'block' بسته به چیدمان داخلی شما
+    }
+}
+
+// اضافه کردن شنونده رویداد کلیک به دکمه "دسته‌بندی کالاها"
+categoryDropdownBtn.addEventListener('click', toggleDropdown);
+
+// اضافه کردن شنونده‌های رویداد هاور به آیتم‌های دسته‌بندی اصلی (داخل دراپ‌داون)
+allMainCategoryItems.forEach(item => {
+    item.addEventListener('mouseenter', handleMainCategoryHover);
+});
+
+// بستن دراپ‌داون وقتی کاربر روی هر جای دیگری به جز دراپ‌داون کلیک می‌کند
+document.addEventListener('click', (event) => {
+    // اگر کلیک خارج از کانتینر دراپ‌داون بود و دراپ‌داون باز بود
+    if (!categoryDropdownContainer.contains(event.target) && categoryDropdownContent.classList.contains('show')) {
+        categoryDropdownContent.classList.remove('show');
+        // بازنشانی وضعیت دراپ‌داون به حالت اولیه (نمایش پیام پیش‌فرض و پنهان کردن زیردسته‌ها)
+        if (defaultSubMessage) {
+            defaultSubMessage.style.display = 'flex';
+        }
+        allSubCategoryContentItems.forEach(item => {
+            item.style.display = 'none';
+        });
+        allMainCategoryItems.forEach(li => li.classList.remove('active'));
+    }
+});
+
+// هنگام بارگذاری اولیه صفحه، مطمئن شوید که دراپ‌داون پنهان است
+document.addEventListener('DOMContentLoaded', () => {
+    categoryDropdownContent.classList.remove('show'); // اطمینان از بسته بودن دراپ‌داون در شروع
+    if (defaultSubMessage) {
+        defaultSubMessage.style.display = 'flex'; // نمایش پیام پیش‌فرض
+    }
+    allSubCategoryContentItems.forEach(item => {
+        item.style.display = 'none'; // پنهان کردن زیردسته‌ها
+    });
+});
+</script>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+
+<section class="story-circles-section my-4">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-start mb-3" style="font-size: 20px; font-weight: bold; margin-right: 15px;">
+            
+        </div>
+
+        <div class="story-scroll-wrapper position-relative">
+            <button id="storyScrollLeft" aria-label="اسکرول به چپ" class="scroll-btn scroll-btn-left">&#8250;</button>
+            <button id="storyScrollRight" aria-label="اسکرول به راست" class="scroll-btn scroll-btn-right">&#8249;</button>
+
+            <div id="storyContainer" class="d-flex flex-nowrap story-container">
+                <a href="#" class="story-circle-item me-3">
+                    <div class="circle-image-wrapper">
+                         <div class="gradient-border"></div>
+                        <img src="https://dkstatics-public.digikala.com/digikala-content-x-post-media/9e7b0286b49dc33e52ec2b2f8933b41e155deba4_1747848534.jpg?x-oss-process=image/resize,m_fill,h_115,w_115" alt="مشاوره خرید" />
+                    </div>
+                    <p class="mt-2">مشاوره خرید</p>
+                    <p class="small text-muted">موبایل و کالای..</p>
+                </a>
+                <a href="#" class="story-circle-item me-3">
+                    <div class="circle-image-wrapper">
+                         <div class="gradient-border"></div>
+                        <img src="https://images.interactify.live/11c73947973f4d30b09a82ea18064b09.jpeg?width=115" alt="با ارزش‌ترین" />
+                    </div>
+                    <p class="mt-2">با ارزش‌ترین</p>
+                    <p class="small text-muted">شگفت‌انگیزترین..</p>
+                </a>
+                <a href="#" class="story-circle-item me-3">
+                    <div class="circle-image-wrapper">
+                         <div class="gradient-border"></div>
+                        <img src="https://dkstatics-public.digikala.com/digikala-content-x-post-media/9e7b0286b49dc33e52ec2b2f8933b41e155deba4_1747848534.jpg?x-oss-process=image/resize,m_fill,h_115,w_115" alt="مایع لباسشویی" />
+                    </div>
+                    <p class="mt-2">مایع لباسشویی</p>
+                    <p class="small text-muted">کودک ب...</p>
+                </a>
+                <a href="#" class="story-circle-item me-3">
+                    <div class="circle-image-wrapper">
+                         <div class="gradient-border"></div>
+                        <img src="https://dkstatics-public.digikala.com/digikala-content-x-post-media/95e1db0653d7ea50688dbbb6052647231d96080c_1748376250.jpg?x-oss-process=image/resize,m_fill,h_115,w_115" alt="مایع لباسشویی" />
+                    </div>
+                    <p class="mt-2">مایع لباسشویی</p>
+                    <p class="small text-muted">کودک ب...</p>
+                </a>
+                <a href="#" class="story-circle-item me-3">
+                    <div class="circle-image-wrapper">
+                         <div class="gradient-border"></div>
+                        <img src="https://dkstatics-public.digikala.com/digikala-content-x-post-media/79ef062ac38221b852a75ac9c6fae17d93d42b41_1748696358.jpg?x-oss-process=image/resize,m_fill,h_115,w_115" alt="کاربردی و با" />
+                    </div>
+                    <p class="mt-2">کاربردی و با</p>
+                    <p class="small text-muted">آیفونت رو خاص</p>
+                </a>
+                <a href="#" class="story-circle-item me-3">
+                    <div class="circle-image-wrapper">
+                         <div class="gradient-border"></div>
+                        <img src="https://dkstatics-public.digikala.com/digikala-content-x-post-media/c5fb44656251cd57ae607bd9bd96924f99a6d426_1748455013.jpg?x-oss-process=image/resize,m_fill,h_115,w_115" alt="خوشبو کننده" />
+                    </div>
+                    <p class="mt-2">خوشبو کننده</p>
+                    <p class="small text-muted">کیفیت</p>
+                </a>
+                <a href="#" class="story-circle-item me-3">
+                    <div class="circle-image-wrapper">
+                         <div class="gradient-border"></div>
+                        <img src="https://dkstatics-public.digikala.com/digikala-content-x-post-media/a463e0a9ad2895b942a33514be8294715d0a6650_1747691703.jpg?x-oss-process=image/resize,m_fill,h_115,w_115" alt="ید آرایشی جذاب" />
+                    </div>
+                    <p class="mt-2">ید آرایشی جذاب</p>
+                    <p class="small text-muted">عاشین</p>
+                </a>
+                 <a href="#" class="story-circle-item me-3">
+                    <div class="circle-image-wrapper">
+                         <div class="gradient-border"></div>
+                        <img src="https://dkstatics-public.digikala.com/digikala-content-x-post-media/20d6f08b4fc2a9e1a54e43464e198884144e08ae_1747850864.jpg?x-oss-process=image/resize,m_fill,h_115,w_115" alt="کدوم اسباب" />
+                    </div>
+                    <p class="mt-2">کدوم اسباب</p>
+                    <p class="small text-muted">بازی؟</p>
+                </a>
+                <a href="#" class="story-circle-item me-3">
+                    <div class="circle-image-wrapper">
+                         <div class="gradient-border"></div>
+                        <img src="https://dkstatics-public.digikala.com/digikala-content-x-post-media/f6a71a806be792866d157e00748e657f7769d568_1747846413.jpg?x-oss-process=image/resize,m_fill,h_115,w_115" alt="ریمل با رنگ آبی" />
+                    </div>
+                    <p class="mt-2">ریمل با رنگ آبی</p>
+                    <p class="small text-muted">💄</p>
+                </a>
+                <a href="#" class="story-circle-item me-3">
+                    <div class="circle-image-wrapper">
+                         <div class="gradient-border"></div>
+                        <img src="https://dkstatics-public.digikala.com/digikala-content-x-post-media/545c370c798c3dc1b5a070341f803fbfd1e37413_1747837640.jpg?x-oss-process=image/resize,m_fill,h_115,w_115" alt="کشف خود تراش" />
+                    </div>
+                    <p class="mt-2">کشف خود تراش</p>
+                    <p class="small text-muted">جدید 🤩</p>
+                </a>
+                <a href="#" class="story-circle-item me-3">
+                    <div class="circle-image-wrapper">
+                         <div class="gradient-border"></div>
+                        <img src="https://dkstatics-public.digikala.com/digikala-content-x-post-media/186dee0840f6049a42a09b4b71ed99a7ea02c568_1747858330.jpg?x-oss-process=image/resize,m_fill,h_115,w_115" alt="برای تو که ماهی" />
+                    </div>
+                    <p class="mt-2">برای تو که ماهی</p>
+                    <p class="small text-muted">🎁</p>
+                </a>
+                <a href="#" class="story-circle-item me-3">
+                    <div class="circle-image-wrapper">
+                         <div class="gradient-border"></div>
+                        <img src="https://dkstatics-public.digikala.com/digikala-content-x-post-media/e868142ca1a81ad11ba10a72ad2f017688efccd2_1747883476.jpg?x-oss-process=image/resize,m_fill,h_115,w_115" alt="پیکسل دیسپلی" />
+                    </div>
+                    <p class="mt-2">پیکسل دیسپلی</p>
+                    <p class="small text-muted">دیگه چیه؟</p>
+                </a>
+                <a href="#" class="story-circle-item me-3">
+                    <div class="circle-image-wrapper">
+                        <div class="gradient-border"></div>
+                        <img src="https://dkstatics-public.digikala.com/digikala-content-x-post-media/2742a442715a45205eb6f42e00c2769ccf9ac020_1748001117.jpg?x-oss-process=image/resize,m_fill,h_115,w_115" alt="بالاخره ویوارکس" />
+                    </div>
+                    <p class="mt-2">ظریف اما خفن </p>
+                    <p class="small text-muted"></p>
+                </a>
+                <a href="#" class="story-circle-item me-3">
+                    <div class="circle-image-wrapper">
+                        <div class="gradient-border"></div>
+                        <img src="https://dkstatics-public.digikala.com/digikala-content-x-post-media/e10b1fb7566e68effbf66d3f4596f836917fb6b3_1748191729.jpg?x-oss-process=image/resize,m_fill,h_115,w_115" alt="گوشواره میخی" />
+                    </div>
+                    <p class="mt-2">گوشواره میخی</p>
+                    <p class="small text-muted">مینیمال</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+    const storyContainer = document.getElementById('storyContainer');
+    const storyScrollLeftBtn = document.getElementById('storyScrollLeft');
+    const storyScrollRightBtn = document.getElementById('storyScrollRight');
+
+    if (storyContainer && storyScrollLeftBtn && storyScrollRightBtn) {
+        storyScrollRightBtn.addEventListener('click', () => {
+            storyContainer.scrollBy({
+                left: 200, // مقدار اسکرول به راست
+                behavior: 'smooth'
+            });
+        });
+
+        storyScrollLeftBtn.addEventListener('click', () => {
+            storyContainer.scrollBy({
+                left: -200, // مقدار اسکرول به چپ
+                behavior: 'smooth'
+            });
+        });
+
+    }
+</script>
+<!-- ---------------------------------------------------------------------------------------------------------------- -->
+
+<div id="sliderContainer">
+    <img class="slide active" src="picture/slide/1f8362d0dc94fee3d0899f3489adec0a18ea8d23_1748077151.png" alt="اسلاید 1">
+    <img class="slide" src="picture/slide/8d33a0acba145f25bd0f73ab84ad1731a7be5265_1748076932.png" alt="اسلاید 2">
+    <img class="slide" src="picture/slide/8ffcb0b75e6f864bb2e1ecdef712c063312fce18_1748075225.png" alt="اسلاید 3">
+    <img class="slide" src="picture/slide/43f2a78a659dd87f150db9430e540c1567e2b86b_1747923010.png" alt="اسلاید 4">
+    <img class="slide" src="picture/slide/60214ad2fbd62717a6e384b4de98f7adc3ee984c_1747983432.png" alt="اسلاید 5">
+    <img class="slide" src="picture/slide/be4d238cce30a0811b28af05f2d55c65429d4976_1748077497.png" alt="اسلاید 6">
+    <img class="slide" src="picture/slide/cf10c471824992a9e0b3b6a46ee4ef8c5aa02ce2_1747815690.png" alt="اسلاید 7">
+
+    <div class="controls">
+      <button onclick="prevSlide()">▶</button>
+      <button onclick="nextSlide()">◀</button>
+    </div>
+</div>
+ <script>
+  const slides = document.querySelectorAll('#sliderContainer .slide');
+  let currentSlideIndex = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+    showSlide(currentSlideIndex);
+  }
+
+  function prevSlide() {
+    currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+    showSlide(currentSlideIndex);
+  }
+
+  setInterval(nextSlide, 4000);
+  showSlide(currentSlideIndex);
+
+  
+</script>
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<section class="container my-4 product-scroll-wrapper">
+    <button id="scrollLeft" aria-label="اسکرول به چپ">&#8250;</button>
+    <button id="scrollRight" aria-label="اسکرول به راست">&#8249;</button>
+    <div id="productContainer" class="d-flex flex-nowrap bg-danger p-3 rounded-4">
+        <div class="product-card special-offer-product-card me-3">
+            <div class="special-offer-content-wrapper">
+                <h3 class="offer-title">پیشنهاد<br>شگفت<br>انگیز</h3>
+                <div class="timer">
+                    <span>00</span>:<span>00</span>:<span>00</span>
+                </div>
+                <div class="percentage">
+                    <span class="percent-sign">%</span>
+                    <div class="smile"></div>
+                </div>
+                <a href="#" class="view-all">مشاهده همه ›</a>
+            </div>
+        </div>
+
+        <div class="product-card rounded-3 p-2 text-center me-3 bg-white">
+            <img src="https://dkstatics-public.digikala.com/digikala-products/d4a0a16ff735a0be00f5e65b39fb6593d992a178_1747411332.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="ساعت هوشمند کیسلکت مدل Ks2 m2 max ltd" />
+            <div class="title">ساعت هوشمند کیسلکت مدل Ks2 m2 max ltd</div>
+            <div class="price">۶,۴۹۹,۰۰۰ تومان</div>
+            <div class="discount">۷%</div>
+        </div>
+        
+        <div class="product-card rounded-3 p-2 text-center me-3 bg-white">
+            <img src="https://dkstatics-public.digikala.com/digikala-products/8be4f379686633455de3833b142567a1645b3817_1745830369.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="ساعت هوشمند 45 میلی‌ متری میبرو مدل watch a2" />
+            <div class="title">ساعت هوشمند 45 میلی‌ متری میبرو مدل watch a2</div>
+            <div class="price">۲,۱۹۹,۰۰۰ تومان</div>
+            <div class="discount">۷%</div>
+        </div>
+
+        <div class="product-card rounded-3 p-2 text-center me-3 bg-white">
+            <img src="https://dkstatics-public.digikala.com/digikala-products/3ef95f8e1c9e99c029b7f8911907a1849c9a9752_1747664667.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15" />
+            <div class="title">لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15</div>
+            <div class="price">۴۱,۹۹۹,۰۰۰ تومان</div>
+            <div class="discount">LC</div> </div>
+
+        <div class="product-card rounded-3 p-2 text-center me-3 bg-white">
+            <img src="https://dkstatics-public.digikala.com/digikala-products/0b0b2a61b8771d4ec6336261d77786a3722b0113_1717341619.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="لپ تاپ 15.6 اینچی لنوو مدل Ideapad 15 Athlon Silver" />
+            <div class="title">لپ تاپ 15.6 اینچی لنوو مدل Ideapad 15 Athlon Silver</div>
+            <div class="price">۲۳,۴۰۰,۰۰۰ تومان</div>
+            <div class="discount">۴%</div>
+        </div>
+
+        <div class="product-card rounded-3 p-2 text-center me-3 bg-white">
+            <img src="https://dkstatics-public.digikala.com/digikala-products/6733544c7f75ae04d097e6fdae3dc353d176b611_1737287896.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="هدفون بلوتوثی جی‌بی‌ال مدل X-1030" />
+            <div class="title">هدفون بلوتوثی جی‌بی‌ال مدل X-1030</div>
+            <div class="price">۱,۷۹۹,۰۰۰ تومان</div>
+            <div class="discount">۴%</div>
+        </div>
+
+        <div class="product-card rounded-3 p-2 text-center me-3 bg-white">
+            <img src="https://dkstatics-public.digikala.com/digikala-products/3f3f76f87f16b64b9142858ceae6879f9a0e4c99_1745827638.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="هدفون بلوتوثی فیلیپس مدل PH80575" />
+            <div class="title">هدفون بلوتوثی فیلیپس مدل PH80575</div>
+            <div class="price">۱,۷۷۵,۰۰۰ تومان</div>
+            <div class="discount">۴%</div>
+        </div>
+
+        <div class="product-card rounded-3 p-2 text-center me-3 bg-white">
+            <img src="https://dkstatics-public.digikala.com/digikala-products/9285ca4c7ae4a67babb13574b008d4858b85d59d_1726055404.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="گوشی موبایل شیائومی مدل Redmi Note 13 Pro 5G" />
+            <div class="title">گوشی موبایل شیائومی مدل Redmi Note 13 Pro 5G</div>
+            <div class="price">۲۴,۹۹۹,۰۰۰ تومان</div>
+            <div class="discount">۴%</div>
+        </div>
+        </div>
+</section>
+
+<script>
+  async function loadProductsFromJSON() {
+    try {
+      const response = await fetch('product.json');
+      const products = await response.json();
+      const container = document.getElementById('productContainer');
+      // حذف محصولات قبلی به جز کارت پیشنهاد شگفت‌انگیز
+      while (container.children.length > 1 && container.children[1].classList.contains('product-card')) {
+          container.removeChild(container.children[1]);
+      }
+      
+      products.forEach(product => {
+        const productCard = document.createElement('div');
+        productCard.className = 'product-card rounded-3 p-2 text-center me-3 bg-white'; 
+        productCard.innerHTML = `
+          <img src="picture/offer/${product.image}" alt="${product.title}" />
+          <div class="title">${product.title}</div>
+          <div class="price">${product.price} تومان</div>
+          <div class="discount">${product.discount}%</div>
+        `;
+        container.appendChild(productCard);
+      });
+    } catch (error) {
+      console.error('خطا در بارگیری محصولات از فایل JSON:', error);
+    }
+  }
+
+  const productContainer = document.getElementById('productContainer');
+  const scrollLeftBtn = document.getElementById('scrollLeft');
+  const scrollRightBtn = document.getElementById('scrollRight');
+
+  if (productContainer && scrollLeftBtn && scrollRightBtn) {
+    scrollRightBtn.addEventListener('click', () => {
+      productContainer.scrollBy({
+        left: 200,
+        behavior: 'smooth'
+      });
+    });
+
+    scrollLeftBtn.addEventListener('click', () => {
+      productContainer.scrollBy({
+        left: -200,
+        behavior: 'smooth'
+      });
+    });
+
+    
+
+  } 
+
+  window.addEventListener('DOMContentLoaded', loadProductsFromJSON);
+</script>
+
+<style>
+    .active-dragging {
+        cursor: grabbing !important;
+        user-select: none;
+}
+</style>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<div class="container my-4">
+  <div class="row row-cols-2 row-cols-lg-4 g-3">
+    <div class="col">
+      <img src="picture/New/4d0d59a4b0ce334b618521c054e57ae8a66f81bd_1747734039.gif" class="img-fluid rounded-3" alt="بنر ۱" />
+    </div>
+    <div class="col">
+      <img src="picture/New/ad775f65805c15a4267818ed51e5aff5f1943446_1747984723.png" class="img-fluid rounded-3" alt="بنر ۲" />
+    </div>
+    <div class="col">
+      <img src="picture/New/04757f3ef6dc062163e3e5bc1879b7025e098b43_1748076080.png" class="img-fluid rounded-3" alt="بنر ۳" />
+    </div>
+    <div class="col">
+      <img src="picture/New/78315eefdf721080f0a795f0ead773d0e918731a_1748086928.png" class="img-fluid rounded-3" alt="بنر ۴" />
+    </div>
+  </div>
+</div>
+
+
+<div class="container my-4">
+    <div class="d-flex align-items-center justify-content-between p-3 rounded-3 flex-wrap" style="background-color: #f0f0f0;">
+
+        <div class="d-flex align-items-center flex-grow-1 flex-md-grow-0 justify-content-center justify-content-md-start mb-2 mb-md-0">
+            <img src="picture/New/fresh.png" alt="Basket Icon" class="ms-2">
+            <img src="picture/fresh-incredible-offer.svg" alt="Discount Icon" class="ms-2">
+
+            <span class="d-inline-flex align-items-center justify-content-center text-white px-3 py-1 rounded-pill me-2" style="background-color: #00a859; font-size: 0.9em; min-width: 100px; text-align: center;">تا ۵۰٪ تخفیف</span>
+        </div>
+
+        <div class="d-none d-md-flex overflow-auto flex-nowrap mx-auto flex-grow-1" style="scrollbar-width: none; -ms-overflow-style: none; direction: ltr;">
+            <div class="d-flex flex-column align-items-center mx-2 flex-shrink-0">
+                <div class="rounded-circle bg-white p-3 shadow-sm" style="width: 80px; height: 80px; display: flex; justify-content: center; align-items: center;">
+                    <img src="https://dkstatics-public.digikala.com/digikala-products/73a597a5b43eb2279762dac0acbb569eb9e7978e_1723888664.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" class="img-fluid" alt="Product 1">
+                </div>
+                <span class="mt-2 text-danger">۴۵٪</span>
+            </div>
+            <div class="d-flex flex-column align-items-center mx-2 flex-shrink-0">
+                <div class="rounded-circle bg-white p-3 shadow-sm" style="width: 80px; height: 80px; display: flex; justify-content: center; align-items: center;">
+                    <img src="https://dkstatics-public.digikala.com/digikala-products/700a7846fb822ad21f333db3a4f409b4ca415f08_1698478623.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" class="img-fluid" alt="Product 2">
+                </div>
+                <span class="mt-2 text-danger">۴۵٪</span>
+            </div>
+            <div class="d-flex flex-column align-items-center mx-2 flex-shrink-0">
+                <div class="rounded-circle bg-white p-3 shadow-sm" style="width: 80px; height: 80px; display: flex; justify-content: center; align-items: center;">
+                    <img src="https://dkstatics-public.digikala.com/digikala-products/bc69b51e405e0157a1be433cac01d4c7f856755f_1617794136.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" class="img-fluid" alt="Product 3">
+                </div>
+                <span class="mt-2 text-danger">۴۰٪</span>
+            </div>
+            <div class="d-flex flex-column align-items-center mx-2 flex-shrink-0">
+                <div class="rounded-circle bg-white p-3 shadow-sm" style="width: 80px; height: 80px; display: flex; justify-content: center; align-items: center;">
+                    <img src="https://dkstatics-public.digikala.com/digikala-products/111999239.png?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" class="img-fluid" alt="Product 4">
+                </div>
+                <span class="mt-2 text-danger">۴۰٪</span>
+            </div>
+            <div class="d-flex flex-column align-items-center mx-2 flex-shrink-0">
+                <div class="rounded-circle bg-white p-3 shadow-sm" style="width: 80px; height: 80px; display: flex; justify-content: center; align-items: center;">
+                    <img src="https://dkstatics-public.digikala.com/digikala-products/2967641.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" class="img-fluid" alt="Product 5">
+                </div>
+                <span class="mt-2 text-danger">۵۰٪</span>
+            </div>
+            <div class="d-flex flex-column align-items-center mx-2 flex-shrink-0">
+                <div class="rounded-circle bg-white p-3 shadow-sm" style="width: 80px; height: 80px; display: flex; justify-content: center; align-items: center;">
+                    <img src="https://dkstatics-public.digikala.com/digikala-products/3c4357b294695c022492c90ffb0129d395d32513_1600258179.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" class="img-fluid" alt="Product 6">
+                </div>
+                <span class="mt-2 text-danger">۵۲٪</span>
+            </div>
+        </div>
+
+        <a href="#" class="d-flex align-items-center text-decoration-none text-dark justify-content-center justify-content-md-start flex-grow-1 flex-md-grow-0">
+            <i class="fas fa-arrow-left fa-flip-horizontal d-md-none"></i> <span class="text-nowrap ms-md-0 ms-0">بیش از ۱۰۰ کالا</span> </a>
+    </div>
+</div>
+
+
+<div class="container my-4">
+  <div class="row row-cols-2 row-cols-lg-4 g-3">
+    <div class="col">
+      <img src="picture/New/b4acb6cd3e19036591ec91db88fc55496a9f26f4_1747575739.png" class="img-fluid rounded-3" alt="تصویر بنر ۱" />
+    </div>
+    <div class="col">
+      <img src="picture/New/83faae63d646bb8d8bd2c32c816dbd9c3eac2bf8_1748076591.png" class="img-fluid rounded-3" alt="تصویر بنر ۲" />
+    </div>
+    <div class="col">
+      <img src="picture/New/38ca84c40de526a55cbc4130a5a15f4e44b0544f_1748076441.png" class="img-fluid rounded-3" alt="تصویر بنر ۳" />
+    </div>
+    <div class="col">
+      <img src="picture/New/6286966e4d9ba8972fb9ca089cbd06933532bcae_1748076769.png" class="img-fluid rounded-3" alt="تصویر بنر ۴" />
+    </div>
+  </div>
+</div>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<section class="my-5 category-section">
+    <div class="container"> <h5 class="fw-bold text-center mb-4">خرید بر اساس دسته‌بندی</h5>
+
+        <div class="category-scroll-wrapper position-relative">
+            <button id="categoryScrollLeft" aria-label="اسکرول به چپ" class="scroll-btn scroll-btn-left">&#8250;</button> 
+            <button id="categoryScrollRight" aria-label="اسکرول به راست" class="scroll-btn scroll-btn-right">&#8249;</button>
+
+            <div id="categoryContainer" class="category-container">
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/09a98a13c782e12a245930b4515d243b17734a33_1740299441.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="موبایل">
+                    <p>موبایل</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2777/2777142.png" alt="https://dkstatics-public.digikala.com/digikala-mega-menu/151ec29bae111afd3b6a0e71cec5c4c26f1c3014_1740299456.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80">
+                    <p>کالای دیجیتال</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/8a042388b93c5116604f35092a1fb35f8f0756be_1740299467.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="خانه و آشپزخانه">
+                    <p>خانه و آشپزخانه</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/d825f64f509cd5067a9022528c465e8ca705f60d_1740299511.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="لوازم خانگی برقی">
+                    <p>لوازم خانگی برقی</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/b196bbdea97f57bfac02dc1666d7401b16ee4bcb_1740299482.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="آرایشی و بهداشتی">
+                    <p>زیبایی و سلامت</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/fb6303218362cd2c48b40fef5da89ad33a5c04d7_1740299524.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="ابزار، تجهیزات و صنعتی">
+                    <p>ابزار و تجهیزات</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/b3d4eaefebe67ab8d849296ea2e7e113cde8094c_1740299538.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="مد و پوشاک">
+                    <p>مد و پوشاک</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/4d4582205d0d5045c2bd94c5e910bbb49ae4fd4e_1740299590.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="ورزش و سفر">
+                    <p>ورزش و سفر</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/0cdf9c404e509371c3177a334be948a7e500419c_1740299574.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="کتاب، لوازم‌التحریر و هنر">
+                    <p>کتاب و هنر</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/6f5284dccdb280616bbfe58533ecc483de4639af_1740299648.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="اسباب‌بازی، کودک و نوزاد">
+                    <p>کودک و نوزاد</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/7adb0cc6edc18a6d04b9ba3bdd424b1bcce47848_1740299618.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="سوپرمارکتی">
+                    <p>سوپرمارکتی</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/03552aa1293fec9f43477814ca62afdacdac18e3_1740299496.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="خودرو">
+                    <p>خودرو و ابزارآلات</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png" alt="فرهنگ و هنر">
+                    <p>فرهنگ و هنر</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="اداری و آموزشی">
+                    <p>اداری و آموزشی</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/deb3f514c62761797eb6a49e1559268b8bce3219_1740299561.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="پزشکی و سلامت">
+                    <p>پزشکی و سلامت</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="حیوانات خانگی">
+                    <p>حیوانات خانگی</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/9a4dfac524f8a865f9f69e38d5434fa69fe63e3b_1740299663.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80g" alt="محصولات بومی و محلی ">
+                    <p>محصولات بومی و محلی </p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/78135af4274ad7b7fcdaec7e5912689e5f5db96a_1740299548.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="طلا و جواهر">
+                    <p>طلا و جواهر </p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/f35b3eba7de8bf2432fff4f53abfa8cbaa6e71d6_1740299603.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="کارت هدیه و گیفت کارت">
+                    <p>کارت هدیه و گیفت کارت</p>
+                </a>
+                <a href="#" class="category-item-card">
+                    <img src="https://dkstatics-public.digikala.com/digikala-mega-menu/29b1e4b2aa0e42aaa361228f8d0402910c949b14_1740299704.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="کالای کار کرده ">
+                    <p>کالای کار کرده </p>
+                </a>
+            </div>
+        </div>
+    </div> </section>
+
+<script>
+    const categoryContainer = document.getElementById('categoryContainer');
+    document.getElementById('categoryScrollRight').addEventListener('click', () => {
+        categoryContainer.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+    document.getElementById('categoryScrollLeft').addEventListener('click', () => {
+        categoryContainer.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+
+    
+</script>
+<style>
+    .active-dragging {
+        cursor: grabbing !important;
+        user-select: none;
+}
+</style>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+<div class="container py-4">
+    <div class="row">
+        <div class="col-12 col-md-6 mb-4 mb-md-0 d-flex justify-content-center align-items-center" >
+            <a href="#"> <img src="https://dkstatics-public.digikala.com/digikala-adservice-banners/76402bf5544da5826ecb61b4a3e9b50c51259b27_1748330045.jpg?x-oss-process=image/quality,q_95/format,webp" class="img-fluid rounded shadow-sm" alt="تصویر 1" >
+            </a>
+        </div>
+
+            <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                <a href="#"> </a><img src="https://dkstatics-public.digikala.com/digikala-adservice-banners/d0f63a52d17976c25b8ec331b33249990ca611cb_1748244511.jpg?x-oss-process=image/quality,q_95/format,webp" class="img-fluid rounded shadow-sm" alt="تصویر 2" >
+            </a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<section class="my-5 brands-section">
+    <div class="container"> <div class="d-flex align-items-center justify-content-center mb-4">
+            <h5 class="fw-bold text-center mb-0 ms-2">محبوب‌ترین برندها</h5>
+            <img src="https://cdn-icons-png.flaticon.com/512/3222/3222830.png" alt="آیکون خورشید" style="width: 24px; height: 24px;">
+        </div>
+
+        <div class="brands-scroll-wrapper position-relative">
+            <button id="brandsScrollLeft" aria-label="اسکرول به چپ" class="scroll-btn scroll-btn-left">&#8250;</button>
+            <button id="brandsScrollRight" aria-label="اسکرول به راست" class="scroll-btn scroll-btn-right">&#8249;</button>
+
+            <div id="brandsContainer" class="d-flex flex-nowrap bg-white p-3 rounded-3">
+                <div class="brand-logo-card rounded-3 p-2 text-center me-3">
+                    <img src="picture/brands/پریا.png" alt="پریا" class="img-fluid" />
+                </div>
+                <div class="brand-logo-card rounded-3 p-2 text-center me-3">
+                    <img src="picture/brands/پرسیل.png" alt="پرسیل" class="img-fluid" />
+                </div>
+                <div class="brand-logo-card rounded-3 p-2 text-center me-3">
+                    <img src="picture/brands/ایکس.jpg" alt="ایکس ویژن" class="img-fluid" />
+                </div>
+                <div class="brand-logo-card rounded-3 p-2 text-center me-3">
+                    <img src="picture/brands/ساعی.jpg" alt="ساعی" class="img-fluid" />
+                </div>
+                <div class="brand-logo-card rounded-3 p-2 text-center me-3">
+                    <img src="picture/brands/چینی زرین.png" alt="چینی زرین" class="img-fluid" />
+                </div>
+                <div class="brand-logo-card rounded-3 p-2 text-center me-3">
+                    <img src="picture/brands/هووای.png" alt="هووای" class="img-fluid" />
+                </div>
+                <div class="brand-logo-card rounded-3 p-2 text-center me-3">
+                    <img src="picture/brands/چرم مشهد.jpg" alt="چرم مشهد" class="img-fluid" />
+                </div>
+                <div class="brand-logo-card rounded-3 p-2 text-center me-3">
+                    <img src="picture/brands/شیایومی.png" alt="شیائومی" class="img-fluid" />
+                </div>
+                <div class="brand-logo-card rounded-3 p-2 text-center me-3">
+                    <img src="picture/brands/سامسونک.jpg" alt="سامسونگ" class="img-fluid" />
+                </div>
+                <div class="brand-logo-card rounded-3 p-2 text-center me-3">
+                    <img src="picture/brands/پنتر.jpg" alt="پنتر" class="img-fluid" />
+                </div>
+                <div class="brand-logo-card rounded-3 p-2 text-center me-3">
+                    <img src="picture/brands/کاله.png" alt="کاله" class="img-fluid" />
+                </div>
+                <div class="brand-logo-card rounded-3 p-2 text-center me-3">
+                    <img src="picture/brands/فلیکا.jpg" alt="فلیکا" class="img-fluid" />
+                </div>
+                <div class="brand-logo-card rounded-3 p-2 text-center me-3">
+                    <img src="picture/brands/e44886020b773202d6d431e2fef2f3bd8bd3bc7f_1737817444.jpg" alt="برند ۱" class="img-fluid" />
+                </div>
+                <div class="brand-logo-card rounded-3 p-2 text-center me-3">
+                    <img src="picture/brands/efb14accdad9be1b2176aa0317c8bbac43733831_1609325767.png" alt="برند ۲" class="img-fluid" />
+                </div>
+                <div class="brand-logo-card rounded-3 p-2 text-center me-3">
+                    <img src="picture/brands/f660c46ffc6d58a19e5c0af9d03c50be9a929571_1627214766.png" alt="برند ۳" class="img-fluid" />
+                </div>
+            </div>
+        </div>
+    </div> </section>
+
+<script>
+    const brandsContainer = document.getElementById('brandsContainer');
+    const brandsScrollLeftBtn = document.getElementById('brandsScrollLeft');
+    const brandsScrollRightBtn = document.getElementById('brandsScrollRight');
+
+    if (brandsContainer && brandsScrollLeftBtn && brandsScrollRightBtn) {
+        brandsScrollRightBtn.addEventListener('click', () => {
+            brandsContainer.scrollBy({
+                left: 200, // مقدار اسکرول به راست
+                behavior: 'smooth'
+            });
+        });
+
+        brandsScrollLeftBtn.addEventListener('click', () => {
+            brandsContainer.scrollBy({
+                left: -200, // مقدار اسکرول به چپ
+                behavior: 'smooth'
+            });
+        });
+
+
+
+    } 
+</script>
+<style>
+    .active-dragging {
+        cursor: grabbing !important;
+        user-select: none;
+}
+</style>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+<section class="container my-5 product-categories-grid">
+    <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="category-grid-card p-3 rounded-3 bg-white h-100">
+                <h6 class="text-center fw-bold mb-3">گوشی موبایل</h6>
+                <div class="product-grid-items d-flex flex-wrap justify-content-center">
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/5af568b4909435c6a215ad5e728e902db234b673_1736597759.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80"" alt="گوشی موبایل" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/1c2e7d20ad20a75c64926467270d3b01b301d3db_1748341641.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="گوشی موبایل" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/c0a7ce006d11c222bce16bd3cdd8d79aeb6689bc_1738134271.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="گوشی موبایل" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/5a702e9e6ce8868669fa2e66aedc1cf8252f1c30_1737877500.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="گوشی موبایل" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="category-grid-card p-3 rounded-3 bg-white h-100">
+                <h6 class="text-center fw-bold mb-3">کیف و کاور گوشی</h6>
+                <div class="product-grid-items d-flex flex-wrap justify-content-center">
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/3f0aa7082dfe7679cefd567676bde0ba10a29126_1721572313.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="کیف و کاور" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/1cc5b3ed55faaf1715482cc02e4a5fc0efef83e1_1703792576.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="کیف و کاور" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/404b7c43b68392915810883504d7a07283888521_1724772852.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="کیف و کاور" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/99b17bc5c70706fbd323daa939cc3a6fcfd13d1d_1719267684.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="کیف و کاور" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="category-grid-card p-3 rounded-3 bg-white h-100">
+                <h6 class="text-center fw-bold mb-3">هدفون، هدست و هندزفری</h6>
+                <div class="product-grid-items d-flex flex-wrap justify-content-center">
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/2702ee2fd04fc82dd6d3dcbeecc7252a7c801325_1743691073.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="هدفون" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/0e641682af59e352cf36d04243c378ee697ab156_1745824988.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="هدفون" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/d67e3b04a481f5f5a8c2098a27a7eaccc3f1fe53_1730379094.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="هدفون" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/04a8ef0d559f51fdcbb30ca91951843d1430fe27_1730363663.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="هدفون" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="category-grid-card p-3 rounded-3 bg-white h-100">
+                <h6 class="text-center fw-bold mb-3">ساعت عقربه ای مردانه</h6>
+                <div class="product-grid-items d-flex flex-wrap justify-content-center">
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/fa75541bebac6d21a77341d55d6b8292032a1d2e_1738319819.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="ساعت هوشمند" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/74bfb53e5d901c43248dea7ad0cdc9bc0130b71a_1738711688.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="ساعت هوشمند" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/07240f54ae0213407bc77ac5958d3db5a9dd4691_1733756155.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="ساعت هوشمند" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/c3cfa987b97622b882c451ebab378bc07d9f3d34_1732604874.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="ساعت هوشمند" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
+<section class="my-5 best-selling-section">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <div class="d-flex align-items-center">
+                <h5 class="fw-bold mb-0 ms-2">پرفروش‌ترین کالاها</h5>
+                <img src="https://cdn-icons-png.flaticon.com/512/1530/1530182.png" alt="آیکون شعله" style="width: 24px; height: 24px; margin-left: 5px;">
+            </div>
+            <a href="#" class="text-decoration-none view-all-link">مشاهده همه</a>
+        </div>
+
+        <div class="best-selling-scroll-wrapper position-relative">
+            <button id="bestSellingScrollLeft" aria-label="اسکرول به چپ" class="scroll-btn scroll-btn-left">&#8250;</button> 
+            <button id="bestSellingScrollRight" aria-label="اسکرول به راست" class="scroll-btn scroll-btn-right">&#8249;</button>
+
+            <div id="bestSellingContainer" class="best-selling-container"> 
+                <a href="#" class="best-selling-item text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/1209684.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="رب گوجه" class="img-fluid">
+                    </div>
+                    <span class="item-number">۱</span> 
+                    <p class="item-title mb-0 me-2">رب گوجه فرنگی روژین مقدار 800 گرم</p>
+                </a>
+                <a href="#" class="best-selling-item text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/01d7a276000522e9d73b4da714771bde8c8857c2_1609669317.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="آب معدنی واتا 1500 میلی لیتر" class="img-fluid">
+                    </div>
+                    <span class="item-number">۲</span>
+                    <p class="item-title mb-0 me-2">آب معدنی واتا - 1500 میلی لیتر بسته 6 عددی</p>
+                </a>
+                <a href="#" class="best-selling-item text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/69cde7630f0acb3aefeb5b6b64004cb2900b7bee_1731827160.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="تخم مرغ خرید آ" class="img-fluid">
+                    </div>
+                    <span class="item-number">۳</span>
+                    <p class="item-title mb-0 me-2">تخم مرغ خرید آ سی‌مغ بسته 20 عددی</p>
+                </a>
+                <a href="#" class="best-selling-item text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/57499a37e42c50683e137e94efa423e6b996f6f5_1718102990.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="خامه فرادما کاله" class="img-fluid">
+                    </div>
+                    <span class="item-number">۴</span>
+                    <p class="item-title mb-0 me-2">خامه فرادما کاله مقدار 200 میلی لیتر</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/ace095f6cce112484e9086b070fd565637259ad9_1731316502.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="کنسرو ماهی تن چین" class="img-fluid">
+                    </div>
+                    <span class="item-number">۵</span>
+                    <p class="item-title mb-0 me-2">کنسرو ماهی تن چین - 180 گرم</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/5ebff2c3d43e205ce00a9642afb3253f6245f578_1730877430.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="رب گوجه فرنگی پلچین 400 گرم" class="img-fluid">
+                    </div>
+                    <span class="item-number">۶</span>
+                    <p class="item-title mb-0 me-2">رب گوجه فرنگی پلچین مقدار 400 گرم</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/121654059.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="پنیر فتا صباح" class="img-fluid">
+                    </div>
+                    <span class="item-number">۷</span>
+                    <p class="item-title mb-0 me-2">پنیر فتا صباح دو قلوه هزار - 400 گرم</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/2ad22c2fc5c8a9ac8722ba3c56994583aeb582f7_1733140652.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="دستمال کاغذی تنو" class="img-fluid">
+                    </div>
+                    <span class="item-number">۸</span>
+                    <p class="item-title mb-0 me-2">دستمال کاغذی تنو 250 برگ دو لایه تیو مدل 001</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/d1055810db8be202b6d0bd250bdf69005b9bb597_1667285890.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="کره کاله 100 گرم" class="img-fluid">
+                    </div>
+                    <span class="item-number">۹</span>
+                    <p class="item-title mb-0 me-2">کره کاله - 100 گرم</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/7a0503ce09341f1d9d4264001ec2d260c6507d45_1718172430.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="چای زرین هندوستان 450 گرم" class="img-fluid">
+                    </div>
+                    <span class="item-number">۱۰</span>
+                    <p class="item-title mb-0 me-2">چای زرین هندوستان چای سبز - 450 گرم</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/b813c6c0f16731e400ee1362ce103accf246bfce_1669110838.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="کرم ضد آفتاب" class="img-fluid">
+                    </div>
+                    <span class="item-number">۱۱</span>
+                    <p class="item-title mb-0 me-2">کرم ضدآفتاب و ضدلک لافارر مدل SPF50</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/119323979.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/format,webp/quality,q_90" alt="شامپو بدن اکتیو" class="img-fluid">
+                    </div>
+                    <span class="item-number">۱۲</span>
+                    <p class="item-title mb-0 me-2">شامپو بدن اکتیو سی‌تری مدل Mineral</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/111999050.png?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="هل سبز مصطفوی" class="img-fluid">
+                    </div>
+                    <span class="item-number">۱۳</span>
+                    <p class="item-title mb-0 me-2">هل سبز مصطفوی - 10 گرم</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/114916007.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="صابون گلنار" class="img-fluid">
+                    </div>
+                    <span class="item-number">۱۴</span>
+                    <p class="item-title mb-0 me-2">صابون گلنار مدل روغن نارگیل بسته 6 عددی</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/87ad7f0e8b0ad4b3bc536cfa82a6c0b378fd9020_1714485493.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="روغن نیمه جامد لادن" class="img-fluid">
+                    </div>
+                    <span class="item-number">۱۵</span>
+                    <p class="item-title mb-0 me-2">روغن نیمه جامد لادن - 5 کیلوگرم</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/5ebff2c3d43e205ce00a9642afb3253f6245f578_1730877430.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="رب گوجه فرنگی روژین 800 گرم" class="img-fluid">
+                    </div>
+                    <span class="item-number">۱۶</span>
+                    <p class="item-title mb-0 me-2">رب گوجه فرنگی روژین مقدار 800 گرم</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/01d7a276000522e9d73b4da714771bde8c8857c2_1609669317.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="آب معدنی واتا 1500 میلی لیتر" class="img-fluid">
+                    </div>
+                    <span class="item-number">۱۷</span>
+                    <p class="item-title mb-0 me-2">آب معدنی واتا - 1500 میلی لیتر بسته 6 عددی</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/69cde7630f0acb3aefeb5b6b64004cb2900b7bee_1731827160.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="تخم مرغ خرید آ" class="img-fluid">
+                    </div>
+                    <span class="item-number">۱۸</span>
+                    <p class="item-title mb-0 me-2">تخم مرغ خرید آ سی‌مغ بسته 20 عددی</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/4780647.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="خامه فرادما کاله" class="img-fluid">
+                    </div>
+                    <span class="item-number">۱۹</span>
+                    <p class="item-title mb-0 me-2">خامه فرادما کاله مقدار 200 میلی لیتر</p>
+                </a>
+                <a href="#" class="best-selling-item d-flex align-items-center text-decoration-none text-dark rounded-3 p-2">
+                    <div class="item-img-wrapper">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/cde99d2e60f78b3377104cc5155dbdac233676af_1629617120.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="کنسرو ماهی تن چین" class="img-fluid">
+                    </div>
+                    <span class="item-number">۲۰</span>
+                    <p class="item-title mb-0 me-2">کنسرو ماهی تن چین - 180 گرم</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const bestSellingContainer = document.getElementById('bestSellingContainer');
+    const bestSellingScrollLeftBtn = document.getElementById('bestSellingScrollLeft');
+    const bestSellingScrollRightBtn = document.getElementById('bestSellingScrollRight');
+
+    if (bestSellingContainer && bestSellingScrollLeftBtn && bestSellingScrollRightBtn) {
+
+        // تابع برای محاسبه پویا مقدار اسکرول
+        function getScrollAmount() {
+            const firstItem = bestSellingContainer.querySelector('.best-selling-item');
+            if (firstItem) {
+                const itemStyle = window.getComputedStyle(firstItem);
+                const itemWidth = parseFloat(itemStyle.width);
+                
+                const containerStyle = window.getComputedStyle(bestSellingContainer);
+                let gridColumnGap = 0;
+
+                // تلاش برای گرفتن column-gap مستقیم
+                const directColumnGap = containerStyle.getPropertyValue('column-gap');
+                if (directColumnGap && directColumnGap !== 'normal') {
+                    gridColumnGap = parseFloat(directColumnGap);
+                }
+
+                if (gridColumnGap === 0 || isNaN(gridColumnGap)) {
+                    const gapValue = containerStyle.getPropertyValue('gap');
+                    if (gapValue) {
+                        const gapParts = gapValue.split(' ');
+                        if (gapParts.length > 1) {
+                            gridColumnGap = parseFloat(gapParts[1]) || 0;
+                        } else {
+                            gridColumnGap = parseFloat(gapParts[0]) || 0;
+                        }
+                    }
+                }
+                
+                const itemsToScroll = 3;
+                return (itemWidth + gridColumnGap) * itemsToScroll;
+            }
+            return (250 + 20) * 3; 
+        }
+
+        // تابع برای فعال/غیرفعال کردن دکمه‌های اسکرول
+        function toggleScrollButtons() {
+            const clientWidth = bestSellingContainer.clientWidth;
+            const scrollWidth = bestSellingContainer.scrollWidth;
+            const scrollLeftRaw = bestSellingContainer.scrollLeft;
+            const isRTL = window.getComputedStyle(bestSellingContainer).direction === 'rtl';
+
+            let currentScrollPos;
+            let maxScrollLeft;
+
+            if (isRTL) {
+                maxScrollLeft = scrollWidth - clientWidth; 
+                currentScrollPos = maxScrollLeft - Math.abs(scrollLeftRaw); 
+            } else {
+                currentScrollPos = scrollLeftRaw;
+                maxScrollLeft = scrollWidth - clientWidth;
+            }
+
+            const tolerance = 5;
+
+            if (maxScrollLeft <= tolerance) { 
+                bestSellingScrollLeftBtn.disabled = true;
+                bestSellingScrollLeftBtn.style.opacity = '0.5';
+                bestSellingScrollLeftBtn.style.cursor = 'not-allowed';
+
+                bestSellingScrollRightBtn.disabled = true;
+                bestSellingScrollRightBtn.style.opacity = '0.5';
+                bestSellingScrollRightBtn.style.cursor = 'not-allowed';
+                return;
+            }
+
+            if (currentScrollPos <= tolerance) { 
+                bestSellingScrollLeftBtn.disabled = true;
+                bestSellingScrollLeftBtn.style.opacity = '0.5';
+                bestSellingScrollLeftBtn.style.cursor = 'not-allowed';
+            } else {
+                bestSellingScrollLeftBtn.disabled = false;
+                bestSellingScrollLeftBtn.style.opacity = '1';
+                bestSellingScrollLeftBtn.style.cursor = 'pointer';
+            }
+
+            if (currentScrollPos >= maxScrollLeft - tolerance) { 
+                bestSellingScrollRightBtn.disabled = true;
+                bestSellingScrollRightBtn.style.opacity = '0.5';
+                bestSellingScrollRightBtn.style.cursor = 'not-allowed';
+            } else {
+                bestSellingScrollRightBtn.disabled = false;
+                bestSellingScrollRightBtn.style.opacity = '1';
+                bestSellingScrollRightBtn.style.cursor = 'pointer';
+            }
+        }
+
+        // Event Listener برای دکمه اسکرول به راست
+        bestSellingScrollRightBtn.addEventListener('click', () => {
+            const scrollAmount = getScrollAmount();
+            bestSellingContainer.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+            requestAnimationFrame(() => {
+                setTimeout(toggleScrollButtons, 300); 
+            });
+        });
+
+        // Event Listener برای دکمه اسکرول به چپ
+        bestSellingScrollLeftBtn.addEventListener('click', () => {
+            const scrollAmount = getScrollAmount();
+            bestSellingContainer.scrollBy({
+                left: -scrollAmount, 
+                behavior: 'smooth'
+            });
+            requestAnimationFrame(() => {
+                setTimeout(toggleScrollButtons, 300); 
+            });
+        });
+
+        // Event Listeners برای اطمینان از بروزرسانی وضعیت دکمه‌ها
+        window.addEventListener('load', () => {
+            setTimeout(toggleScrollButtons, 100); 
+        });
+        window.addEventListener('resize', () => {
+            setTimeout(toggleScrollButtons, 50); 
+        });
+        bestSellingContainer.addEventListener('scroll', toggleScrollButtons);
+
+        setTimeout(toggleScrollButtons, 0); 
+
+
+
+    } 
+</script>
+
+
+<style>
+    .active-dragging {
+        cursor: grabbing !important;
+        user-select: none;
+}
+</style>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+
+
+
+<section class="container my-5 product-categories-grid">
+    <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="category-grid-card p-3 rounded-3 bg-white h-100">
+                <h6 class="text-center fw-bold mb-3">جوراب مردانه</h6>
+                <div class="product-grid-items d-flex flex-wrap justify-content-center">
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/3aa94f054fb87dd9553345d274db5dde03d99c3c_1623405746.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="جوراب مردانه " class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/075a33e0e8fc3197da9cb770c71b73eb9122b489_1708008557.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="جوراب مردانه "class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/5ff11fc4248d8f5ed03e983755e71d986a7ad243_1720736748.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="جوراب مردانه "class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/120420219.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="جوراب مردانه "class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="category-grid-card p-3 rounded-3 bg-white h-100">
+                <h6 class="text-center fw-bold mb-3">لپ تاپ و الترابوک</h6>
+                <div class="product-grid-items d-flex flex-wrap justify-content-center">
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/458f458fac0a04d568703abd31d3773657799563_1727859312.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="لپ تاپ و الترابوک "class= img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/fc813a660e37e0aa6246c3092bfd5089ad80d960_1738404768.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="لپ تاپ و الترابوک "class= img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/f8743c35147efa57a1388e696e6d7451e4a10408_1728381002.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80"alt="لپ تاپ و الترابوک "class= img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/e8ad8070428f0402255d368b9f0cbf122fe91564_1722195505.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80"alt="لپ تاپ و الترابوک "class= img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="category-grid-card p-3 rounded-3 bg-white h-100">
+                <h6 class="text-center fw-bold mb-3">ساعت هوشمند</h6>
+                <div class="product-grid-items d-flex flex-wrap justify-content-center">
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/a8af9a45cd14a04cb4640329c356166fb16f0cc2_1747831898.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="ساعت هوشمند" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/518970f67d6b697aedd2b9cf01ac8bc99e2ccaff_1747844249.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="ساعت هوشمند" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/db61fc739053ea8b5f26724d56fe304ac1d1aada_1691853320.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="ساعت هوشمند" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/9cb8e1239979d4d3766c3519fff4b5f3a0643d6d_1747411376.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="ساعت هوشمند" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="category-grid-card p-3 rounded-3 bg-white h-100">
+                <h6 class="text-center fw-bold mb-3">کرم ضد آفتاب</h6>
+                <div class="product-grid-items d-flex flex-wrap justify-content-center">
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/8b93d7bf36421c57ab3106601e7049d04e2a9f94_1731952346.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="کرم ضد آفتاب" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/d099b7ff47140333f78999102e326f72ff194ec6_1744919855.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="کرم ضد آفتاب" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/1588354177b5a9843deaad542c63f95ec806c572_1718525395.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="کرم ضد آفتاب" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                    <a href="#" class="grid-product-item text-decoration-none text-dark d-block">
+                        <img src="https://dkstatics-public.digikala.com/digikala-products/23ef5113f0de1d047a914c3fb5a092306b173b10_1745578716.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/quality,q_80" alt="کرم ضد آفتاب" class="img-fluid rounded-3 mb-2">
+                        <span class="small-link d-block text-center">مشاهده</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+
+
+
+<section class="products-section my-5">
+    <div class="container">
+        <div class="d-flex align-items-center mb-4 product-section-header">
+            <h5 class="fw-bold mb-0 ms-2">منتخب محصولات تخفیف و حراج</h5>
+            <img src="https://cdn-icons-png.flaticon.com/512/1530/1530182.png" alt="آیکون تخفیف" class="header-icon">
+        </div>
+
+        <div class="products-grid-container rounded-3 overflow-hidden border">
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6">
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/bf3b67471337c7f0fc485c8e193e7fa7e0faba2d_1727606657.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="قاب گوشی خرگوشی" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۲٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۹۶,۵۴۲,۰۰۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۹۴,۹۴۴,۶۶۰</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/c0e079b958167bd0fdef1f0e12440e7fed29b1bd_1727853611.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="قاب گوشی رنگی" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۲٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۷۲,۵۸۰,۰۰۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۷۰,۰۷۰,۹۹۰</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/3348cb6579496b4503eb79824429ead5bef076ee_1731743979.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="آیفون 13 طلایی" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۳٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۲,۳۹۹,۰۰۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۲,۳۴۹,۰۰۰</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/720d9e06b39b3b62a57e0bf0b3fe90e8752fbae4_1744466529.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="نوکیا" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۴٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۸۳,۵۶۹,۰۰۰ تومان</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۷۹,۷۹۹,۸۷۰</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/8e157449ef937cb8e4fa804f32251d5cde438787_1744135827.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="آیفون 13" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۸٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۹۸,۰۰۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۸۸,۰۰۰ تومان</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/aec42cddb626e01184085b7b36d2df31005ad601_1744737427.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="آیفون 13 پرو" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۸٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۹۸,۰۰۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۸۸,۰۰۰ تومان</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/dbae8cb5803d29c01f62cff9e6506a89432aa1ae_1744306176.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="ایرپاد سمت راست" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۳٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۱۳۴,۰۰۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۱۲۹,۰۰۰</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/f486043468128a4995bd8d1a9ec71e0406d73a5f_1744737805.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="ایرپاد وسط چپ" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۹٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۱۰۹,۰۰۰ </del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۹۹,۰۰۰</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/095f4249fc87ee8bc6f07c2042c9f034c9247685_1737663816.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="ایرپاد وسط راست" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۴٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۴,۴۴۹,۰۰۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۴,۲۴۹,۰۰۰</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/7d7bb3073e9d227eaf8f9c2d4fd105038f3eade5_1747002495.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="ایرپاد وسط" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۸٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۳,۷۴۹,۰۰۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۳,۴۲۹,۰۰۰</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/6844b543420d3538655425a3834cd8cfe5944861_1747503452.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="ریموت کنترل" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۸٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۴۳۹,۰۰۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۳۹۹,۰۰۰</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/13b30ebaf5bd281fc9f03e170880fa79e0ee298b_1731433327.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="قاب گوشی طرح دار" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۸٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۵۹۹,۹۹۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۴۹,۹۹۰</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/620f3141b695ef3eb8881758646ded3366d75a71_1744631805.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="جوراب راه راه" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۲٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۷۳۵,۰۰۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۷۱۸,۰۰۰</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/2b82ca79e4d3299cb166187dcaad03419ec04b18_1737902708.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="جوراب طرح دار" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-0٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۱,۴۸۹,۰۰۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۱,۴۸۹,۰۰۰</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/830e17b9862c2144d459de5ab6e96fd4d9506b52_1737793323.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="ساعت مشکی با صفحه بزرگ" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۲٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۱,۴۹۹,۰۰۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۱,۳۹۹,۰۰۰</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/91f2e521002fe0ec1d57c6b94fe437cde35415f2_1739622808.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="ساعت مشکی" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۵٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۵۹۸,۰۰۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۵۸۸,۰۰۰ تومان</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/f1df9ac64dbc5d0add61b329369c01658f70c0b2_1709122589.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="ساعت نقره‌ای صفحه مشکی" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۵٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۴۱۴,۰۰۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۳۹۹,۹۹۰</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col product-col-border">
+                    <a href="#" class="product-card d-block text-decoration-none p-2 h-100">
+                        <div class="product-image-wrapper mb-2">
+                            <img src="https://dkstatics-public.digikala.com/digikala-products/13b30ebaf5bd281fc9f03e170880fa79e0ee298b_1731433327.jpg?x-oss-process=image/resize,m_lfit,h_300,w_300/format,webp/quality,q_80" alt="ساعت نقره‌ای" class="img-fluid rounded">
+                        </div>
+                        <div class="product-details text-dark">
+                            <div class="d-flex justify-content-end align-items-center mb-1">
+                                <span class="badge text-bg-danger rounded-pill discount-badge" style="direction: ltr;">-۵٪</span>
+                            </div>
+                            <div class="text-start">
+                                <del class="old-price text-muted small" style="direction: ltr;">۱۴۷,۰۰۰</del>
+                                <div class="current-price fw-bold" style="direction: ltr;">
+                                    <span class="price-value">۱۴۷,۰۰۰</span>
+                                    <span class="currency-unit small">تومان</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+<div class="container my-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="mb-0">خواندنی‌ها</h3>
+        <a href="#" class="text-decoration-none small" style="color: #00bcd4;"> مطالب بیشتر در دیجی‌کالا مگ > <i class="fas fa-chevron-left"></i></a>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
+        <div class="col">
+            <div class="card h-100 rounded-3 shadow-sm">
+                <img src="https://www.digikala.com/mag/wp-content/uploads/2025/05/body-odor.jpg" class="card-img-top rounded-top-3" alt="بهترین صابون برای رفع بوی بد بدن">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size: 0.9em;">بهترین صابون برای رفع بوی بد بدن</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 rounded-3 shadow-sm">
+                <img src="https://www.digikala.com/mag/wp-content/uploads/2025/05/A05s-vs-A06-cover.jpg" class="card-img-top rounded-top-3" alt="مقایسه گوشی سامسونگ A06 با گلکسی A05s">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size: 0.9em;">مقایسه گوشی سامسونگ A06 با گلکسی A05s</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 rounded-3 shadow-sm">
+                <img src="https://www.digikala.com/mag/wp-content/uploads/2025/06/direct-download-files-from-telegram-with-download-manager-1024x536-1.jpg" class="card-img-top rounded-top-3" alt="چطور دانلود خودکار تلگرام را ببندیم؟">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size: 0.9em;">چطور دانلود خودکار تلگرام را ببندیم؟</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card h-100 rounded-3 shadow-sm">
+                <img src="https://www.digikala.com/mag/wp-content/uploads/2025/05/LidoSands-Liz-2048x1365-1.jpg" class="card-img-top rounded-top-3" alt="۵ ترفند عکاسی با کمک پس‌زمینه‌های هنری">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size: 0.9em;">۵ ترفند عکاسی با کمک پس‌زمینه‌های هنری</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
+<div class="footer-section">
+  <div class="container">
+
+    <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-5 g-3 footer-icons">
+      <div class="col text-center">
+        <img src="picture/original-products.svg" alt="ضمانت اصل بودن کالا">
+        <p class="small">ضمانت اصل بودن کالا</p>
+      </div>
+      <div class="col text-center">
+        <img src="picture/days-return.svg" alt="هفت روز ضمانت بازگشت کالا">
+        <p class="small">هفت روز ضمانت بازگشت کالا</p>
+      </div>
+      <div class="col text-center">
+        <img src="picture/support.svg" alt="۷ روز هفته، ۲۴ ساعته">
+        <p class="small">۷ روز هفته، ۲۴ ساعته</p>
+      </div>
+      <div class="col text-center">
+        <img src="picture/cash-on-delivery.svg" alt="امکان پرداخت در محل">
+        <p class="small">امکان پرداخت در محل</p>
+      </div>
+      <div class="col text-center">
+        <img src="picture/express-delivery.svg" alt="امکان تحویل اکسپرس">
+        <p class="small">امکان تحویل اکسپرس</p>
+      </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 footer-columns">
+      <div class="col">
+        <h4>با دیجی‌کالا</h4>
+        <ul class="list-unstyled">
+          <li>اتاق خبر دیجی‌کالا</li>
+          <li>فروش در دیجی‌کالا</li>
+          <li>فرصت‌های شغلی</li>
+          <li>گزارش تخلف در دیجی‌کالا</li>
+          <li>تماس با دیجی‌کالا</li>
+          <li>درباره دیجی‌کالا</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>خدمات مشتریان</h4>
+        <ul class="list-unstyled">
+          <li>پاسخ به پرسش‌های متداول</li>
+          <li>رویه‌های بازگرداندن کالا</li>
+          <li>شرایط استفاده</li>
+          <li>حریم خصوصی</li>
+          <li>گزارش باگ</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>راهنمای خرید از دیجی‌کالا</h4>
+        <ul class="list-unstyled">
+          <li>نحوه ثبت سفارش</li>
+          <li>رویه ارسال سفارش</li>
+          <li>شیوه‌های پرداخت</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="newsletter text-center text-lg-start">
+      <p class="fw-bold">با ثبت ایمیل، از جدیدترین تخفیف‌ها باخبر شوید</p>
+      <form class="d-flex flex-column flex-sm-row gap-2">
+        <input type="email" placeholder="ایمیل شما" class="form-control flex-grow-1">
+        <button type="submit" class="btn btn-danger">ثبت</button>
+      </form>
+    </div>
+
+    <div class="social-icons text-center text-lg-start mt-4">
+      <p class="fw-bold">همراه ما باشید!</p>
+      <div class="icons">
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="لینکدین" width="24" height="24">
+        </a>
+        <a href="https://twitter.com/" target="_blank" rel="noopener">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="توییتر" width="24" height="24">
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="اینستاگرام" width="24" height="24">
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="mobile-bottom-nav" class="d-lg-none fixed-bottom bg-white border-top py-2 px-1">
+    <div class="d-flex justify-content-around align-items-center h-100">
+        <a href="#" class="d-flex flex-column align-items-center text-decoration-none text-dark active-nav-item">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="خانه" width="24" height="24">
+            <span class="small mt-1">خانه</span>
+        </a>
+        <a href="#" class="d-flex flex-column align-items-center text-decoration-none text-dark">
+            <img src="https://cdn-icons-png.flaticon.com/512/130/130918.png" alt="دسته‌بندی" width="24" height="24">
+            <span class="small mt-1">دسته‌بندی</span>
+        </a>
+        <a href="#" class="d-flex flex-column align-items-center text-decoration-none text-dark">
+            <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="سبد خرید" width="24" height="24">
+            <span class="small mt-1">سبد خرید</span>
+        </a>
+        <a href="#" class="d-flex flex-column align-items-center text-decoration-none text-dark">
+            <img src="https://cdn-icons-png.flaticon.com/512/1004/1004812.png" alt="مگنت" width="24" height="24">
+            <span class="small mt-1">مگنت</span>
+        </a>
+        <a href="#" class="d-flex flex-column align-items-center text-decoration-none text-dark">
+            <img src="https://cdn-icons-png.flaticon.com/512/1250/1250689.png" alt="دیجی‌کالای من" width="24" height="24">
+            <span class="small mt-1">دیجی‌کالای من</span>
+        </a>
+    </div>
+</div>
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+ <nav class="navbar navbar-expand-lg py-2" style="background-color: #3e485e;">
+        <div class="container-fluid d-flex justify-content-between align-items-center px-3 px-md-5">
+            <a class="btn d-flex align-items-center justify-content-center py-2 px-3 rounded download-button-mobile" href="#" style="background-color: #ef394e; color: white; font-size: 0.9rem; font-weight: bold; min-width: 140px;">
+                <svg class="me-2" style="fill: white; width: 1.2em; height: 1.2em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v-4h3l-4-4-4 4h3v4z"/></svg>
+                <span>دانلود اپلیکیشن دیجی‌کالا</span>
+            </a>
+
+            <div class="d-flex align-items-center app-store-icons">
+                <a href="#" class="text-decoration-none mx-2 d-inline-flex flex-column align-items-center">
+                    <div class="app-icon-wrapper" style="background-color: #55627a !important;">
+                        <img src="https://www.digikala.com/statics/img/svg/More.svg" alt="More" class="img-fluid">
+                    </div>
+                </a>
+                <a href="#" class="text-decoration-none mx-2 d-inline-flex flex-column align-items-center">
+                    <div class="app-icon-wrapper bg-white">
+                        <img src="https://www.digikala.com/statics/img/svg/appStores/sib-app.svg" alt="سیب‌اپ" class="img-fluid">
+                    </div>
+                </a>
+                <a href="#" class="text-decoration-none mx-2 d-inline-flex flex-column align-items-center">
+                    <div class="app-icon-wrapper bg-white">
+                        <img src="https://www.digikala.com/statics/img/svg/appStores/myket.svg" alt="مایکت" class="img-fluid">
+                    </div>
+                </a>
+                <a href="#" class="text-decoration-none mx-2 d-inline-flex flex-column align-items-center">
+                    <div class="app-icon-wrapper bg-white">
+                        <img src="https://www.digikala.com/statics/img/svg/appStores/coffe-bazzar.svg" alt="بازار" class="img-fluid">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+
+<div class="container py-4">
+    <div class="row digikala-intro-section">
+        <div class="col-12 mb-4"> <div class="d-flex flex-wrap justify-content-center align-items-center p-3 bg-white rounded shadow-sm trusted-badges-box">
+                <a href="#" class="d-flex flex-column align-items-center text-decoration-none text-dark mx-2 my-1 trusted-badge-item-content">
+                    <img src="https://www.digikala.com/statics/img/png/sapra.webp" alt="نماد اعتماد الکترونیکی" class="img-fluid mb-1" style="max-height: 50px; width: auto;">
+                    <small style="font-size: 0.75rem;">نماد اعتماد الکترونیکی</small>
+                </a>
+                <a href="#" class="d-flex flex-column align-items-center text-decoration-none text-dark mx-2 my-1 trusted-badge-item-content">
+                    <img src="https://www.digikala.com/statics/img/png/rezi.webp" alt="نشان ملی ثبت" class="img-fluid mb-1" style="max-height: 50px; width: auto;">
+                    <small style="font-size: 0.75rem;">نشان ملی ثبت</small>
+                </a>
+        </div>
+        <div class="col-12 text-content-col">
+            <h1 class="h4 fw-bold mb-3">دیجی‌کالا بزرگترین فروشگاه اینترنتی ایران</h1>
+            
+            <p class="text-secondary mb-3 text-justify digikala-intro-text" style="font-size: 0.95rem; line-height: 1.8;">
+                دیجی‌کالا سال‌هاست که به انتخاب اول بسیاری از خریداران اینترنتی تبدیل شده است. دیجی‌کالا به عنوان بزرگترین و معتبرترین فروشگاه آنلاین ایران، شناخته‌شده‌ترین فروشگاه نیز محسوب می‌شود. این فروشگاه آنلاین نه‌تنها گسترده‌ترین تنوع کالا را در دسته‌بندی‌های مختلف ارائه می‌دهد، بلکه با خدمات بی‌نظیر، سرعت ارسال بالا، ضمانت اصل بودن کالا و پشتیبانی حرفه‌ای، استاندارد جدیدی در خرید اینترنتی ایران تعریف کرده است. این فروشگاه با سال‌ها تجربه و اعتماد مشتریان، کامل‌ترین و بهترین گزینه برای خرید آنلاین در ایران محسوب می‌شود.
+            </p>
+
+            <div class="collapse" id="digikalaFullText">
+                <p class="text-secondary mb-3 text-justify digikala-intro-text" style="font-size: 0.95rem; line-height: 1.8;">
+                    ویژگی های مهم دیجی کالا<br>
+                    یکی از ویژگی‌های مهم در خرید از دیجی کالا، تنوع بی‌نظیر محصولات است. این فروشگاه اینترنتی طیف وسیعی از کالاها را در دسته‌های مختلف از جمله لوازم دیجیتال، لوازم خانگی، مد و پوشاک، لوازم آرایشی و بهداشتی، محصولات سلامت و زیبایی، و بسیاری از محصولات دیگر ارائه می‌دهد. به عنوان مثال، اگر به دنبال خرید یک گوشی موبایل جدید باشید، دیجی کالا مجموعه‌ای از بهترین گوشی‌ها از برندهای معتبر اپل و سامسونگ مانند ایفون 16، گوشی S25، گوشی‌های مختلف از برند شیائومی مانند شیائومی نوت ۱۴ و بسیاری از برندهای دیگر را در اختیار شما قرار می‌دهد. همچنین برای علاقه‌مندان به لوازم دیجیتال، این فروشگاه اینترنتی انواع لپ تاپ، تلویزیون، اسپیکر، و هندزفری بلوتوثی با کیفیت بالا را برای خرید آنلاین ارائه می‌دهد. دیجی کالا، مقصدی بی‌پایان برای خرید آسان، سریع و مطمئن است. راهی که هر آنچه نیاز دارید از قیمت لپ تاپ تا یک ایرپاد مطمئن را در اختیار شما قرار می‌دهد.<br>
+                    ارسال سریع و مطمئن کالا<br>
+                    یکی از مهم‌ترین دغدغه‌های کاربران خرید آنلاین، زمان تحویل کالا است. دیجی کالا برای حل این مشکل، گزینه‌های مختلف ارسال را در نظر گرفته است تا کاربران بتوانند بر اساس نیاز خود، روش ارسال مناسب را انتخاب کنند. به عنوان مثال، ارسال کالا به صورت ارسال امروز، ارسال سریع توسط پیک‌های دیجی کالا، از جمله روش‌های خرید سریع از این فروشگاه اینترنتی است. این امکانات باعث می‌شود که خریداران بتوانند سفارش خود را در کوتاه‌ترین زمان ممکن دریافت کنند. علاوه بر این، در صورتی که کالای خریداری شده از لحاظ کیفیت یا هر دلیل دیگری رضایت مشتری را جلب نکرده باشد، دیجی کالا ضمانت بازگشت کالا را ارائه می‌دهد. این ویژگی موجب اعتماد بیشتر مشتریان به خرید آنلاین از فروشگاه اینترنتی دیجی کالا شده است.<br>
+                    تخفیف های ویژه و جشنواره ها<br>
+                    دیجی کالا به طور منظم جشنواره‌ها و تخفیف‌های ویژه‌ای را برگزار می‌کند که برای مشتریان فرصت خرید کالاهای باکیفیت با قیمت‌های مناسب به همراه خواهد داشت. این تخفیف‌ها در ایام خاص مانند بلک فرایدی یا همان حراج جمعه سیاه و جشنواره‌های تابستانی توجه بسیاری از خریداران را جلب می‌کند. در این جشنواره‌ها، دیجی کالا تخفیف‌های عالی روی محصولات مختلف از جمله گوشی‌های موبایل، لپ تاپ‌ها، تلویزیون‌ها، و حتی محصولات زیبایی ارائه می‌دهد. می‌توانید گوشی ایفون 16 یا گوشی S25 را با تخفیف‌های ویژه خریداری کنید و از قیمت مناسب بهره‌مند شوید. دیجی کالا فراتر از یک فروشگاه اینترنتی، یک تجربه خرید مطمئن در بین کاربران مختلف بوده است که با ارائه بزرگ‌ترین تنوع کالا، قیمت‌های مختلف و خدماتی بی‌نقص، به مقصد اول خریداران آنلاین در ایران تبدیل شده است.<br>
+                    انواع محصولات فروشگاه دیجی کالا<br>
+                    دیجی کالا دارای محصولات متنوعی در گروه‌های مختلف است که خرید آنها بسیار راحت و سریع است. به عنوان مثال، اگر به دنبال قاب گوشی یا هندزفری بلوتوثی باشید، می‌توانید مدل‌های مختلف و برندهای گوناگونی را در این فروشگاه پیدا کنید.<br>
+                    موبایل و کالای دیجیتال<br>
+                    دیجی‌کالا انواع گوشی‌های هوشمند از برندهای معتبر جهانی مانند سامسونگ، اپل، شیائومی و هواوی را با مشخصات و قیمت‌های متنوع عرضه می‌کند. علاوه بر موبایل، دیجی‌کالا مجموعه‌ای از لوازم جانبی مانند هدفون، هندزفری، ساعت‌های هوشمند، تبلت‌ها و لپ تاپ را نیز در اختیار مشتریان قرار می‌دهد. با امکان مقایسه محصولات، مطالعه نظرات کاربران و دسترسی به جدیدترین مدل‌ها، دیجی‌کالا به یکی از مقاصد اصلی خرید آنلاین در حوزه موبایل و کالای دیجیتال تبدیل شده است. از دهه گذشته همواره دیجی کالا به عنوان اولین گزینه برای خرید گوشی های سامسونگ، آیفون های اپل و گوشی شیائومی محسوب می‌شده است و تا امروز هم در عرضه این موبایل های محبوب به بازار، دیجی‌کالا اولین فروشگاه آنلاین بوده است.<br>
+                    کتاب و لوازم تحریر<br>
+                    کتاب، لوازم تحریر و هنر در دیجی کالا یک مجموعه بی‌نظیر از محصولات فرهنگی و هنری است که به علاقه‌مندان به کتابخوانی، هنر و نوشتن کمک می‌کند تا دنیای خود را گسترش دهند. از کتاب‌های چاپی و کتاب‌های صوتی گرفته تا مجلات خارجی و داخلی و آثار معروف‌ترین نویسندگان مثل سعدی، حافظ، مولانا و فروغ فرخزاد، تمامی نیازهای کتابخوان‌ها را پوشش می‌دهد. همچنین با مجموعه‌ای از لوازم تحریر، ابزار نقاشی و رنگ‌آمیزی، آلبوم‌های عکس و فرش‌های دستبافت، به شما این امکان را می‌دهد تا دنیای هنر و خلاقیت خود را به بهترین نحو پرورش دهید. همچنین خر سال تقریبا همزمان با تهران و نمایشگاه بین المللی کتاب، دیجی کالا نمایشگاه مجازی کتاب خود را برگزار می‌کند تا آنها که فرصت حضور در نمایشگاه را ندارند، بتوانند مجازی از کتاب ها بازدید و خرید کنند.<br>
+                    لوازم آرایشی و بهداشتی<br>
+                    در دسته محصولات آرایشی و بهداشتی، دیجی کالا مجموعه‌ای از بهترین و پرطرفدارترین برندهای جهانی را در اختیار کاربران قرار می‌دهد. محصولات متنوعی همچون مرطوب كننده‌ها، كرم پودر، ضدآفتاب، ريمل و رژلب از برندهایی مانند لورال، کلینیک و میبلین در دیجی کالا موجود هستند که برای هر سلیقه و نیاز قابل انتخاب هستند. علاوه بر این, شما می‌توانید محصولات مراقبت از پوست و مو مانند شامپو, کرم‌های ضد چروق و ماسک صورت را در این فروشگاه بیابید و خرید آنلاین خود را به راحتی انجام دهید. دیجی کالا, بزرگ‌ترین و معتبرترین فروشگاه آنلاین لوازم آرایشی ایران, جایی که تنوع, کیفیت و اطمینان در خرید یکجا جمع شده‌اند.<br>
+                    خرید آنلاین طلا و جواهرات<br>
+                    دیجی کالا به عنوان بزرگترین فروشگاه اینترنتی ایران، یکی از بهترین گزینه‌ها برای خرید طلا و جواهرات آنلاین است. شما می‌توانید خريد گردنبند طلا، انگشتر طلا، گوشواره زنانه طلا و دستبند طلا را با بهترین قیمت‌ها از دیجی کالا انجام دهید. این فروشگاه مجموعه‌ای از بهترین برندهای طلا و جواهرات را در اختیار مشتریان قرار داده است که انتخاب خرید را برای آنها بسیار آسان می‌کند. همچنین می‌توانید خريد سكه، و حتی ربع سكه را نیز از این فروشگاه با راحت‌ترین روش انجام دهید.<br>
+                    اسباب بازی<br>
+                    این قسمت شامل تمامی نیازهای ضروری برای مراقبت، بهداشت، سرگرمی و راحتی کودک از بدو تولد تا دوران کودکی است. از لوازم بهداشت و حمام کودک و نوزاد مانند پوشک، دستمال مرطوب، شامپو کودک، حوله و وان حمام نوزاد گرفته تا محصولات ویژه‌ای مثل مینی واش و شامپو کودک و نوزاد، همه در این مجموعه موجود هستند. همچنین برای راحتی بیشتر، انواع پوشاک و کفش کودک و نوزاد از لباس نوزادی تا کفش پسرانه، کوله پشتی پسرانه، لباس دخترانه و کفش دخترانه به صورت آنلاین در دسترس شما قرار دارند.<br>
+                    کودکان به سرگرمی‌های ویژه نیاز دارند، از همین رو دیجی کالا مجموعه‌ای کامل از اسباب بازی‌ها از جمله پازل‌ها، لگو و ساختنی‌ها، عروسک‌ها، فیگورها و اسپینر‌ها را به شما ارائه می‌دهد.<br>
+                    لوازم خانگی و مبلمان<br>
+                    در دسته‌بندی لوازم خانگی، دیجی کالا محصولات متنوعی را ارائه می‌دهد که برای راحتی و زیبایی خانه و آشپزخانه شما طراحی شده‌اند. از جمله مبل راحتی، سرویس‌های خواب، آینه‌های دکوراتیو، و ظروف آشپزخانه که همگی از برندهای معتبر و با کیفیت تولید شده‌اند. شما می‌توانید قابلمه و تابه، یخچال، ماشین لباسشویی و بسیاری از لوازم خانگی دیگر را از دیجی کالا خریداری کنید.<br>
+                    مبل‌های راحتی یکی از پرطرفدارترین محصولات خانگی در دیجی کالا هستند. این مبل‌ها در انواع طرح‌ها و رنگ‌ها و از برندهای معتبر ساخته شده‌اند که با هر دکوراسیونی هماهنگ می‌شوند. همچنین در دیجی کالا انواع سرویس خواب با کیفیت بالا و طراحی روز دنیا در دسترس است. علاوه بر این، اگر به دنبال آینه دکوراتیو یا سایر لوازم تزئینی منزل هستید، این فروشگاه بهترین انتخاب‌ها را به شما ارائه می‌دهد.<br>
+                    سوپرمارکت دیجی کالا<br>
+                    در دسته‌بندی خوراکی‌ها و کالاهای اساسی دیجی کالا، شما می‌توانید انواع محصولات ضروری و پرمصرف روزانه خود را پیدا کنید. از شیرینی و آجیل تا نان تازه و نبات خوشمزه گرفته و رب گوجه، ماکارونی، قند، رب انار، برنج و شکر و حتی شیر و لبنیات همه این محصولات با بالاترین کیفیت و از برندهای معتبر در دسترس شما قرار دارند. این مجموعه شامل همه آن چیزی است که برای تهیه یک وعده غذایی کامل و سالم به آن نیاز دارید. خرید از سوپر مارکت آنلاین کمک می‌کند که به راحتی و در کمترین زمان ممکن، مواد اولیه مورد نیاز خود را با قیمت‌های مناسب و با تضمین کیفیت دریافت کنید.<br>
+                    محصولات بومی و محلی<br>
+                    در این بخش از دیجی کالا، از برنج، روغن، عسل طبیعی، حلوا شکری، ارده و کنجد سنتی گرفته تا کیک و شیرینی خانگی، لواشک، برگه و آلوچه خانگی، محصولات اصیل و با کیفیت ارائه می‌شود. همچنین، انواع لبنیات سنتی، کره گیاهی و حیوانی محلی، خرمای محلی و خشکبار و آجیل سنتی به همراه غلات و حبوبات ارگانیک، ادویه‌ها و چاشنی‌های ارگانیک نظیر زعفران و زرشک ارگانیک از دیگر گزینه‌های این دسته هستند. برای علاقه‌مندان به دکوراسیون سنتی نیز، محصولاتی مانند لوستر دست ساز، مجسمه‌های سنتی، گلدان و تابلو سنتی، کاشی و آینه سنتی و ظروف آشپزخانه دست ساز از جنس سنتی وجود دارد که خانه شما را به محیطی گرم و اصیل تبدیل خواهد کرد.<br>
+                    ابزار آلات و تجهیزات<br>
+                    این بخش شامل ابزار برقی و غیر برقی در دیجی کالا مجموعه‌ای کامل از ابزارهای مورد نیاز برای پروژه‌های صنعتی، تعمیرات و ساخت می‌شود. از ابزارهای برقی مانند دریل، پیچ گوشتی، فرز، سنگ رومیزی، موتور برق و مکنده-دمنده گرفته تا ابزارهای غیر برقی مثل ابزار دستی، نردبان، اره و مجموعه ابزار، این دسته برای هر نیازی ابزار مناسب را ارائه می‌دهد. همچنین کمپرسور هوا، دستگاه جوش، هویه و ابزار برش و تراشکاری برای انجام کارهای دقیق صنعتی موجود است. به‌علاوه انواع لوازم روانکاری، چسب صنعتی، پیچ و مهره، ماسک تنفسی، لوازم ایمنی و کار و شیرآلات به تکمیل نیازهای شما برای کارهای ساختمانی و صنعتی کمک می‌کند. دیجی کالا یک راهکار کامل برای پروژه‌های حرفه‌ای و خانگی است.<br>
+                    پوشاک<br>
+                    از لباس‌های مردانه شامل هودی، سویشرت، ژاکت، پیراهن، شلوار جین، پالتو، کاپشن، کفش و اکسسوری تا پوشاک زنانه نظیر مانتو، بلوز، تیشرت، لباس مجلسی، لباس خواب، کاپشن و کفش زنانه، همگی در این دسته‌بندی موجود هستند. همچنین برای بچگانه‌ها، از لباس‌های راحتی و خواب، پوشاک ورزشی تا کفش و صندل بچگانه، به‌راحتی می‌توانید کالای مناسب را پیدا کنید. این بخش شامل برندهای معتبر مانند هامتو، چرم مشهد، اسمارا، کروم، گردیه و چرم عطارد است که پوشاک با کیفیت بالا را ارائه می‌دهند. خرید آنلاین لباس از دیجی کالا فرصتی برای همه فروشنده های شناخته شده کشور فراهم کرده است تا فروش اینترنتی بیشتری را تجربه کنند. همچنین شما کاربران می‌توانید طیف وسیعی از پوشاک را به راحتی و از طریق پروفایل همیشگی خود در Digikala خریداری کنید.<br>
+                    تجهیزات پزشکی و سلامت<br>
+                    در این بخش از تجهیزات پزشکی مانند فشارسنج، ترازو، تب سنج و دماسنج گرفته تا دستگاه‌های تنفسی و تجهیزات حرفه‌ای پزشکی، موجود هستند. برای کنترل بیماری‌هایی مانند دیابت و سرماخوردگی، محصولات مناسبی از جمله کیسه نمک، رطوبت‌گیر، و دستگاه‌های تب سنج ارائه می‌شود. علاوه بر این، ماساژور و پد و کیسه آب گرم به شما کمک می‌کنند تا در خانه از تسکین درد و آرامش بیشتری برخوردار باشید.<br>
+                    محصولات ورزشی و سفر<br>
+                    دیجی کالا همچنین برای علاقه‌مندان به ورزش و سفر، محصولات متنوعی را در دسته‌بندی‌های مختلف ارائه می‌دهد. اگر به دنبال خرید وسایل ورزشی برای بدنسازی، ورزش‌های هوازی، یا کمپینگ هستید، دیجی کالا مجموعه‌ای از لوازم ورزشی از جمله وزنه، ساک ورزشی، قمقمه و بسیاری از لوازم دیگر را ارائه می‌دهد. همچنین شما می‌توانید برای سفرهای خود، ساک‌های مسافرتی، کوله پشتی‌های کوهنوردی و لوازم کمپینگ را از این فروشگاه خریداری کنید.<br>
+                    کارت هدیه<br>
+                    کارت هدیه‌ها راهی عالی برای هدیه دادن به عزیزانتان هستند و در دیجی کالا انواع مختلفی از آنها برای مناسبت‌های گوناگون وجود دارد. شما می‌توانید کارت هدیه فیزیکی دیجی کالا را به صورت عمومی یا براساس مناسبت‌های خاص همچون تولد یا سالگرد خریداری کنید. همچنین، کارت هدیه براساس قیمت امکان انتخاب هدیه‌ای مناسب با بودجه شما را فراهم می‌کند. علاوه بر کارت‌های فیزیکی، کارت هدیه الکترونیکی دیجی کالا هم برای افرادی که به دنبال یک گزینه سریع و آسان هستند، وجود دارد.<br>
+                    مکمل های غذایی<br>
+                    دیجی کالا همچنین به عنوان یکی از مراجع معتبر برای خرید مکمل نیز شناخته می‌شود. شما می‌توانید انواع قرص‌های ویتامین، منيزيم، زينك، ويتامين C و بسیاری از مکمل‌های دیگر را از برندهای معروف و معتبر در دیجی کالا پیدا کنید. این مکمل‌ها به سلامت شما کمک می‌کنند و برای تقویت سیستم ایمنی بدن یا افزایش انرژی و بهبود وضعیت پوست و مو مفید هستند.<br>
+                    خرید کالاهای کارکرده<br>
+                    خرید کالاهای کارکرده از دیجی کالا فرصتی عالی برای دسترسی به محصولات با کیفیت و قیمت مناسب است. تمامی کالاهای این دسته‌بندی در وضعیت مشابه‌نو قرار دارند و از نظر فنی و ظاهری کاملا سالم و بدون نقص هستند. همچنین هر کالای کارکرده‌ای که خریداری می‌کنید، دارای 7 روز مهلت تست و ضمانت اصالت است تا شما با خیال راحت از خرید خود اطمینان حاصل کنید. برای گوشی‌های موبایل کارکرده، این فروشگاه 3 ماه گارانتی دیجی کالا سرویس نیز ارائه می‌دهد. از جمله کالاهای کارکرده‌ای که می‌توانید در این دسته پیدا کنید می‌توان به گوشی موبایل کارکرده، لپ تاپ کارکرده، کنسول خانگی کارکرده و ساعت هوشمند کارکرده اشاره کرد. این محصولات با قیمت‌های به‌صرفه، گزینه‌ای مناسب برای کسانی است که به دنبال خرید کالاهای با کیفیت و در عین حال اقتصادی هستند.<br>
+                    در آخر باید گفت خرید از دیجی کالا به دلیل تنوع بالای محصولات، خدمات ارسال سریع، تخفیف‌های ویژه، و امکان خرید آنلاین کالاهای متنوع از برندهای معتبر، یکی از بهترین انتخاب‌ها برای خریداران آنلاین در ایران است. با استفاده از خدمات دیجی کالا، خریدی مطمئن، سریع و راحت را تجربه خواهید کرد.
+                </p>
+            </div>
+            
+            <a class="btn text-decoration-none fw-bold p-0 view-more-button" data-bs-toggle="collapse" href="#digikalaFullText" role="button" aria-expanded="false" aria-controls="digikalaFullText" id="toggleTextButton" style="color: #1a6ff8;">
+                مشاهده بیشتر <span class="ms-1">&#9664;</span>
+            </a>
+        </div>
+
+        <div class="col-12 text-center mt-5 pt-3 border-top" style="border-color: #e9ecef !important;">
+            <p class="text-muted mb-0 footer-text" style="font-size: 0.8rem;">
+                برای استفاده از مطالب وب‌سایت دیجی‌کالا دانش‌نامه، صرفاً غیرتجاری و ذکر منبع بلامانع است. تمامی حقوق این وب‌سایت نیز برای شرکت نوآوران فن آوران تجارت الکترونیک دیجی‌کالا است.
+            </p>
+        </div>
+    </div>
+</div>
+            
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // جاوااسکریپت برای تغییر متن دکمه "مشاهده بیشتر" به "بستن" و برعکس
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggleButton = document.getElementById('toggleTextButton');
+            var collapseElement = document.getElementById('digikalaFullText');
+
+            if (toggleButton && collapseElement) {
+                collapseElement.addEventListener('show.bs.collapse', function () {
+                    toggleButton.innerHTML = 'بستن <span class="ms-1">&#9650;</span>'; // آیکون فلش رو به بالا
+                });
+
+                collapseElement.addEventListener('hide.bs.collapse', function () {
+                    toggleButton.innerHTML = 'مشاهده بیشتر <span class="ms-1">&#9664;</span>'; // آیکون فلش رو به چپ
+                });
+            }
+        });
+    </script>
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+<section class="digikala-services-section">
+    <div class="full-width-content"> 
+        <div class="services-row">
+            <a href="#" class="service-item bordered-item"> <img src="https://www.digikala.com/statics/img/svg/footer/diginext.svg" alt="دیجی‌نکست" class="service-logo">
+            </a>
+            <a href="#" class="service-item bordered-item"> <img src="https://www.digikala.com/statics/img/svg/footer/digiMehr.svg" alt="دیجی‌مهر" class="service-logo">
+            </a>
+            <a href="#" class="service-item bordered-item"> <img src="https://www.digikala.com/statics/img/svg/footer/jet.svg" alt="دیجی‌کالا جت" class="service-logo">
+            </a>
+            <a href="#" class="service-item digiclub-item bordered-item"> <span class="service-text">digiclub</span> </a> <a href="#" class="service-item digiplus-item bordered-item"> <span class="service-text">plus</span> </a> <a href="#" class="service-item bordered-item"> <img src="https://www.digikala.com/statics/img/svg/footer/digistyle.svg" alt="دیجی‌استایل" class="service-logo">
+            </a>
+            <a href="#" class="service-item bordered-item"> <img src="https://www.digikala.com/statics/img/svg/footer/digipay.svg" alt="دیجی‌پی" class="service-logo">
+            </a>
+            <a href="#" class="service-item bordered-item"> <img src="https://www.digikala.com/statics/img/svg/footer/digimag.svg" alt="دیجی‌کالا مگ" class="service-logo">
+            </a>
+        </div>
+
+        <div class="services-row bottom-row">
+            <a href="#" class="service-item digikala-service-item bordered-item"> <img src="https://www.digikala.com/statics/img/svg/footer/digikala-service.svg" alt="دیجی‌کالا سرویس" class="service-logo">
+            </a>
+            <a href="#" class="service-item digikala-business-item bordered-item"> <img src="https://www.digikala.com/statics/img/svg/footer/digikala-business.svg" alt="دیجی‌کالا بیزینس" class="service-logo">
+            </a>
+            <a href="#" class="service-item smarttech-item bordered-item"> <img src="https://www.digikala.com/statics/img/svg/footer/smartech.svg" alt="اسمارت تک" class="service-logo">
+            </a>
+            <a href="#" class="service-item bordered-item"> <img src="https://www.digikala.com/statics/img/svg/footer/digify.svg" alt="دیجی‌فای" class="service-logo">
+            </a>
+            <a href="#" class="service-item bordered-item"> <img src="https://www.digikala.com/statics/img/svg/footer/ganjeh.svg" alt="گنجینه" class="service-logo">
+            </a>
+            <a href="#" class="service-item bordered-item"> <img src="https://www.digikala.com/statics/img/svg/footer/digiexpress.svg" alt="دیجی‌اکسپرس" class="service-logo">
+            </a>
+        </div>
+    </div>
+</section>
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<a href="#" class="support-fixed-button">
+    <img src="picture/Screenshot 2025-06-03 013534.png" alt="پشتیبانی" />
+</a>
+
+<a href="#" class="support-fixed-button">
+    <img src="picture/100x100bb.jpg" alt="پشتیبانی" />
+</a>
+
+
+<a href="#" class="fixed-supermarket-button">
+    <img src="picture/Screenshot 2025-06-03 021927.png" alt="سوپرمارکت" />
+    <span>سوپرمارکت</span>
+</a>
+
+
+
+</body>
+</html>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
