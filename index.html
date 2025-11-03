@@ -1,0 +1,2592 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>دیجی‌کالا</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="CSS/style.css" />
+  <link rel="stylesheet" href="CSS/01-common-styles-استایلهای-مشترک.css" />
+  <link rel="stylesheet" href="CSS/02-top-bar-نوار-بالای-صفحه-برای-پیامهای-متح.css" />
+  <link rel="stylesheet" href="CSS/03-fixed-header-هدر-اصلی-ثابت.css" />
+  <link rel="stylesheet" href="CSS/04-custom-login-box-کادر-ورود-ثبتنام-جدید-د.css" />
+  <link rel="stylesheet" href="CSS/05-category-dropdown-منوی-دستهبندی-کالاها.css" />
+  <link rel="stylesheet" href="CSS/06-story-circles-section-بخش-دایرههای-استور.css" />
+  <link rel="stylesheet" href="CSS/07-slider-اسلایدشو-تصاویر.css" />
+  <link rel="stylesheet" href="CSS/08-wrapper-محتوای-اصلی.css" />
+  <link rel="stylesheet" href="CSS/09-product-section-بخش-محصولات---پیشنهاد-شگ.css" />
+  <link rel="stylesheet" href="CSS/10-special-offer-product-card-اسلاید-ویژه-پ.css" />
+  <link rel="stylesheet" href="CSS/11-digikala-fresh-header.css" />
+  <link rel="stylesheet" href="CSS/12-category-section.css" />
+  <link rel="stylesheet" href="CSS/13-footer.css" />
+  <link rel="stylesheet" href="CSS/14-mobile-bottom-navigation-نوار-ناوبری-پای.css" />
+  <link rel="stylesheet" href="CSS/15-media-queries-فقط-برای-استایلهای-غیرقابل.css" />
+  <link rel="stylesheet" href="CSS/16-brands-section-بخش-محبوبترین-برندها.css" />
+  <link rel="stylesheet" href="CSS/17-product-categories-grid-بخش-دستهبندی-محص.css" />
+  <link rel="stylesheet" href="CSS/Vazirmatn-font-face.css"  type="text/css" />
+  <link rel="icon" href="picture/digikalaFavicon.ico" />
+</head>
+<body>
+
+<div id="top-bar">
+  <span id="top-bar-message">پشتیبانی 24 ساعته آماده خدمت‌رسانی به شماست</span>
+</div>
+
+<script>
+  const topBar = document.getElementById("top-bar");
+  const topBarMessage = document.getElementById("top-bar-message");
+  const messages = [
+    "تخفیف ویژه فقط تا پایان هفته!",
+    "ارسال رایگان برای سفارش‌های بالای 200 هزار تومان",
+    "جدیدترین محصولات دیجیکالا را از دست ندهید",
+    "پشتیبانی 24 ساعته آماده خدمت‌رسانی به شماست"
+  ];
+  let messageIndex = 0;
+
+  function changeMessage() {
+    if (topBarMessage) {
+      topBarMessage.style.opacity = 0;
+      setTimeout(() => {
+        messageIndex = (messageIndex + 1) % messages.length;
+        topBarMessage.textContent = messages[messageIndex];
+        topBarMessage.style.opacity = 1;
+      }, 500);
+    }
+  }
+  setInterval(changeMessage, 3900);
+</script>
+<!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
+<div id="fixed-header" class="fixed top-[60px] left-0 right-0 z-[1000] bg-white shadow-[0_2px_5px_rgba(0,0,0,0.05)]">
+<header class="bg-white border-b py-2 px-3 flex flex-col lg:flex-row lg:items-center gap-3">
+    <div class="flex items-center w-full justify-between lg:w-auto">
+        <img src="picture/svg/logo.svg" class="h-[40px]" alt="لوگو دیجی‌کالا" />
+        <div class="lg:hidden flex gap-2 items-center">
+            <a id="notify-btn" class="no-underline text-gray-800 text-xl">🔔</a>
+        </div>
+    </div>
+    <div class="flex-1 w-full mt-2 lg:mt-0">
+        <input type="text" class="w-full rounded-lg border border-gray-300 p-2 text-right" placeholder="جستجو در دیجی‌کالا" />
+    </div>
+
+    <div class="hidden lg:flex items-center ml-auto">
+        <a id="notify-btn" class="no-underline text-gray-800 text-xl ml-3">🔔</a>
+        <div class="w-[1px] h-6 bg-gray-300 mx-2"></div>
+        <a id="login-btn" class="no-underline text-gray-800 flex items-center border border-gray-300 rounded-md p-2 hover:bg-gray-100">
+            <img src="picture/svg/login.svg" alt="فلش" class="w-[18px] h-[18px] mr-1">
+              ورود | ثبت‌نام
+        </a>
+        <div class="w-[1px] h-6 bg-gray-300 mx-2"></div>
+        <a id="cart-btn" class="no-underline text-gray-800 text-xl mr-2"><img src="picture/svg/svgshoppingcart-5.svg" alt=""></a>
+    </div>
+</header>
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<nav class="bg-white border-b py-2 px-3 flex flex-wrap lg:flex-nowrap justify-center lg:justify-start gap-3 items-center hidden lg:flex">
+    <div class="main-nav-links flex items-center gap-3">
+        <div class="category-dropdown-container relative">
+            <button class="category-dropdown-btn flex items-center p-2 rounded-md hover:bg-gray-100">
+                <img src="picture/png/ham.png" alt="دسته بندی" class="w-5 h-5 ml-2">
+                دسته‌بندی کالاها
+            </button>
+            <div class="category-dropdown-content">
+                <ul class="category-main-list list-none p-0">
+                    <li data-main-category="digital-goods">
+                        <img src="picture/Category/digital.png" alt="کالای دیجیتال" class="ml-2"> کالای دیجیتال
+                    </li>
+                    <li data-main-category="car-tools-industrial">
+                        <img src="picture/Category/abzar.png" alt="خودرو، ابزار و تجهیزات صنعتی" class="ml-2"> خودرو، ابزار و تجهیزات صنعتی
+                    </li>
+                    <li data-main-category="home-appliances">
+                        <img src="picture/Category/ashpazkhane.png" alt="لوازم خانگی" class="ml-2"> لوازم خانگی
+                    </li>
+                    <li data-main-category="fashion-apparel">
+                        <img src="picture/Category/mod.png" alt="مد و پوشاک" class="ml-2"> مد و پوشاک
+                    </li>
+                    <li data-main-category="beauty-health">
+                        <img src="picture/Category/salamat.png" alt="زیبایی و سلامت" class="ml-2"> زیبایی و سلامت
+                    </li>
+                    <li data-main-category="sports-travel">
+                        <img src="picture/Category/varzesh.png" alt="ورزش و سفر" class="ml-2"> ورزش و سفر
+                    </li>
+                    <li data-main-category="books-stationery-art">
+                        <img src="picture/Category/book.png" alt="کتاب، لوازم تحریر و هنر" class="ml-2"> کتاب، لوازم تحریر و هنر
+                    </li>
+                    <li data-main-category="toys-baby">
+                        <img src="picture/Category/bazi.png" alt="اسباب بازی، کودک و نوزاد" class="ml-2"> اسباب بازی، کودک و نوزاد
+                    </li>
+                    <li data-main-category="supermarket-goods">
+                        <img src="picture/Category/market.png" alt="کالاهای سوپرمارکتی" class="ml-2"> کالاهای سوپرمارکتی
+                    </li>
+                </ul>
+                <div class="category-sub-content">
+                    <div class="default-sub-message">با هاور بر روی دسته‌بندی‌های اصلی، زیرمجموعه‌ها را مشاهده کنید.</div>
+                    
+                    <div class="sub-category-content-item" data-main-category-id="digital-goods">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">موبایل</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">گوشی موبایل</a></li>
+                                    <li><a href="#" class="no-underline">لوازم جانبی موبایل</a></li>
+                                    <li><a href="#" class="no-underline">هدفون، هدست و هندزفری</a></li>
+                                    <li><a href="#" class="no-underline">پاوربانک (شارژر همراه)</a></li>
+                                    <li><a href="#" class="no-underline">کارت حافظه</a></li>
+                                    <li><a href="#" class="no-underline">ساعت هوشمند</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">لپ‌تاپ، کامپیوتر و تبلت</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">لپ‌تاپ</a></li>
+                                    <li><a href="#" class="no-underline">کامپیوتر All-in-One</a></li>
+                                    <li><a href="#" class="no-underline">تبلت</a></li>
+                                    <li><a href="#" class="no-underline">کامپیوتر و تجهیزات جانبی</a></li>
+                                    <li><a href="#" class="no-underline">مانیتور</a></li>
+                                    <li><a href="#" class="no-underline">هارد دیسک، SSD و فلش</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">دوربین</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">دوربین عکاسی</a></li>
+                                    <li><a href="#" class="no-underline">لوازم جانبی دوربین</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">صوتی و تصویری</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">تلویزیون</a></li>
+                                    <li><a href="#" class="no-underline">اسپیکر (بلندگو)</a></li>
+                                    <li><a href="#" class="no-underline">هدفون و هدست</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">کنسول بازی</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">کنسول بازی</a></li>
+                                    <li><a href="#" class="no-underline">لوازم جانبی کنسول</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">ماشین‌های اداری و لوازم جانبی</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">پرینتر</a></li>
+                                    <li><a href="#" class="no-underline">اسکنر</a></li>
+                                    <li><a href="#" class="no-underline">کاغذ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sub-category-content-item" data-main-category-id="car-tools-industrial">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">لوازم یدکی خودرو</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">روغن موتور</a></li>
+                                    <li><a href="#" class="no-underline">فیلتر هوا</a></li>
+                                    <li><a href="#" class="no-underline">باتری خودرو</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">ابزار برقی</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">دریل</a></li>
+                                    <li><a href="#" class="no-underline">فرز</a></li>
+                                    <li><a href="#" class="no-underline">اره برقی</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">ابزار دستی</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">آچار</a></li>
+                                    <li><a href="#" class="no-underline">پیچ‌گوشتی</a></li>
+                                    <li><a href="#" class="no-underline">انبر</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-category-content-item" data-main-category-id="home-appliances">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">لوازم خانگی برقی</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">یخچال و فریزر</a></li>
+                                    <li><a href="#" class="no-underline">ماشین لباسشویی</a></li>
+                                    <li><a href="#" class="no-underline">جاروبرقی</a></li>
+                                    <li><a href="#" class="no-underline">مایکروویو</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">لوازم آشپزخانه</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">سرویس قابلمه</a></li>
+                                    <li><a href="#" class="no-underline">ظروف پخت و پز</a></li>
+                                    <li><a href="#" class="no-underline">سرویس غذاخوری</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">دکوراسیون</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">مبلمان</a></li>
+                                    <li><a href="#" class="no-underline">فرش</a></li>
+                                    <li><a href="#" class="no-underline">پرده</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-category-content-item" data-main-category-id="fashion-apparel">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">پوشاک مردانه</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">تی‌شرت و پولوشرت</a></li>
+                                    <li><a href="#" class="no-underline">پیراهن</a></li>
+                                    <li><a href="#" class="no-underline">شلوار</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">پوشاک زنانه</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">مانتو</a></li>
+                                    <li><a href="#" class="no-underline">شال و روسری</a></li>
+                                    <li><a href="#" class="no-underline">شومیز و بلوز زنانه</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">کیف و کفش</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">کیف زنانه</a></li>
+                                    <li><a href="#" class="no-underline">کفش مردانه</a></li>
+                                    <li><a href="#" class="no-underline">کفش زنانه</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-category-content-item" data-main-category-id="beauty-health">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">لوازم آرایشی</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">آرایش صورت</a></li>
+                                    <li><a href="#" class="no-underline">آرایش چشم و ابرو</a></li>
+                                    <li><a href="#" class="no-underline">آرایش لب</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">عطر و ادکلن</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">عطر زنانه</a></li>
+                                    <li><a href="#" class="no-underline">عطر مردانه</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">لوازم بهداشتی</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">شامپو</a></li>
+                                    <li><a href="#" class="no-underline">صابون</a></li>
+                                    <li><a href="#" class="no-underline">خمیر دندان</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-category-content-item" data-main-category-id="sports-travel">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">لوازم ورزشی</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">پوشاک ورزشی</a></li>
+                                    <li><a href="#" class="no-underline">کفش ورزشی</a></li>
+                                    <li><a href="#" class="no-underline">تجهیزات ورزشی</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">دوچرخه و لوازم جانبی</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">دوچرخه</a></li>
+                                    <li><a href="#" class="no-underline">کلاه دوچرخه‌سواری</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-category-content-item" data-main-category-id="books-stationery-art">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">کتاب و مجلات</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">کتاب چاپی</a></li>
+                                    <li><a href="#" class="no-underline">کتاب صوتی</a></li>
+                                    <li><a href="#" class="no-underline">مجله</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">لوازم تحریر</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">خودکار</a></li>
+                                    <li><a href="#" class="no-underline">مداد</a></li>
+                                    <li><a href="#" class="no-underline">دفتر</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-category-content-item" data-main-category-id="toys-baby">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">اسباب بازی</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">عروسک و فیگور</a></li>
+                                    <li><a href="#" class="no-underline">ماشین بازی</a></li>
+                                    <li><a href="#" class="no-underline">لگو</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">لوازم سیسمونی</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">کالسکه</a></li>
+                                    <li><a href="#" class="no-underline">صندلی غذاخوری</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sub-category-content-item" data-main-category-id="supermarket-goods">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">لبنیات</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">شیر</a></li>
+                                    <li><a href="#" class="no-underline">ماست</a></li>
+                                    <li><a href="#" class="no-underline">پنیر</a></li>
+                                </ul>
+                            </div>
+                            <div class="category-sub-group">
+                                <h4 class="font-bold text-base mb-2">خواربار</h4>
+                                <ul class="list-none p-0">
+                                    <li><a href="#" class="no-underline">برنج</a></li>
+                                    <li><a href="#" class="no-underline">روغن</a></li>
+                                    <li><a href="#" class="no-underline">شکر</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="no-underline text-gray-800">پرفروش‌ترین‌ها</a>
+        <a href="#" class="no-underline text-gray-800">سوپرمارکت</a>
+        <a href="#" class="no-underline text-gray-800">دیجی‌کالای من</a>
+        <a href="#" class="no-underline text-gray-800">سوالی دارید؟</a>
+        <a href="#" class="no-underline text-gray-800">فروشنده شوید!</a>
+    </div>
+
+<a href="#" class="no-underline text-blue-600 flex items-center mr-auto mt-2 lg:mt-0 flex-row-reverse">
+    <img src="picture/png/map.png" 
+         alt="آیکون مکان" 
+         class="w-4 h-4 ml-2">
+     <span class="chooseCity">شهر خود را انتخاب کنید</span>
+</a>
+  </nav>
+</div>
+
+
+
+
+
+
+
+
+
+  </nav>
+</div>
+<script>
+// انتخابگرهای عناصر
+const categoryDropdownContainer = document.querySelector('.category-dropdown-container');
+const categoryDropdownBtn = document.querySelector('.category-dropdown-btn'); // دکمه "دسته‌بندی کالاها"
+const categoryDropdownContent = document.querySelector('.category-dropdown-content'); // محتوای دراپ‌داون
+const categoryMainList = document.querySelector('.category-main-list');
+const allMainCategoryItems = categoryMainList.querySelectorAll('li');
+const defaultSubMessage = categoryDropdownContainer.querySelector('.default-sub-message');
+const allSubCategoryContentItems = categoryDropdownContainer.querySelectorAll('.sub-category-content-item');
+
+// تابع برای نمایش یا پنهان کردن دراپ‌داون اصلی
+function toggleDropdown() {
+    // کلاس 'show' را به محتوای دراپ‌داون اضافه یا حذف می‌کند
+    categoryDropdownContent.classList.toggle('show');
+
+    // هنگام باز شدن دراپ‌داون، پیام پیش‌فرض را نشان دهید و زیردسته‌ها را پنهان کنید
+    if (categoryDropdownContent.classList.contains('show')) {
+        if (defaultSubMessage) {
+            defaultSubMessage.style.display = 'flex';
+        }
+        allSubCategoryContentItems.forEach(item => {
+            item.style.display = 'none';
+        });
+        // اطمینان از عدم فعال بودن آیتمی در لیست اصلی
+        allMainCategoryItems.forEach(li => li.classList.remove('active'));
+    }
+}
+
+// تابع برای مدیریت هاور روی دسته‌بندی‌های اصلی (نمایش زیردسته‌ها)
+function handleMainCategoryHover(event) {
+    // حذف کلاس 'active' از تمام آیتم‌های دسته‌بندی اصلی
+    allMainCategoryItems.forEach(li => li.classList.remove('active'));
+    // اضافه کردن کلاس 'active' به آیتم فعلی که ماوس روی آن قرار گرفته
+    event.currentTarget.classList.add('active');
+
+    // دریافت ID دسته‌بندی انتخاب شده از ویژگی data-main-category
+    const selectedCategoryId = event.currentTarget.dataset.mainCategory;
+
+    // پنهان کردن پیام پیش‌فرض
+    if (defaultSubMessage) {
+        defaultSubMessage.style.display = 'none';
+    }
+
+    // پنهان کردن تمام محتواهای زیردسته
+    allSubCategoryContentItems.forEach(item => {
+        item.style.display = 'none';
+    });
+
+    // نمایش محتوای زیردسته مربوط به آیتم انتخاب شده
+    const targetSubContent = categoryDropdownContainer.querySelector(`.sub-category-content-item[data-main-category-id="${selectedCategoryId}"]`);
+    if (targetSubContent) {
+        targetSubContent.style.display = 'flex'; // یا 'block' بسته به چیدمان داخلی شما
+    }
+}
+
+// اضافه کردن شنونده رویداد کلیک به دکمه "دسته‌بندی کالاها"
+categoryDropdownBtn.addEventListener('click', toggleDropdown);
+
+// اضافه کردن شنونده‌های رویداد هاور به آیتم‌های دسته‌بندی اصلی (داخل دراپ‌داون)
+allMainCategoryItems.forEach(item => {
+    item.addEventListener('mouseenter', handleMainCategoryHover);
+});
+
+// بستن دراپ‌داون وقتی کاربر روی هر جای دیگری به جز دراپ‌داون کلیک می‌کند
+document.addEventListener('click', (event) => {
+    // اگر کلیک خارج از کانتینر دراپ‌داون بود و دراپ‌داون باز بود
+    if (!categoryDropdownContainer.contains(event.target) && categoryDropdownContent.classList.contains('show')) {
+        categoryDropdownContent.classList.remove('show');
+        // بازنشانی وضعیت دراپ‌داون به حالت اولیه (نمایش پیام پیش‌فرض و پنهان کردن زیردسته‌ها)
+        if (defaultSubMessage) {
+            defaultSubMessage.style.display = 'flex';
+        }
+        allSubCategoryContentItems.forEach(item => {
+            item.style.display = 'none';
+        });
+        allMainCategoryItems.forEach(li => li.classList.remove('active'));
+    }
+});
+
+// هنگام بارگذاری اولیه صفحه، مطمئن شوید که دراپ‌داون پنهان است
+document.addEventListener('DOMContentLoaded', () => {
+    categoryDropdownContent.classList.remove('show'); // اطمینان از بسته بودن دراپ‌داون در شروع
+    if (defaultSubMessage) {
+        defaultSubMessage.style.display = 'flex'; // نمایش پیام پیش‌فرض
+    }
+    allSubCategoryContentItems.forEach(item => {
+        item.style.display = 'none'; // پنهان کردن زیردسته‌ها
+    });
+});
+</script>
+<!-- --------------------------------------------------------------------------------------------------------------- -->
+
+<section class="story-circles-section my-6 w-[80%] mx-auto">
+  <div class="flex items-center mb-4">
+  </div>
+
+  <div class="relative">
+    <!-- دکمه‌های اسکرول -->
+<button id="storyScrollLeft" aria-label="اسکرول به چپ"
+  class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow rounded-full w-10 h-10 flex items-center justify-center z-10">
+  &#8250; <!-- فلش به چپ -->
+</button>
+<button id="storyScrollRight" aria-label="اسکرول به راست"
+  class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow rounded-full w-10 h-10 flex items-center justify-center z-10">
+  &#8249; <!-- فلش به راست -->
+</button>
+
+    <!-- اسلایدر -->
+    <div id="storyContainer"
+      class="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth px-12">
+      <!-- آیتم‌ها -->
+      <a href="#" class="flex flex-col items-center min-w-[100px]">
+        <div class="relative w-[100px] h-[100px] rounded-full p-1 bg-gradient-to-tr from-pink-500 to-yellow-500">
+          <img src="picture/story/9e7b0286b49dc33e52ec2b2f8933b41e155deba4_1747848534.jpg"
+            alt="مشاوره خرید" class="rounded-full w-full h-full object-cover bg-white p-[2px]" />
+        </div>
+        <p class="mt-2 text-sm font-medium">مشاوره خرید</p>
+        <p class="text-xs text-gray-500">موبایل و کالای..</p>
+      </a>
+
+      <a href="#" class="flex flex-col items-center min-w-[100px]">
+        <div class="relative w-[100px] h-[100px] rounded-full p-1 bg-gradient-to-tr from-pink-500 to-yellow-500">
+          <img src="picture/story/11c73947973f4d30b09a82ea18064b09.jpg"
+            alt="با ارزش‌ترین" class="rounded-full w-full h-full object-cover bg-white p-[2px]" />
+        </div>
+        <p class="mt-2 text-sm font-medium">با ارزش‌ترین</p>
+        <p class="text-xs text-gray-500">شگفت‌انگیزترین..</p>
+      </a>
+
+      <a href="#" class="flex flex-col items-center min-w-[100px]">
+        <div class="relative w-[100px] h-[100px] rounded-full p-1 bg-gradient-to-tr from-pink-500 to-yellow-500">
+          <img src="picture/story/9e7b0286b49dc33e52ec2b2f8933b41e155deba4_1747848534.jpg"
+            alt="مایع لباسشویی" class="rounded-full w-full h-full object-cover bg-white p-[2px]" />
+        </div>
+        <p class="mt-2 text-sm font-medium">مایع لباسشویی</p>
+        <p class="text-xs text-gray-500">کودک ب...</p>
+      </a>
+
+      <a href="#" class="flex flex-col items-center min-w-[100px]">
+        <div class="relative w-[100px] h-[100px] rounded-full p-1 bg-gradient-to-tr from-pink-500 to-yellow-500">
+          <img src="picture/story/95e1db0653d7ea50688dbbb6052647231d96080c_1748376250.jpg"
+            alt="مایع لباسشویی" class="rounded-full w-full h-full object-cover bg-white p-[2px]" />
+        </div>
+        <p class="mt-2 text-sm font-medium">مایع لباسشویی</p>
+        <p class="text-xs text-gray-500">کودک ب...</p>
+      </a>
+
+      <a href="#" class="flex flex-col items-center min-w-[100px]">
+        <div class="relative w-[100px] h-[100px] rounded-full p-1 bg-gradient-to-tr from-pink-500 to-yellow-500">
+          <img src="picture/story/79ef062ac38221b852a75ac9c6fae17d93d42b41_1748696358.jpg"
+            alt="کاربردی و با" class="rounded-full w-full h-full object-cover bg-white p-[2px]" />
+        </div>
+        <p class="mt-2 text-sm font-medium">کاربردی و با</p>
+        <p class="text-xs text-gray-500">آیفونت رو خاص</p>
+      </a>
+
+      <a href="#" class="flex flex-col items-center min-w-[100px]">
+        <div class="relative w-[100px] h-[100px] rounded-full p-1 bg-gradient-to-tr from-pink-500 to-yellow-500">
+          <img src="picture/story/c5fb44656251cd57ae607bd9bd96924f99a6d426_1748455013.jpg"
+            alt="خوشبو کننده" class="rounded-full w-full h-full object-cover bg-white p-[2px]" />
+        </div>
+        <p class="mt-2 text-sm font-medium">خوشبو کننده</p>
+        <p class="text-xs text-gray-500">کیفیت</p>
+      </a>
+
+      <a href="#" class="flex flex-col items-center min-w-[100px]">
+        <div class="relative w-[100px] h-[100px] rounded-full p-1 bg-gradient-to-tr from-pink-500 to-yellow-500">
+          <img src="picture/story/a463e0a9ad2895b942a33514be8294715d0a6650_1747691703.jpg"
+            alt="ید آرایشی جذاب" class="rounded-full w-full h-full object-cover bg-white p-[2px]" />
+        </div>
+        <p class="mt-2 text-sm font-medium">ید آرایشی جذاب</p>
+        <p class="text-xs text-gray-500">عاشین</p>
+      </a>
+
+      <a href="#" class="flex flex-col items-center min-w-[100px]">
+        <div class="relative w-[100px] h-[100px] rounded-full p-1 bg-gradient-to-tr from-pink-500 to-yellow-500">
+          <img src="picture/story/20d6f08b4fc2a9e1a54e43464e198884144e08ae_1747850864.jpg"
+            alt="کدوم اسباب" class="rounded-full w-full h-full object-cover bg-white p-[2px]" />
+        </div>
+        <p class="mt-2 text-sm font-medium">کدوم اسباب</p>
+        <p class="text-xs text-gray-500">بازی؟</p>
+      </a>
+
+      <a href="#" class="flex flex-col items-center min-w-[100px]">
+        <div class="relative w-[100px] h-[100px] rounded-full p-1 bg-gradient-to-tr from-pink-500 to-yellow-500">
+          <img src="picture/story/f6a71a806be792866d157e00748e657f7769d568_1747846413.jpg"
+            alt="ریمل با رنگ آبی" class="rounded-full w-full h-full object-cover bg-white p-[2px]" />
+        </div>
+        <p class="mt-2 text-sm font-medium">ریمل با رنگ آبی</p>
+        <p class="text-xs text-gray-500">💄</p>
+      </a>
+
+      <a href="#" class="flex flex-col items-center min-w-[100px]">
+        <div class="relative w-[100px] h-[100px] rounded-full p-1 bg-gradient-to-tr from-pink-500 to-yellow-500">
+          <img src="picture/story/545c370c798c3dc1b5a070341f803fbfd1e37413_1747837640.jpg"
+            alt="کشف خود تراش" class="rounded-full w-full h-full object-cover bg-white p-[2px]" />
+        </div>
+        <p class="mt-2 text-sm font-medium">کشف خود تراش</p>
+        <p class="text-xs text-gray-500">جدید 🤩</p>
+      </a>
+
+      <a href="#" class="flex flex-col items-center min-w-[100px]">
+        <div class="relative w-[100px] h-[100px] rounded-full p-1 bg-gradient-to-tr from-pink-500 to-yellow-500">
+          <img src="picture/story/186dee0840f6049a42a09b4b71ed99a7ea02c568_1747858330.jpg"
+            alt="برای تو که ماهی" class="rounded-full w-full h-full object-cover bg-white p-[2px]" />
+        </div>
+        <p class="mt-2 text-sm font-medium">برای تو که ماهی</p>
+        <p class="text-xs text-gray-500">🎁</p>
+      </a>
+
+      <a href="#" class="flex flex-col items-center min-w-[100px]">
+        <div class="relative w-[100px] h-[100px] rounded-full p-1 bg-gradient-to-tr from-pink-500 to-yellow-500">
+          <img src="picture/story/e868142ca1a81ad11ba10a72ad2f017688efccd2_1747883476.jpg"
+            alt="پیکسل دیسپلی" class="rounded-full w-full h-full object-cover bg-white p-[2px]" />
+        </div>
+        <p class="mt-2 text-sm font-medium">پیکسل دیسپلی</p>
+        <p class="text-xs text-gray-500">دیگه چیه؟</p>
+      </a>
+
+      <a href="#" class="flex flex-col items-center min-w-[100px]">
+        <div class="relative w-[100px] h-[100px] rounded-full p-1 bg-gradient-to-tr from-pink-500 to-yellow-500">
+          <img src="picture/story/2742a442715a45205eb6f42e00c2769ccf9ac020_1748001117.jpg"
+            alt="ظریف اما خفن" class="rounded-full w-full h-full object-cover bg-white p-[2px]" />
+        </div>
+        <p class="mt-2 text-sm font-medium">ظریف اما خفن</p>
+      </a>
+
+      <a href="#" class="flex flex-col items-center min-w-[100px]">
+        <div class="relative w-[100px] h-[100px] rounded-full p-1 bg-gradient-to-tr from-pink-500 to-yellow-500">
+          <img src="picture/story/e10b1fb7566e68effbf66d3f4596f836917fb6b3_1748191729.jpg"
+            alt="گوشواره میخی" class="rounded-full w-full h-full object-cover bg-white p-[2px]" />
+        </div>
+        <p class="mt-2 text-sm font-medium">گوشواره میخی</p>
+        <p class="text-xs text-gray-500">مینیمال</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<script>
+  const storyContainer = document.getElementById('storyContainer');
+  const storyScrollLeftBtn = document.getElementById('storyScrollLeft');
+  const storyScrollRightBtn = document.getElementById('storyScrollRight');
+
+  // دکمه سمت چپ: اسکرول به چپ
+  storyScrollLeftBtn.addEventListener('click', () => {
+    storyContainer.scrollBy({ left: -200, behavior: 'smooth' });
+  });
+
+  // دکمه سمت راست: اسکرول به راست
+  storyScrollRightBtn.addEventListener('click', () => {
+    storyContainer.scrollBy({ left: 200, behavior: 'smooth' });
+  });
+</script>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<!-- ---------------------------------------------------------------------------------------------------------------- -->
+
+<div id="sliderContainer">
+    <img class="slide active" src="picture/slide/1f8362d0dc94fee3d0899f3489adec0a18ea8d23_1748077151.png" alt="اسلاید 1">
+    <img class="slide" src="picture/slide/8d33a0acba145f25bd0f73ab84ad1731a7be5265_1748076932.png" alt="اسلاید 2">
+    <img class="slide" src="picture/slide/8ffcb0b75e6f864bb2e1ecdef712c063312fce18_1748075225.png" alt="اسلاید 3">
+    <img class="slide" src="picture/slide/43f2a78a659dd87f150db9430e540c1567e2b86b_1747923010.png" alt="اسلاید 4">
+    <img class="slide" src="picture/slide/60214ad2fbd62717a6e384b4de98f7adc3ee984c_1747983432.png" alt="اسلاید 5">
+    <img class="slide" src="picture/slide/be4d238cce30a0811b28af05f2d55c65429d4976_1748077497.png" alt="اسلاید 6">
+    <img class="slide" src="picture/slide/cf10c471824992a9e0b3b6a46ee4ef8c5aa02ce2_1747815690.png" alt="اسلاید 7">
+
+    <div class="controls">
+      <button onclick="prevSlide()">▶</button>
+      <button onclick="nextSlide()">◀</button>
+    </div>
+</div>
+ <script>
+  const slides = document.querySelectorAll('#sliderContainer .slide');
+  let currentSlideIndex = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+    showSlide(currentSlideIndex);
+  }
+
+  function prevSlide() {
+    currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+    showSlide(currentSlideIndex);
+  }
+
+  setInterval(nextSlide, 4000);
+  showSlide(currentSlideIndex);
+
+  
+</script>
+
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+    <section class="section mx-auto my-4 max-w-[80%] product-scroll-wrapper relative ">
+      <div class="container container5">
+        <div class="category">
+          <div class="items cate1">
+            <a href="#">
+              <div class="img-holder">
+                <img src="picture/bishtar/img1.png"  />
+              </div>
+              <span>4 قسطه</span>
+            </a>
+          </div>
+          <div class="items cate1">
+            <a href="#">
+              <div class="img-holder">
+                <img src="picture/bishtar/img2.png"  />
+              </div>
+              <span>حراج سر ماه</span>
+            </a>
+          </div>
+          <div class="items cate1">
+            <a href="#">
+              <div class="img-holder">
+                <img src="picture/bishtar/img3.png"  />
+              </div>
+              <span>خرید طلای دیجیتال</span>
+            </a>
+          </div>
+          <div class="items cate1">
+            <a href="#">
+              <div class="img-holder">
+                <img src="picture/bishtar/img4.png"  />
+              </div>
+              <span>صرافی تبدیل</span>
+            </a>
+          </div>
+          <div class="items cate1">
+            <a href="#">
+              <div class="img-holder">
+                <img src="picture/bishtar/img5.png"  />
+              </div>
+              <span>پیشنهاد دیجی کالا</span>
+            </a>
+          </div>
+          <div class="items cate1">
+            <a href="#">
+              <div class="img-holder">
+                <img src="picture/bishtar/img6.jpg"  />
+              </div>
+              <span>خرید طلای فیزیکی</span>
+            </a>
+          </div>
+          <div class="items cate1">
+            <a href="#">
+              <div class="img-holder">
+                <img src="picture/bishtar/img7.png"  />
+              </div>
+              <!-- اون نیم فاصله هستش  -->
+              <span>تخفیف مبایل&zwnj;کارکرده</span>
+            </a>
+          </div>
+          <div class="items cate1">
+            <a href="#">
+              <div class="img-holder">
+                <img src="picture/bishtar/img8.png"  />
+              </div>
+              <span>خرید چکی</span>
+            </a>
+          </div>
+          <div class="items cate1">
+            <a href="#">
+              <div class="img-holder">
+                <img src="picture/bishtar/img9.png"  />
+              </div>
+              <span>207 ببر!</span>
+            </a>
+          </div>
+          <div class="items cate1">
+            <a href="#">
+              <div class="img-holder img-holder-dots">
+                <div class="circle-dots">
+                  <img
+                    class="three-dots"
+                    src="picture/bishtar/threedots.svg"
+                    alt="dots"
+                  />
+                </div>
+              </div>
+              <span>بیشتر</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<section class="mx-auto my-4 max-w-[80%] product-scroll-wrapper relative">
+    <!-- دکمه‌ها -->
+    <button id="scrollLeft" aria-label="اسکرول به چپ"class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full w-8 h-8 shadow-md">&#8250;</button>
+    <button id="scrollRight" aria-label="اسکرول به راست"class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full w-8 h-8 shadow-md">&#8249;</button>
+    <div id="productContainer" class="flex flex-nowrap overflow-x-auto scroll-smooth py-2 px-1">
+    <div class="product-card special-offer-product-card me-3">
+            <div class="special-offer-content-wrapper">
+                <h3 class="offer-title">پیشنهاد<br>شگفت<br>انگیز</h3>
+                <div class="timer">
+                    <span>00</span>:<span>00</span>:<span>00</span>
+                </div>
+                <div class="percentage w-24 h-24">
+                    <img src="picture/svg/Amazing.svg" alt="" class="w-full h-full object-contain">
+                    <div class="smile"></div>
+                </div>
+                <a href="#" class="view-all">مشاهده همه ›</a>
+            </div>
+        </div>
+   
+        <!-- کارت‌ها -->
+        <!-- کارت 1 -->
+        <div class="product-card flex-shrink-0 w-48 p-2 text-center bg-white rounded-lg mr-2 relative">
+            <img src="picture/offer-card/d4a0a16ff735a0be00f5e65b39fb6593d992a178_1747411332.webp" 
+                 alt="ساعت هوشمند کیسلکت مدل Ks2 m2 max ltd" class="w-full h-28 object-cover rounded-lg mb-1"/>
+            <div class="title font-semibold text-xs mb-1">ساعت هوشمند کیسلکت مدل Ks2 m2 max ltd</div>
+            <div class="price-discount flex justify-between items-center mb-1">
+                <div class="discount bg-green-600 text-white rounded-full px-2 py-0.5 text-xs font-medium">۷%</div>
+                <div class="price text-red-500 font-bold text-xs">۶,۴۹۹,۰۰۰ تومان</div>
+            </div>
+            <div class="original-price text-gray-400 text-xs line-through text-left">۶,۹۹۰,۰۰۰ تومان</div>
+        </div>
+
+        <!-- کارت 2 -->
+        <div class="product-card flex-shrink-0 w-48 p-2 text-center bg-white rounded-lg mr-2 relative">
+            <img src="picture/offer-card/8be4f379686633455de3833b142567a1645b3817_1745830369.webp" 
+                 alt="ساعت هوشمند 45 میلی‌ متری میبرو مدل watch a2" class="w-full h-28 object-cover rounded-lg mb-1"/>
+            <div class="title font-semibold text-xs mb-1">ساعت هوشمند 45 میلی‌ متری میبرو مدل watch a2</div>
+            <div class="price-discount flex justify-between items-center mb-1">
+                <div class="discount bg-green-600 text-white rounded-full px-2 py-0.5 text-xs font-medium">۷%</div>
+                <div class="price text-red-500 font-bold text-xs">۲,۱۹۹,۰۰۰ تومان</div>
+            </div>
+            <div class="original-price text-gray-400 text-xs line-through text-left">۲,۳۶۳,۰۰۰ تومان</div>
+        </div>
+
+        <!-- کارت 3 -->
+        <div class="product-card flex-shrink-0 w-48 p-2 text-center bg-white rounded-lg mr-2 relative">
+            <img src="picture/offer-card/3ef95f8e1c9e99c029b7f8911907a1849c9a9752_1747664667.webp" 
+                 alt="لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15" class="w-full h-28 object-cover rounded-lg mb-1"/>
+            <div class="title font-semibold text-xs mb-1">لپ تاپ 15.6 اینچی ایسوس مدل TUF Gaming F15</div>
+            <div class="price-discount flex justify-between items-center mb-1">
+                <div class="discount bg-green-600 text-white rounded-full px-2 py-0.5 text-xs font-medium">۵%</div>
+                <div class="price text-red-500 font-bold text-xs">۴۱,۹۹۹,۰۰۰ تومان</div>
+            </div>
+            <div class="original-price text-gray-400 text-xs line-through text-left">۴۴,۲۰۰,۰۰۰ تومان</div>
+        </div>
+
+        <!-- کارت 4 -->
+        <div class="product-card flex-shrink-0 w-48 p-2 text-center bg-white rounded-lg mr-2 relative">
+            <img src="picture/offer-card/0b0b2a61b8771d4ec6336261d77786a3722b0113_1717341619.webp" 
+                 alt="لپ تاپ 15.6 اینچی لنوو مدل Ideapad 15 Athlon Silver" class="w-full h-28 object-cover rounded-lg mb-1"/>
+            <div class="title font-semibold text-xs mb-1">لپ تاپ 15.6 اینچی لنوو مدل Ideapad 15 Athlon Silver</div>
+            <div class="price-discount flex justify-between items-center mb-1">
+                <div class="discount bg-green-600 text-white rounded-full px-2 py-0.5 text-xs font-medium">۴%</div>
+                <div class="price text-red-500 font-bold text-xs">۲۳,۴۰۰,۰۰۰ تومان</div>
+            </div>
+            <div class="original-price text-gray-400 text-xs line-through text-left">۲۴,۳۷۵,۰۰۰ تومان</div>
+        </div>
+
+        <!-- کارت 5 -->
+        <div class="product-card flex-shrink-0 w-48 p-2 text-center bg-white rounded-lg mr-2 relative">
+            <img src="picture/offer-card/6733544c7f75ae04d097e6fdae3dc353d176b611_1737287896.webp" 
+                 alt="هدفون بلوتوثی جی‌بی‌ال مدل X-1030" class="w-full h-28 object-cover rounded-lg mb-1"/>
+            <div class="title font-semibold text-xs mb-1">هدفون بلوتوثی جی‌بی‌ال مدل X-1030</div>
+            <div class="price-discount flex justify-between items-center mb-1">
+                <div class="discount bg-green-600 text-white rounded-full px-2 py-0.5 text-xs font-medium">۴%</div>
+                <div class="price text-red-500 font-bold text-xs">۱,۷۹۹,۰۰۰ تومان</div>
+            </div>
+            <div class="original-price text-gray-400 text-xs line-through text-left">۱,۸۷۰,۰۰۰ تومان</div>
+        </div>
+
+        <!-- کارت 6 -->
+        <div class="product-card flex-shrink-0 w-48 p-2 text-center bg-white rounded-lg mr-2 relative">
+            <img src="picture/offer-card/3f3f76f87f16b64b9142858ceae6879f9a0e4c99_1745827638.webp" 
+                 alt="هدفون بلوتوثی فیلیپس مدل PH80575" class="w-full h-28 object-cover rounded-lg mb-1"/>
+            <div class="title font-semibold text-xs mb-1">هدفون بلوتوثی فیلیپس مدل PH80575</div>
+            <div class="price-discount flex justify-between items-center mb-1">
+                <div class="discount bg-green-600 text-white rounded-full px-2 py-0.5 text-xs font-medium">۴%</div>
+                <div class="price text-red-500 font-bold text-xs">۱,۷۷۵,۰۰۰ تومان</div>
+            </div>
+            <div class="original-price text-gray-400 text-xs line-through text-left">۱,۸۴۵,۰۰۰ تومان</div>
+        </div>
+
+        <!-- کارت 7 -->
+        <div class="product-card flex-shrink-0 w-48 p-2 text-center bg-white rounded-lg mr-2 relative">
+            <img src="picture/offer-card/9285ca4c7ae4a67babb13574b008d4858b85d59d_1726055404.webp" 
+                 alt="گوشی موبایل شیائومی مدل Redmi Note 13 Pro 5G" class="w-full h-28 object-cover rounded-lg mb-1"/>
+            <div class="title font-semibold text-xs mb-1">گوشی موبایل شیائومی مدل Redmi Note 13 Pro 5G</div>
+            <div class="price-discount flex justify-between items-center mb-1">
+                <div class="discount bg-green-600 text-white rounded-full px-2 py-0.5 text-xs font-medium">۴%</div>
+                <div class="price text-red-500 font-bold text-xs">۲۴,۹۹۹,۰۰۰ تومان</div>
+            </div>
+            <div class="original-price text-gray-400 text-xs line-through text-left">۲۵,۹۹۹,۰۰۰ تومان</div>
+        </div>
+
+        <!-- کارت 8 -->
+        <div class="product-card flex-shrink-0 w-48 p-2 text-center bg-white rounded-lg mr-2 relative">
+            <img src="picture/offer-card/6733544c7f75ae04d097e6fdae3dc353d176b611_1737287896.webp" 
+                 alt="هدفون دیگر" class="w-full h-28 object-cover rounded-lg mb-1"/>
+            <div class="title font-semibold text-xs mb-1">هدفون دیگر</div>
+            <div class="price-discount flex justify-between items-center mb-1">
+                <div class="discount bg-green-600 text-white rounded-full px-2 py-0.5 text-xs font-medium">۵%</div>
+                <div class="price text-red-500 font-bold text-xs">۱,۵۰۰,۰۰۰ تومان</div>
+            </div>
+            <div class="original-price text-gray-400 text-xs line-through text-left">۱,۵۷۵,۰۰۰ تومان</div>
+        </div>
+
+
+    </div>
+</section>
+
+<script>
+    const productContainer = document.getElementById('productContainer');
+    const scrollLeftBtn = document.getElementById('scrollLeft');
+    const scrollRightBtn = document.getElementById('scrollRight');
+
+    scrollRightBtn.addEventListener('click', () => {
+        productContainer.scrollBy({ left: 220, behavior: 'smooth' });
+    });
+    scrollLeftBtn.addEventListener('click', () => {
+        productContainer.scrollBy({ left: -220, behavior: 'smooth' });
+    });
+</script>
+
+<style>
+    .discount-pill {
+        background-color: #da1010;
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: bold;
+        padding: 2px 8px;
+        border-radius: 9999px; /* بیضی */
+        display: inline-block;
+        min-width: 28px;
+        text-align: center;
+    }
+
+    .product-card img {
+        transition: transform 0.3s ease;
+    }
+
+    .product-card img:hover {
+        transform: scale(1.05);
+    }
+
+    #productContainer::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<div class="flex justify-center my-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 w-4/5">
+        <div class="px-2">
+            <img src="picture/New/4d0d59a4b0ce334b618521c054e57ae8a66f81bd_1747734039.gif" class="w-full rounded-lg" alt="بنر ۱" />
+        </div>
+        <div class="px-2">
+            <img src="picture/New/ad775f65805c15a4267818ed51e5aff5f1943446_1747984723.png" class="w-full rounded-lg" alt="بنر ۲" />
+        </div>
+        <div class="px-2">
+            <img src="picture/New/04757f3ef6dc062163e3e5bc1879b7025e098b43_1748076080.png" class="w-full rounded-lg" alt="بنر ۳" />
+        </div>
+        <div class="px-2">
+            <img src="picture/New/78315eefdf721080f0a795f0ead773d0e918731a_1748086928.png" class="w-full rounded-lg" alt="بنر ۴" />
+        </div>
+    </div>
+</div>
+
+
+<div class="flex justify-center my-4">
+  <div class="w-full sm:w-4/5">
+    <div class="flex items-center justify-between p-3 rounded-lg flex-wrap" style="background-color: #f0f0f0;">
+      <div class="flex items-center flex-grow flex-wrap md:flex-nowrap justify-center md:justify-start mb-2 md:mb-0">
+        <img src="picture/New/fresh.png" alt="Basket Icon" class="ml-2">
+        <img src="picture/svg/fresh-incredible-offer.svg" alt="Discount Icon" class="ml-2">
+        <span class="inline-flex items-center justify-center text-white px-3 py-1 rounded-full mr-2" style="background-color: #00a859; font-size: 0.9em; min-width: 100px; text-align: center;">تا ۵۰٪ تخفیف</span>
+      </div>
+
+      <div class="hidden md:flex overflow-auto flex-nowrap mx-auto flex-grow" style="scrollbar-width: none; -ms-overflow-style: none; direction: ltr;">
+        <div class="flex flex-col items-center mx-2 flex-shrink-0">
+          <div class="rounded-full bg-white p-3 shadow-sm flex items-center justify-center w-20 h-20">
+            <img src="picture/market/73a597a5b43eb2279762dac0acbb569eb9e7978e_1723888664.webp" class="w-full" alt="Product 1">
+          </div>
+          <span class="mt-2 text-red-500">۴۵٪</span>
+        </div>
+        <div class="flex flex-col items-center mx-2 flex-shrink-0">
+          <div class="rounded-full bg-white p-3 shadow-sm flex items-center justify-center w-20 h-20">
+            <img src="picture/market/700a7846fb822ad21f333db3a4f409b4ca415f08_1698478623.webp" class="w-full" alt="Product 2">
+          </div>
+          <span class="mt-2 text-red-500">۴۵٪</span>
+        </div>
+        <div class="flex flex-col items-center mx-2 flex-shrink-0">
+          <div class="rounded-full bg-white p-3 shadow-sm flex items-center justify-center w-20 h-20">
+            <img src="picture/market/bc69b51e405e0157a1be433cac01d4c7f856755f_1617794136.webp" class="w-full" alt="Product 3">
+          </div>
+          <span class="mt-2 text-red-500">۴۰٪</span>
+        </div>
+        <div class="flex flex-col items-center mx-2 flex-shrink-0">
+          <div class="rounded-full bg-white p-3 shadow-sm flex items-center justify-center w-20 h-20">
+            <img src="picture/market/14d127eeebc6b69b4c333b06262d3cf5032d40e6_1613807149.webp" class="w-full" alt="Product 4">
+          </div>
+          <span class="mt-2 text-red-500">۴۰٪</span>
+        </div>
+        <div class="flex flex-col items-center mx-2 flex-shrink-0">
+          <div class="rounded-full bg-white p-3 shadow-sm flex items-center justify-center w-20 h-20">
+            <img src="picture/market/111999239.webp" class="w-full" alt="Product 5">
+          </div>
+          <span class="mt-2 text-red-500">۵۰٪</span>
+        </div>
+        <div class="flex flex-col items-center mx-2 flex-shrink-0">
+          <div class="rounded-full bg-white p-3 shadow-sm flex items-center justify-center w-20 h-20">
+            <img src="picture/market/2967641.webp" class="w-full" alt="Product 6">
+          </div>
+          <span class="mt-2 text-red-500">۵۲٪</span>
+        </div>
+      </div>
+
+      <a href="#" class="flex items-center no-underline text-gray-800 justify-center md:justify-start flex-grow md:flex-grow-0">
+        <span class="hidden md:inline-block text-gray-800">بیش از ۱۰۰ کالا</span>
+        <span class="text-nowrap ml-2 hidden md:inline-block"> › </span>
+        <i class="fas fa-arrow-left md:hidden text-lg"></i>
+        <span class="text-nowrap ml-2 md:hidden">بیش از ۱۰۰ کالا</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<div class="flex justify-center my-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 w-4/5">
+        <div class="px-2">
+            <img src="picture/New/b4acb6cd3e19036591ec91db88fc55496a9f26f4_1747575739.png" class="w-full rounded-lg" alt="تصویر بنر ۱" />
+        </div>
+        <div class="px-2">
+            <img src="picture/New/83faae63d646bb8d8bd2c32c816dbd9c3eac2bf8_1748076591.png" class="w-full rounded-lg" alt="تصویر بنر ۲" />
+        </div>
+        <div class="px-2">
+            <img src="picture/New/38ca84c40de526a55cbc4130a5a15f4e44b0544f_1748076441.png" class="w-full rounded-lg" alt="تصویر بنر ۳" />
+        </div>
+        <div class="px-2">
+            <img src="picture/New/6286966e4d9ba8972fb9ca089cbd06933532bcae_1748076769.png" class="w-full rounded-lg" alt="تصویر بنر ۴" />
+        </div>
+    </div>
+</div>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<section class="my-5 category-section ">
+  <div class="flex justify-center w-full">
+    <div class="max-w-[80%] w-full">
+      <h5 class="font-bold text-center mb-4">خرید بر اساس دسته‌بندی</h5>
+      
+      <div class="category-scroll-wrapper relative">
+        <button id="categoryScrollLeft" aria-label="اسکرول به چپ" class="scroll-btn scroll-btn-left">&#8250;</button>
+        <button id="categoryScrollRight" aria-label="اسکرول به راست" class="scroll-btn scroll-btn-right">&#8249;</button>
+        
+        <div id="categoryContainer" class="category-container">
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/09a98a13c782e12a245930b4515d243b17734a33_1740299441.jpg alt="موبایل">
+            <p>موبایل</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/2777142.png" alt="کالای دیجیتال">
+            <p>کالای دیجیتال</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/8a042388b93c5116604f35092a1fb35f8f0756be_1740299467.jpg" alt="خانه و آشپزخانه">
+            <p>خانه و آشپزخانه</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/d825f64f509cd5067a9022528c465e8ca705f60d_1740299511.jpg" alt="لوازم خانگی برقی">
+            <p>لوازم خانگی برقی</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/b196bbdea97f57bfac02dc1666d7401b16ee4bcb_1740299482.jpg" alt="آرایشی و بهداشتی">
+            <p>زیبایی و سلامت</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/fb6303218362cd2c48b40fef5da89ad33a5c04d7_1740299524.jpg" alt="ابزار، تجهیزات و صنعتی">
+            <p>ابزار و تجهیزات</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/b3d4eaefebe67ab8d849296ea2e7e113cde8094c_1740299538.jpg" alt="مد و پوشاک">
+            <p>مد و پوشاک</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/4d4582205d0d5045c2bd94c5e910bbb49ae4fd4e_1740299590.jpg" alt="ورزش و سفر">
+            <p>ورزش و سفر</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/0cdf9c404e509371c3177a334be948a7e500419c_1740299574.jpg" alt="کتاب، لوازم‌التحریر و هنر">
+            <p>کتاب و هنر</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/6f5284dccdb280616bbfe58533ecc483de4639af_1740299648.jpg" alt="اسباب‌بازی، کودک و نوزاد">
+            <p>کودک و نوزاد</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/7adb0cc6edc18a6d04b9ba3bdd424b1bcce47848_1740299618.jpg" alt="سوپرمارکتی">
+            <p>سوپرمارکتی</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/03552aa1293fec9f43477814ca62afdacdac18e3_1740299496.jpg" alt="خودرو">
+            <p>خودرو و ابزارآلات</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/1995574.png" alt="فرهنگ و هنر">
+            <p>فرهنگ و هنر</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/3135715.png" alt="اداری و آموزشی">
+            <p>اداری و آموزشی</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/deb3f514c62761797eb6a49e1559268b8bce3219_1740299561.jpg" alt="پزشکی و سلامت">
+            <p>پزشکی و سلامت</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/616408.png" alt="حیوانات خانگی">
+            <p>حیوانات خانگی</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/9a4dfac524f8a865f9f69e38d5434fa69fe63e3b_1740299663.jpg" alt="محصولات بومی و محلی ">
+            <p>محصولات بومی و محلی </p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/78135af4274ad7b7fcdaec7e5912689e5f5db96a_1740299548.jpg" alt="طلا و جواهر">
+            <p>طلا و جواهر </p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/f35b3eba7de8bf2432fff4f53abfa8cbaa6e71d6_1740299603.jpg" alt="کارت هدیه و گیفت کارت">
+            <p>کارت هدیه و گیفت کارت</p>
+          </a>
+          <a href="#" class="category-item-card">
+            <img src="picture/berand-category/29b1e4b2aa0e42aaa361228f8d0402910c949b14_1740299704.jpg" alt="کالای کار کرده ">
+            <p>کالای کار کرده </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+    const categoryContainer = document.getElementById('categoryContainer');
+    document.getElementById('categoryScrollRight').addEventListener('click', () => {
+        categoryContainer.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+    document.getElementById('categoryScrollLeft').addEventListener('click', () => {
+        categoryContainer.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+
+    
+</script>
+<style>
+    .active-dragging {
+        cursor: grabbing !important;
+        user-select: none;
+}
+</style>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+<div class="flex justify-center my-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 w-4/5">
+        <div class="px-2">
+            <a href="#">
+                <img src="picture/mid/76402bf5544da5826ecb61b4a3e9b50c51259b27_1748330045.webp" class="w-full rounded shadow-sm" alt="تصویر 1" />
+            </a>
+        </div>
+        <div class="px-2">
+            <a href="#">
+                <img src="picture/mid/d0f63a52d17976c25b8ec331b33249990ca611cb_1748244511.webp" class="w-full rounded shadow-sm" alt="تصویر 2" />
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<section class="my-5 brands-section">
+    <div class="flex justify-center w-full">
+        <div class="container" style="max-width: 80%;">
+            <div class="flex items-center justify-center mb-4">
+                <h5 class="font-bold text-center mb-0 ms-2">محبوب‌ترین برندها</h5>
+                <img src="picture/3222830.png" alt="آیکون خورشید" style="width: 24px; height: 24px;">
+            </div>
+
+            <div class="brands-scroll-wrapper position-relative">
+                <button id="brandsScrollLeft" aria-label="اسکرول به چپ" class="scroll-btn scroll-btn-left">&#8250;</button>
+                <button id="brandsScrollRight" aria-label="اسکرول به راست" class="scroll-btn scroll-btn-right">&#8249;</button>
+
+                <div id="brandsContainer" class="flex flex-nowrap bg-white p-3 rounded-lg">
+                    <div class="brand-logo-card rounded-lg p-2 text-center mr-3">
+                        <img src="picture/brands/پریا.png" alt="پریا" class="img-fluid" />
+                    </div>
+                    <div class="brand-logo-card rounded-lg p-2 text-center mr-3">
+                        <img src="picture/brands/پرسیل.png" alt="پرسیل" class="img-fluid" />
+                    </div>
+                    <div class="brand-logo-card rounded-lg p-2 text-center mr-3">
+                        <img src="picture/brands/ایکس.jpg" alt="ایکس ویژن" class="img-fluid" />
+                    </div>
+                    <div class="brand-logo-card rounded-lg p-2 text-center mr-3">
+                        <img src="picture/brands/ساعی.jpg" alt="ساعی" class="img-fluid" />
+                    </div>
+                    <div class="brand-logo-card rounded-lg p-2 text-center mr-3">
+                        <img src="picture/brands/چینی زرین.png" alt="چینی زرین" class="img-fluid" />
+                    </div>
+                    <div class="brand-logo-card rounded-lg p-2 text-center mr-3">
+                        <img src="picture/brands/هووای.png" alt="هووای" class="img-fluid" />
+                    </div>
+                    <div class="brand-logo-card rounded-lg p-2 text-center mr-3">
+                        <img src="picture/brands/چرم مشهد.jpg" alt="چرم مشهد" class="img-fluid" />
+                    </div>
+                    <div class="brand-logo-card rounded-lg p-2 text-center mr-3">
+                        <img src="picture/brands/شیایومی.png" alt="شیائومی" class="img-fluid" />
+                    </div>
+                    <div class="brand-logo-card rounded-lg p-2 text-center mr-3">
+                        <img src="picture/brands/سامسونک.jpg" alt="سامسونگ" class="img-fluid" />
+                    </div>
+                    <div class="brand-logo-card rounded-lg p-2 text-center mr-3">
+                        <img src="picture/brands/پنتر.jpg" alt="پنتر" class="img-fluid" />
+                    </div>
+                    <div class="brand-logo-card rounded-lg p-2 text-center mr-3">
+                        <img src="picture/brands/کاله.png" alt="کاله" class="img-fluid" />
+                    </div>
+                    <div class="brand-logo-card rounded-lg p-2 text-center mr-3">
+                        <img src="picture/brands/فلیکا.jpg" alt="فلیکا" class="img-fluid" />
+                    </div>
+                    <div class="brand-logo-card rounded-lg p-2 text-center mr-3">
+                        <img src="picture/brands/e44886020b773202d6d431e2fef2f3bd8bd3bc7f_1737817444.jpg" alt="برند ۱" class="img-fluid" />
+                    </div>
+                    <div class="brand-logo-card rounded-lg p-2 text-center mr-3">
+                        <img src="picture/brands/efb14accdad9be1b2176aa0317c8bbac43733831_1609325767.png" alt="برند ۲" class="img-fluid" />
+                    </div>
+                    <div class="brand-logo-card rounded-lg p-2 text-center mr-3">
+                        <img src="picture/brands/f660c46ffc6d58a19e5c0af9d03c50be9a929571_1627214766.png" alt="برند ۳" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const brandsContainer = document.getElementById('brandsContainer');
+    const brandsScrollLeftBtn = document.getElementById('brandsScrollLeft');
+    const brandsScrollRightBtn = document.getElementById('brandsScrollRight');
+
+    if (brandsContainer && brandsScrollLeftBtn && brandsScrollRightBtn) {
+        brandsScrollRightBtn.addEventListener('click', () => {
+            brandsContainer.scrollBy({
+                left: 200, // مقدار اسکرول به راست
+                behavior: 'smooth'
+            });
+        });
+
+        brandsScrollLeftBtn.addEventListener('click', () => {
+            brandsContainer.scrollBy({
+                left: -200, // مقدار اسکرول به چپ
+                behavior: 'smooth'
+            });
+        });
+
+
+
+    } 
+</script>
+<style>
+    .active-dragging {
+        cursor: grabbing !important;
+        user-select: none;
+}
+</style>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+<section class="my-5 product-categories-grid">
+    <div class="flex justify-center w-full">
+        <div class="w-full max-w-[80%]">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+
+                <!-- کارت 1: گوشی موبایل -->
+                <div class="category-grid-card p-3 rounded-lg bg-white h-full">
+                    <h6 class="text-center font-bold mb-3">گوشی موبایل</h6>
+                    <div class="product-grid-items flex flex-wrap justify-center">
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/5af568b4909435c6a215ad5e728e902db234b673_1736597759.jpg" alt="گوشی موبایل" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/1c2e7d20ad20a75c64926467270d3b01b301d3db_1748341641.jpg" alt="گوشی موبایل" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/c0a7ce006d11c222bce16bd3cdd8d79aeb6689bc_1738134271.jpg" alt="گوشی موبایل" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/5a702e9e6ce8868669fa2e66aedc1cf8252f1c30_1737877500.jpg" alt="گوشی موبایل" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- کارت 2: کیف و کاور گوشی -->
+                <div class="category-grid-card p-3 rounded-lg bg-white h-full">
+                    <h6 class="text-center font-bold mb-3">کیف و کاور گوشی</h6>
+                    <div class="product-grid-items flex flex-wrap justify-center">
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/3f0aa7082dfe7679cefd567676bde0ba10a29126_1721572313.jpg" alt="کیف و کاور" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/1cc5b3ed55faaf1715482cc02e4a5fc0efef83e1_1703792576.jpg" alt="کیف و کاور" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/404b7c43b68392915810883504d7a07283888521_1724772852.jpg" alt="کیف و کاور" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/99b17bc5c70706fbd323daa939cc3a6fcfd13d1d_1719267684.jpg" alt="کیف و کاور" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- کارت 3: هدفون، هدست و هندزفری -->
+                <div class="category-grid-card p-3 rounded-lg bg-white h-full">
+                    <h6 class="text-center font-bold mb-3">هدفون، هدست و هندزفری</h6>
+                    <div class="product-grid-items flex flex-wrap justify-center">
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/2702ee2fd04fc82dd6d3dcbeecc7252a7c801325_1743691073.jpg" alt="هدفون" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/0e641682af59e352cf36d04243c378ee697ab156_1745824988.jpg" alt="هدفون" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/d67e3b04a481f5f5a8c2098a27a7eaccc3f1fe53_1730379094.jpg" alt="هدفون" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/04a8ef0d559f51fdcbb30ca91951843d1430fe27_1730363663.jpg" alt="هدفون" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- کارت 4: ساعت عقربه ای مردانه -->
+                <div class="category-grid-card p-3 rounded-lg bg-white h-full">
+                    <h6 class="text-center font-bold mb-3">ساعت عقربه ای مردانه</h6>
+                    <div class="product-grid-items flex flex-wrap justify-center">
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/fa75541bebac6d21a77341d55d6b8292032a1d2e_1738319819.jpg" alt="ساعت هوشمند" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/74bfb53e5d901c43248dea7ad0cdc9bc0130b71a_1738711688.jpg" alt="ساعت هوشمند" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/07240f54ae0213407bc77ac5958d3db5a9dd4691_1733756155.jpg" alt="ساعت هوشمند" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                        <a href="#" class="grid-product-item no-underline text-gray-800 block">
+                            <img src="picture/middle/c3cfa987b97622b882c451ebab378bc07d9f3d34_1732604874.jpg" alt="ساعت هوشمند" class="img-fluid rounded-lg mb-2">
+                            <span class="small-link block text-center">مشاهده</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<style>
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+</style>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------- -->
+<section class="my-5 best-selling-section">
+    <div class="flex justify-center w-full">
+        <div class="container" style="max-width: 80%;">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center">
+                    <h5 class="font-bold mb-0 ms-2">پرفروش‌ترین کالاها</h5>
+                    <img src="picture/middle2/1530182.png" alt="آیکون شعله" style="width: 24px; height: 24px; margin-left: 5px;">
+                </div>
+                <a href="#" class="no-underline view-all-link">مشاهده همه</a>
+            </div>
+
+            <div class="best-selling-scroll-wrapper position-relative">
+                <button id="bestSellingScrollLeft" aria-label="اسکرول به چپ" class="scroll-btn scroll-btn-left">&#8250;</button> 
+                <button id="bestSellingScrollRight" aria-label="اسکرول به راست" class="scroll-btn scroll-btn-right">&#8249;</button>
+
+                <div id="bestSellingContainer" class="best-selling-container"> 
+                    <a href="#" class="best-selling-item no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/1209684.jpg" alt="رب گوجه" class="img-fluid">
+                        </div>
+                        <span class="item-number">۱</span> 
+                        <p class="item-title mb-0 mr-2">رب گوجه فرنگی روژین مقدار 800 گرم</p>
+                    </a>
+                    <a href="#" class="best-selling-item no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/01d7a276000522e9d73b4da714771bde8c8857c2_1609669317.jpg" alt="آب معدنی واتا 1500 میلی لیتر" class="img-fluid">
+                        </div>
+                        <span class="item-number">۲</span>
+                        <p class="item-title mb-0 mr-2">آب معدنی واتا - 1500 میلی لیتر بسته 6 عددی</p>
+                    </a>
+                    <a href="#" class="best-selling-item no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/69cde7630f0acb3aefeb5b6b64004cb2900b7bee_1731827160.jpg" alt="تخم مرغ خرید آ" class="img-fluid">
+                        </div>
+                        <span class="item-number">۳</span>
+                        <p class="item-title mb-0 mr-2">تخم مرغ خرید آ سی‌مغ بسته 20 عددی</p>
+                    </a>
+                    <a href="#" class="best-selling-item no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/57499a37e42c50683e137e94efa423e6b996f6f5_1718102990.jpg" alt="خامه فرادما کاله" class="img-fluid">
+                        </div>
+                        <span class="item-number">۴</span>
+                        <p class="item-title mb-0 mr-2">خامه فرادما کاله مقدار 200 میلی لیتر</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/ace095f6cce112484e9086b070fd565637259ad9_1731316502.jpg" alt="کنسرو ماهی تن چین" class="img-fluid">
+                        </div>
+                        <span class="item-number">۵</span>
+                        <p class="item-title mb-0 mr-2">کنسرو ماهی تن چین - 180 گرم</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/5ebff2c3d43e205ce00a9642afb3253f6245f578_1730877430.jpg" alt="رب گوجه فرنگی پلچین 400 گرم" class="img-fluid">
+                        </div>
+                        <span class="item-number">۶</span>
+                        <p class="item-title mb-0 mr-2">رب گوجه فرنگی پلچین مقدار 400 گرم</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/121654059.jpg" alt="پنیر فتا صباح" class="img-fluid">
+                        </div>
+                        <span class="item-number">۷</span>
+                        <p class="item-title mb-0 mr-2">پنیر فتا صباح دو قلوه هزار - 400 گرم</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/2ad22c2fc5c8a9ac8722ba3c56994583aeb582f7_1733140652.jpg" alt="دستمال کاغذی تنو" class="img-fluid">
+                        </div>
+                        <span class="item-number">۸</span>
+                        <p class="item-title mb-0 mr-2">دستمال کاغذی تنو 250 برگ دو لایه تیو مدل 001</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/d1055810db8be202b6d0bd250bdf69005b9bb597_1667285890.jpg" alt="کره کاله 100 گرم" class="img-fluid">
+                        </div>
+                        <span class="item-number">۹</span>
+                        <p class="item-title mb-0 mr-2">کره کاله - 100 گرم</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/7239f5100c88e29d76a6fb9ce4f6cb792057a03e_1597140336.jpg" alt="چای زرین هندوستان 450 گرم" class="img-fluid">
+                        </div>
+                        <span class="item-number">۱۰</span>
+                        <p class="item-title mb-0 mr-2">چای زرین هندوستان چای سبز - 450 گرم</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/b813c6c0f16731e400ee1362ce103accf246bfce_1669110838.jpg" alt="کرم ضد آفتاب" class="img-fluid">
+                        </div>
+                        <span class="item-number">۱۱</span>
+                        <p class="item-title mb-0 mr-2">کرم ضدآفتاب و ضدلک لافارر مدل SPF50</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/119323979.jpg" alt="شامپو بدن اکتیو" class="img-fluid">
+                        </div>
+                        <span class="item-number">۱۲</span>
+                        <p class="item-title mb-0 mr-2">شامپو بدن اکتیو سی‌تری مدل Mineral</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/111999050.png" alt="هل سبز مصطفوی" class="img-fluid">
+                        </div>
+                        <span class="item-number">۱۳</span>
+                        <p class="item-title mb-0 mr-2">هل سبز مصطفوی - 10 گرم</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/114916007.jpg" alt="صابون گلنار" class="img-fluid">
+                        </div>
+                        <span class="item-number">۱۴</span>
+                        <p class="item-title mb-0 mr-2">صابون گلنار مدل روغن نارگیل بسته 6 عددی</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/87ad7f0e8b0ad4b3bc536cfa82a6c0b378fd9020_1714485493.jpg" alt="روغن نیمه جامد لادن" class="img-fluid">
+                        </div>
+                        <span class="item-number">۱۵</span>
+                        <p class="item-title mb-0 mr-2">روغن نیمه جامد لادن - 5 کیلوگرم</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/5ebff2c3d43e205ce00a9642afb3253f6245f578_1730877430.jpg" alt="رب گوجه فرنگی روژین 800 گرم" class="img-fluid">
+                        </div>
+                        <span class="item-number">۱۶</span>
+                        <p class="item-title mb-0 mr-2">رب گوجه فرنگی روژین مقدار 800 گرم</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/01d7a276000522e9d73b4da714771bde8c8857c2_1609669317.jpg" alt="آب معدنی واتا 1500 میلی لیتر" class="img-fluid">
+                        </div>
+                        <span class="item-number">۱۷</span>
+                        <p class="item-title mb-0 mr-2">آب معدنی واتا - 1500 میلی لیتر بسته 6 عددی</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/69cde7630f0acb3aefeb5b6b64004cb2900b7bee_1731827160.jpg" alt="تخم مرغ خرید آ" class="img-fluid">
+                        </div>
+                        <span class="item-number">۱۸</span>
+                        <p class="item-title mb-0 mr-2">تخم مرغ خرید آ سی‌مغ بسته 20 عددی</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/4780647.jpg" alt="خامه فرادما کاله" class="img-fluid">
+                        </div>
+                        <span class="item-number">۱۹</span>
+                        <p class="item-title mb-0 mr-2">خامه فرادما کاله مقدار 200 میلی لیتر</p>
+                    </a>
+                    <a href="#" class="best-selling-item flex items-center no-underline text-gray-800 rounded-lg p-2">
+                        <div class="item-img-wrapper">
+                            <img src="picture/middle2/cde99d2e60f78b3377104cc5155dbdac233676af_1629617120.jpg" alt="کنسرو ماهی تن چین" class="img-fluid">
+                        </div>
+                        <span class="item-number">۲۰</span>
+                        <p class="item-title mb-0 mr-2">کنسرو ماهی تن چین - 180 گرم</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    const bestSellingContainer = document.getElementById('bestSellingContainer');
+    const bestSellingScrollLeftBtn = document.getElementById('bestSellingScrollLeft');
+    const bestSellingScrollRightBtn = document.getElementById('bestSellingScrollRight');
+
+    if (bestSellingContainer && bestSellingScrollLeftBtn && bestSellingScrollRightBtn) {
+
+        // تابع برای محاسبه پویا مقدار اسکرول
+        function getScrollAmount() {
+            const firstItem = bestSellingContainer.querySelector('.best-selling-item');
+            if (firstItem) {
+                const itemStyle = window.getComputedStyle(firstItem);
+                const itemWidth = parseFloat(itemStyle.width);
+                
+                const containerStyle = window.getComputedStyle(bestSellingContainer);
+                let gridColumnGap = 0;
+
+                // تلاش برای گرفتن column-gap مستقیم
+                const directColumnGap = containerStyle.getPropertyValue('column-gap');
+                if (directColumnGap && directColumnGap !== 'normal') {
+                    gridColumnGap = parseFloat(directColumnGap);
+                }
+
+                if (gridColumnGap === 0 || isNaN(gridColumnGap)) {
+                    const gapValue = containerStyle.getPropertyValue('gap');
+                    if (gapValue) {
+                        const gapParts = gapValue.split(' ');
+                        if (gapParts.length > 1) {
+                            gridColumnGap = parseFloat(gapParts[1]) || 0;
+                        } else {
+                            gridColumnGap = parseFloat(gapParts[0]) || 0;
+                        }
+                    }
+                }
+                
+                const itemsToScroll = 3;
+                return (itemWidth + gridColumnGap) * itemsToScroll;
+            }
+            return (250 + 20) * 3; 
+        }
+
+        // تابع برای فعال/غیرفعال کردن دکمه‌های اسکرول
+        function toggleScrollButtons() {
+            const clientWidth = bestSellingContainer.clientWidth;
+            const scrollWidth = bestSellingContainer.scrollWidth;
+            const scrollLeftRaw = bestSellingContainer.scrollLeft;
+            const isRTL = window.getComputedStyle(bestSellingContainer).direction === 'rtl';
+
+            let currentScrollPos;
+            let maxScrollLeft;
+
+            if (isRTL) {
+                maxScrollLeft = scrollWidth - clientWidth; 
+                currentScrollPos = maxScrollLeft - Math.abs(scrollLeftRaw); 
+            } else {
+                currentScrollPos = scrollLeftRaw;
+                maxScrollLeft = scrollWidth - clientWidth;
+            }
+
+            const tolerance = 5;
+
+            if (maxScrollLeft <= tolerance) { 
+                bestSellingScrollLeftBtn.disabled = true;
+                bestSellingScrollLeftBtn.style.opacity = '0.5';
+                bestSellingScrollLeftBtn.style.cursor = 'not-allowed';
+
+                bestSellingScrollRightBtn.disabled = true;
+                bestSellingScrollRightBtn.style.opacity = '0.5';
+                bestSellingScrollRightBtn.style.cursor = 'not-allowed';
+                return;
+            }
+
+            if (currentScrollPos <= tolerance) { 
+                bestSellingScrollLeftBtn.disabled = true;
+                bestSellingScrollLeftBtn.style.opacity = '0.5';
+                bestSellingScrollLeftBtn.style.cursor = 'not-allowed';
+            } else {
+                bestSellingScrollLeftBtn.disabled = false;
+                bestSellingScrollLeftBtn.style.opacity = '1';
+                bestSellingScrollLeftBtn.style.cursor = 'pointer';
+            }
+
+            if (currentScrollPos >= maxScrollLeft - tolerance) { 
+                bestSellingScrollRightBtn.disabled = true;
+                bestSellingScrollRightBtn.style.opacity = '0.5';
+                bestSellingScrollRightBtn.style.cursor = 'not-allowed';
+            } else {
+                bestSellingScrollRightBtn.disabled = false;
+                bestSellingScrollRightBtn.style.opacity = '1';
+                bestSellingScrollRightBtn.style.cursor = 'pointer';
+            }
+        }
+
+        // Event Listener برای دکمه اسکرول به راست
+        bestSellingScrollRightBtn.addEventListener('click', () => {
+            const scrollAmount = getScrollAmount();
+            bestSellingContainer.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+            requestAnimationFrame(() => {
+                setTimeout(toggleScrollButtons, 300); 
+            });
+        });
+
+        // Event Listener برای دکمه اسکرول به چپ
+        bestSellingScrollLeftBtn.addEventListener('click', () => {
+            const scrollAmount = getScrollAmount();
+            bestSellingContainer.scrollBy({
+                left: -scrollAmount, 
+                behavior: 'smooth'
+            });
+            requestAnimationFrame(() => {
+                setTimeout(toggleScrollButtons, 300); 
+            });
+        });
+
+        // Event Listeners برای اطمینان از بروزرسانی وضعیت دکمه‌ها
+        window.addEventListener('load', () => {
+            setTimeout(toggleScrollButtons, 100); 
+        });
+        window.addEventListener('resize', () => {
+            setTimeout(toggleScrollButtons, 50); 
+        });
+        bestSellingContainer.addEventListener('scroll', toggleScrollButtons);
+
+        setTimeout(toggleScrollButtons, 0); 
+
+
+
+    } 
+</script>
+
+
+<style>
+    .active-dragging {
+        cursor: grabbing !important;
+        user-select: none;
+}
+</style>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+
+
+
+<section class="my-5 product-categories-grid">
+  <div class="flex justify-center w-full">
+    <div class="w-full max-w-[80%]">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+
+        <!-- کارت 1: جوراب مردانه -->
+        <div class="category-grid-card p-3 rounded-lg bg-white h-full">
+          <h6 class="text-center font-bold mb-3">جوراب مردانه</h6>
+          <div class="product-grid-items flex flex-wrap justify-center">
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/3aa94f054fb87dd9553345d274db5dde03d99c3c_1623405746.jpg" alt="جوراب مردانه" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/075a33e0e8fc3197da9cb770c71b73eb9122b489_1708008557.jpg" alt="جوراب مردانه" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/5ff11fc4248d8f5ed03e983755e71d986a7ad243_1720736748.jpg" alt="جوراب مردانه" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/120420219.jpg" alt="جوراب مردانه" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- کارت 2: لپ تاپ و الترابوک -->
+        <div class="category-grid-card p-3 rounded-lg bg-white h-full">
+          <h6 class="text-center font-bold mb-3">لپ تاپ و الترابوک</h6>
+          <div class="product-grid-items flex flex-wrap justify-center">
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/458f458fac0a04d568703abd31d3773657799563_1727859312.jpg" alt="لپ تاپ و الترابوک" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/fc813a660e37e0aa6246c3092bfd5089ad80d960_1738404768.jpg" alt="لپ تاپ و الترابوک" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/f8743c35147efa57a1388e696e6d7451e4a10408_1728381002.jpg" alt="لپ تاپ و الترابوک" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/e8ad8070428f0402255d368b9f0cbf122fe91564_1722195505.jpg" alt="لپ تاپ و الترابوک" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- کارت 3: ساعت هوشمند -->
+        <div class="category-grid-card p-3 rounded-lg bg-white h-full">
+          <h6 class="text-center font-bold mb-3">ساعت هوشمند</h6>
+          <div class="product-grid-items flex flex-wrap justify-center">
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/a8af9a45cd14a04cb4640329c356166fb16f0cc2_1747831898.jpg" alt="ساعت هوشمند" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/518970f67d6b697aedd2b9cf01ac8bc99e2ccaff_1747844249.jpg" alt="ساعت هوشمند" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/db61fc739053ea8b5f26724d56fe304ac1d1aada_1691853320.jpg" alt="ساعت هوشمند" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/9cb8e1239979d4d3766c3519fff4b5f3a0643d6d_1747411376.jpg" alt="ساعت هوشمند" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- کارت 4: کرم ضد آفتاب -->
+        <div class="category-grid-card p-3 rounded-lg bg-white h-full">
+          <h6 class="text-center font-bold mb-3">کرم ضد آفتاب</h6>
+          <div class="product-grid-items flex flex-wrap justify-center">
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/8b93d7bf36421c57ab3106601e7049d04e2a9f94_1731952346.jpg" alt="کرم ضد آفتاب" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/d099b7ff47140333f78999102e326f72ff194ec6_1744919855.jpg" alt="کرم ضد آفتاب" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/1588354177b5a9843deaad542c63f95ec806c572_1718525395.jpg" alt="کرم ضد آفتاب" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+            <a href="#" class="grid-product-item no-underline text-gray-800 block">
+              <img src="picture/middle3/23ef5113f0de1d047a914c3fb5a092306b173b10_1745578716.jpg" alt="کرم ضد آفتاب" class="w-full rounded-lg mb-2">
+              <span class="small-link block text-center">مشاهده</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+
+
+
+<section class="products-section my-5 bg-white">
+    <div class="flex justify-center w-full">
+        <div class="max-w-[80%] w-full">
+            <div class="flex items-center mb-4 product-section-header">
+                <h5 class="font-bold mb-0 ms-2">منتخب محصولات تخفیف و حراج</h5>
+                <img src="picture/middle4/1530182.png" alt="آیکون تخفیف" class="header-icon">
+            </div>
+
+            <div class="products-grid-container rounded-lg overflow-hidden border">
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-0">
+                    
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/bf3b67471337c7f0fc485c8e193e7fa7e0faba2d_1727606657.webp" alt="قاب گوشی خرگوشی" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۲٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۹۶,۵۴۲,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۹۴,۹۴۴,۶۶۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/c0e079b958167bd0fdef1f0e12440e7fed29b1bd_1727853611.webp" alt="قاب گوشی رنگی" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۲٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۷۲,۵۸۰,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۷۰,۰۷۰,۹۹۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/3348cb6579496b4503eb79824429ead5bef076ee_1731743979.webp" alt="آیفون 13 طلایی" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۳٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۲,۳۹۹,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۲,۳۴۹,۰۰۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/720d9e06b39b3b62a57e0bf0b3fe90e8752fbae4_1744466529.webp" alt="نوکیا" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۴٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۸۳,۵۶۹,۰۰۰ تومان</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۷۹,۷۹۹,۸۷۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/8e157449ef937cb8e4fa804f32251d5cde438787_1744135827.webp" alt="آیفون 13" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۸٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۹۸,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۸۸,۰۰۰ تومان</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/aec42cddb626e01184085b7b36d2df31005ad601_1744737427.webp" alt="آیفون 13 پرو" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۸٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۹۸,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۸۸,۰۰۰ تومان</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/dbae8cb5803d29c01f62cff9e6506a89432aa1ae_1744306176.webp" alt="ایرپاد سمت راست" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۳٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۱۳۴,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۱۲۹,۰۰۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/f486043468128a4995bd8d1a9ec71e0406d73a5f_1744737805.webp" alt="ایرپاد وسط چپ" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۹٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۱۰۹,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۹۹,۰۰۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/095f4249fc87ee8bc6f07c2042c9f034c9247685_1737663816.webp" alt="ایرپاد وسط راست" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۴٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۴,۴۴۹,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۴,۲۴۹,۰۰۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/7d7bb3073e9d227eaf8f9c2d4fd105038f3eade5_1747002495.webp" alt="ایرپاد وسط" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۸٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۳,۷۴۹,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۳,۴۲۹,۰۰۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/6844b543420d3538655425a3834cd8cfe5944861_1747503452.webp" alt="ریموت کنترل" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۸٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۴۳۹,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۳۹۹,۰۰۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/13b30ebaf5bd281fc9f03e170880fa79e0ee298b_1731433327.webp" alt="قاب گوشی طرح دار" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۸٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۵۹۹,۹۹۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۴۹,۹۹۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/620f3141b695ef3eb8881758646ded3366d75a71_1744631805.webp" alt="جوراب راه راه" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۲٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۷۳۵,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۷۱۸,۰۰۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/2b82ca79e4d3299cb166187dcaad03419ec04b18_1737902708.webp" alt="جوراب طرح دار" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-0٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۱,۴۸۹,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۱,۴۸۹,۰۰۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/2d2eb1a4430b0c07094366b07f96279cffdfa8b2_1749647542.webp" alt="کفش کتانی سفید" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۶٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۹,۳۹۹,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۸,۷۹۹,۰۰۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/ae1297780841c1d23ea03d22bae53f491fdf4daf_1753892121.webp" alt="کفش اسپرت" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۵٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۶,۵۰۰,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۶,۱۷۵,۰۰۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/8ed07d17cdb4580033e8991471a2b46e0a1e0b20_1641713169.webp" alt="کفش اسپرت" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۷۲٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۲۶۰,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۷۰,۰۰۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="product-col-border">
+                        <a href="#" class="product-card block no-underline p-2 h-full">
+                            <div class="product-image-wrapper mb-2">
+                                <img src="picture/middle4/81111cbe2d4d9ea66000f91c24302298a288d866_1727781435.webp" alt="کفش اسپرت" class="w-full rounded">
+                            </div>
+                            <div class="product-details text-gray-800">
+                                <div class="flex justify-end items-center mb-1">
+                                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-xs" style="direction: ltr;">-۷۲٪</span>
+                                </div>
+                                <div class="text-left">
+                                    <del class="text-gray-500 text-xs" style="direction: ltr;">۲۶۰,۰۰۰</del>
+                                    <div class="font-bold" style="direction: ltr;">
+                                        <span class="price-value">۷۰,۰۰۰</span>
+                                        <span class="currency-unit text-xs">تومان</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+<div class="max-w-[80%] mx-auto my-5">
+    <div class="flex justify-between items-center mb-4">
+        <h3 class="mb-0">خواندنی‌ها</h3>
+        <a href="#" class="no-underline text-blue-500 text-sm font-semibold">
+            مطالب بیشتر در دیجی‌کالا مگ <span class="ml-1">></span>
+        </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+        <img src="picture/mag/body-odor.webp" class="w-full h-auto rounded-t-lg" alt="بهترین صابون برای رفع بوی بد بدن">
+        <div class="p-3">
+            <h5 class="text-sm font-bold">بهترین صابون برای رفع بوی بد بدن</h5>
+        </div>
+    </div>
+    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+        <img src="picture/mag/A05s-vs-A06-cover.webp" class="w-full h-auto rounded-t-lg" alt="مقایسه گوشی سامسونگ A06 با گلکسی A05s">
+        <div class="p-3">
+            <h5 class="text-sm font-bold">مقایسه گوشی سامسونگ A06 با گلکسی A05s</h5>
+        </div>
+    </div>
+    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+        <img src="picture/mag/direct-download-files-from-telegram-with-download-manager-1024x536-1.webp" class="w-full h-auto rounded-t-lg" alt="چطور دانلود خودکار تلگرام را ببندیم؟">
+        <div class="p-3">
+            <h5 class="text-sm font-bold">چطور دانلود خودکار تلگرام را ببندیم؟</h5>
+        </div>
+    </div>
+    <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+        <img src="picture/mag/LidoSands-Liz-2048x1365-1.webp" class="w-full h-auto rounded-t-lg" alt="۵ ترفند عکاسی با کمک پس‌زمینه‌های هنری">
+        <div class="p-3">
+            <h5 class="text-sm font-bold">۵ ترفند عکاسی با کمک پس‌زمینه‌های هنری</h5>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- -------------------------------------------------------------------------------------------------------------------------------------------- -->
+<div class="footer-section">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3 footer-icons">
+            <div class="text-center">
+                <img src="picture/svg/original-products.svg" alt="ضمانت اصل بودن کالا" class="mx-auto">
+                <p class="text-sm">ضمانت اصل بودن کالا</p>
+            </div>
+            <div class="text-center">
+                <img src="picture/svg/" alt="هفت روز ضمانت بازگشت کالا" class="mx-auto">
+                <p class="text-sm">هفت روز ضمانت بازگشت کالا</p>
+            </div>
+            <div class="text-center">
+                <img src="picture/svg/support.svg" alt="۷ روز هفته، ۲۴ ساعته" class="mx-auto">
+                <p class="text-sm">۷ روز هفته، ۲۴ ساعته</p>
+            </div>
+            <div class="text-center">
+                <img src="picture/svg/cash-on-delivery.svg" alt="امکان پرداخت در محل" class="mx-auto">
+                <p class="text-sm">امکان پرداخت در محل</p>
+            </div>
+            <div class="text-center">
+                <img src="picture/svg/express-delivery.svg" alt="امکان تحویل اکسپرس" class="mx-auto">
+                <p class="text-sm">امکان تحویل اکسپرس</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 footer-columns">
+    <div class="col mx-auto">
+        <h4>با دیجی‌کالا</h4>
+        <ul class="list-unstyled">
+            <li>اتاق خبر دیجی‌کالا</li>
+            <li>فروش در دیجی‌کالا</li>
+            <li>فرصت‌های شغلی</li>
+            <li>گزارش تخلف در دیجی‌کالا</li>
+            <li>تماس با دیجی‌کالا</li>
+            <li>درباره دیجی‌کالا</li>
+        </ul>
+    </div>
+    <div class="col mx-auto">
+        <h4>خدمات مشتریان</h4>
+        <ul class="list-unstyled">
+            <li>پاسخ به پرسش‌های متداول</li>
+            <li>رویه‌های بازگرداندن کالا</li>
+            <li>شرایط استفاده</li>
+            <li>حریم خصوصی</li>
+            <li>گزارش باگ</li>
+        </ul>
+    </div>
+    <div class="col mx-auto">
+        <h4>راهنمای خرید از دیجی‌کالا</h4>
+        <ul class="list-unstyled">
+            <li>نحوه ثبت سفارش</li>
+            <li>رویه ارسال سفارش</li>
+            <li>شیوه‌های پرداخت</li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="mt-4">
+    <div class="flex flex-col lg:flex-row lg:justify-between lg:items-center">
+        <div class="w-full">
+            <p class="font-bold text-base mb-2 text-center lg:text-right w-11/12 mx-auto">با ثبت ایمیل، از جدیدترین تخفیف‌ها باخبر شوید</p>
+            <form class="flex flex-col sm:flex-row gap-2 mt-2 lg:mt-0 w-11/12 mx-auto">
+                <input type="email" placeholder="ایمیل شما" class="w-full sm:w-auto flex-grow rounded-lg border border-gray-300 p-2 text-right">
+                <button type="submit" class="w-full sm:w-auto bg-red-600 text-white rounded-lg p-2 font-bold hover:bg-red-700">ثبت</button>
+            </form>
+        </div>
+    </div>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<div class="max-w-[90%] mx-auto">
+    <div class="mt-4 flex flex-col lg:flex-row lg:justify-between lg:items-center">
+        <p class="font-bold text-base text-center lg:text-right mb-2 lg:mb-0">همراه ما باشید!</p>
+        <div class="flex items-center justify-center lg:justify-start gap-2">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener">
+                <img src="picture/down/LinkedIn_logo_initials.png" alt="لینکدین" class="w-8 h-8 rounded-full">
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener">
+                <img src="picture/down/Logo_of_Twitter.svg" alt="توییتر" class="w-8 h-8 rounded-full">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener">
+                <img src="picture/down/Instagram_icon.png" alt="اینستاگرام" class="w-8 h-8 rounded-full">
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+<div id="mobile-bottom-nav" class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 py-2 px-1 z-[1010]">
+    <div class="flex justify-around items-center h-full">
+        <a href="#" class="flex flex-col items-center no-underline text-gray-800">
+            <img src="picture/down/25694.png" alt="خانه" class="w-6 h-6">
+            <span class="text-xs mt-1">خانه</span>
+        </a>
+        <a href="#" class="flex flex-col items-center no-underline text-gray-800">
+            <img src="picture/down/130918.png" alt="دسته‌بندی" class="w-6 h-6">
+            <span class="text-xs mt-1">دسته‌بندی</span>
+        </a>
+        <a href="#" class="flex flex-col items-center no-underline text-gray-800">
+            <img src="picture/down/263142.png" alt="سبد خرید" class="w-6 h-6">
+            <span class="text-xs mt-1">سبد خرید</span>
+        </a>
+        <a href="#" class="flex flex-col items-center no-underline text-gray-800">
+            <img src="picture/down/1004812.png" alt="مگنت" class="w-6 h-6">
+            <span class="text-xs mt-1">مگنت</span>
+        </a>
+        <a href="#" class="flex flex-col items-center no-underline text-gray-800">
+            <img src="picture/down/1250689.png" alt="دیجی‌کالای من" class="w-6 h-6">
+            <span class="text-xs mt-1">دیجی‌کالای من</span>
+        </a>
+    </div>
+</div>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<br>
+
+<div class="max-w-[90%] mx-auto">
+    <nav class="py-2" style="background-color: #3e485e;">
+        <div class="flex justify-between items-center px-3 md:px-5">
+            <a class="flex items-center justify-center py-2 px-3 rounded download-button-mobile" href="#" style="background-color: #ef394e; color: white; font-size: 0.9rem; font-weight: bold; min-width: 140px;">
+                <svg class="mr-2 fill-white w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v-4h3l-4-4-4 4h3v4z"/></svg>
+                <span>دانلود اپلیکیشن دیجی‌کالا</span>
+            </a>
+
+            <div class="flex items-center gap-2">
+                <a href="#" class="no-underline">
+                    <img src="picture/down/More.svg" alt="More" class="w-6 h-6 p-1 rounded bg-gray-600">
+                </a>
+                <a href="#" class="no-underline">
+                    <img src="picture/down/sib-app.svg" alt="سیب‌اپ" class="w-24 p-2 bg-white rounded">
+                </a>
+                <a href="#" class="no-underline">
+                    <img src="picture/down/myket.svg" alt="مایکت" class="w-24 p-2 bg-white rounded">
+                </a>
+                <a href="#" class="no-underline">
+                    <img src="picture/down/coffe-bazzar.svg" alt="بازار" class="w-24 p-2 bg-white rounded">
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="max-w-[80%] mx-auto py-4">
+    <div class="flex flex-col md:flex-row digikala-intro-section w-full">
+        <div class="w-full mb-4">
+            <div class="flex flex-wrap justify-center items-center p-3 bg-white rounded-lg shadow-sm trusted-badges-box">
+                <a href="#" class="flex flex-col items-center no-underline text-gray-800 mx-2 my-1 trusted-badge-item-content">
+                    <img src="picture/down/sapra.webp" alt="نماد اعتماد الکترونیکی" class="w-full mb-1" style="max-height: 50px; width: auto;">
+                    <small class="text-xs">نماد اعتماد الکترونیکی</small>
+                </a>
+                <a href="#" class="flex flex-col items-center no-underline text-gray-800 mx-2 my-1 trusted-badge-item-content">
+                    <img src="picture/down/rezi.webp" alt="نشان ملی ثبت" class="w-full mb-1" style="max-height: 50px; width: auto;">
+                    <small class="text-xs">نشان ملی ثبت</small>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="max-w-full md:max-w-[80%] mx-auto">
+    <div class="w-full text-content-col">
+        <h1 class="text-xl font-bold mb-3">دیجی‌کالا بزرگترین فروشگاه اینترنتی ایران</h1>
+        
+        <p id="shortText" class="text-gray-500 mb-3 text-justify digikala-intro-text text-sm leading-loose">
+            دیجی‌کالا سال‌هاست که به انتخاب اول بسیاری از خریداران اینترنتی تبدیل شده است. دیجی‌کالا به عنوان بزرگترین و معتبرترین فروشگاه آنلاین ایران، شناخته‌شده‌ترین فروشگاه نیز محسوب می‌شود. این فروشگاه آنلاین نه‌تنها گسترده‌ترین تنوع کالا را در دسته‌بندی‌های مختلف ارائه می‌دهد، بلکه با خدمات بی‌نظیر، سرعت ارسال بالا، ضمانت اصل بودن کالا و پشتیبانی حرفه‌ای، استاندارد جدیدی در خرید اینترنتی ایران تعریف کرده است. این فروشگاه با سال‌ها تجربه و اعتماد مشتریان، کامل‌ترین و بهترین گزینه برای خرید آنلاین در ایران محسوب می‌شود.
+        </p>
+
+        <div id="digikalaFullText" class="hidden">
+            <p class="text-gray-500 mb-3 text-justify digikala-intro-text text-sm leading-loose">
+                ویژگی های مهم دیجی کالا<br>
+                یکی از ویژگی‌های مهم در خرید از دیجی کالا، تنوع بی‌نظیر محصولات است. این فروشگاه اینترنتی طیف وسیعی از کالاها را در دسته‌های مختلف از جمله لوازم دیجیتال، لوازم خانگی، مد و پوشاک، لوازم آرایشی و بهداشتی، محصولات سلامت و زیبایی، و بسیاری از محصولات دیگر ارائه می‌دهد. به عنوان مثال، اگر به دنبال خرید یک گوشی موبایل جدید باشید، دیجی کالا مجموعه‌ای از بهترین گوشی‌ها از برندهای معتبر اپل و سامسونگ مانند ایفون 16، گوشی S25، گوشی‌های مختلف از برند شیائومی مانند شیائومی نوت ۱۴ و بسیاری از برندهای دیگر را در اختیار شما قرار می‌دهد. همچنین برای علاقه‌مندان به لوازم دیجیتال، این فروشگاه اینترنتی انواع لپ تاپ، تلویزیون، اسپیکر، و هندزفری بلوتوثی با کیفیت بالا را برای خرید آنلاین ارائه می‌دهد. دیجی کالا، مقصدی بی‌پایان برای خرید آسان، سریع و مطمئن است. راهی که هر آنچه نیاز دارید از قیمت لپ تاپ تا یک ایرپاد مطمئن را در اختیار شما قرار می‌دهد.<br>
+
+                ارسال سریع و مطمئن کالا<br>
+                یکی از مهم‌ترین دغدغه‌های کاربران خرید آنلاین، زمان تحویل کالا است. دیجی کالا برای حل این مشکل، گزینه‌های مختلف ارسال را در نظر گرفته است تا کاربران بتوانند بر اساس نیاز خود، روش ارسال مناسب را انتخاب کنند. به عنوان مثال، ارسال کالا به صورت ارسال امروز، ارسال سریع توسط پیک‌های دیجی کالا، از جمله روش‌های خرید سریع از این فروشگاه اینترنتی است. این امکانات باعث می‌شود که خریداران بتوانند سفارش خود را در کوتاه‌ترین زمان ممکن دریافت کنند. علاوه بر این، در صورتی که کالای خریداری شده از لحاظ کیفیت یا هر دلیل دیگری رضایت مشتری را جلب نکرده باشد، دیجی کالا ضمانت بازگشت کالا را ارائه می‌دهد. این ویژگی موجب اعتماد بیشتر مشتریان به خرید آنلاین از فروشگاه اینترنتی دیجی کالا شده است.<br>
+
+                تخفیف های ویژه و جشنواره ها<br>
+                دیجی کالا به طور منظم جشنواره‌ها و تخفیف‌های ویژه‌ای را برگزار می‌کند که برای مشتریان فرصت خرید کالاهای باکیفیت با قیمت‌های مناسب به همراه خواهد داشت. این تخفیف‌ها در ایام خاص مانند بلک فرایدی یا همان حراج جمعه سیاه و جشنواره‌های تابستانی توجه بسیاری از خریداران را جلب می‌کند. در این جشنواره‌ها، دیجی کالا تخفیف‌های عالی روی محصولات مختلف از جمله گوشی‌های موبایل، لپ تاپ‌ها، تلویزیون‌ها، و حتی محصولات زیبایی ارائه می‌دهد. می‌توانید گوشی ایفون 16 یا گوشی S25 را با تخفیف‌های ویژه خریداری کنید و از قیمت مناسب بهره‌مند شوید. دیجی کالا فراتر از یک فروشگاه اینترنتی، یک تجربه خرید مطمئن در بین کاربران مختلف بوده است که با ارائه بزرگ‌ترین تنوع کالا، قیمت‌های مختلف و خدماتی بی‌نقص، به مقصد اول خریداران آنلاین در ایران تبدیل شده است.<br>
+
+                انواع محصولات فروشگاه دیجی کالا<br>
+                دیجی کالا دارای محصولات متنوعی در گروه‌های مختلف است که خرید آنها بسیار راحت و سریع است. به عنوان مثال، اگر به دنبال قاب گوشی یا هندزفری بلوتوثی باشید، می‌توانید مدل‌های مختلف و برندهای گوناگونی را در این فروشگاه پیدا کنید.<br>
+
+                موبایل و کالای دیجیتال<br>
+                دیجی‌کالا انواع گوشی‌های هوشمند از برندهای معتبر جهانی مانند سامسونگ، اپل، شیائومی و هواوی را با مشخصات و قیمت‌های متنوع عرضه می‌کند. علاوه بر موبایل، دیجی‌کالا مجموعه‌ای از لوازم جانبی مانند هدفون، هندزفری، ساعت‌های هوشمند، تبلت‌ها و لپ تاپ را نیز در اختیار مشتریان قرار می‌دهد. با امکان مقایسه محصولات، مطالعه نظرات کاربران و دسترسی به جدیدترین مدل‌ها، دیجی‌کالا به یکی از مقاصد اصلی خرید آنلاین در حوزه موبایل و کالای دیجیتال تبدیل شده است. از دهه گذشته همواره دیجی کالا به عنوان اولین گزینه برای خرید گوشی های سامسونگ، آیفون های اپل و گوشی شیائومی محسوب می‌شده است و تا امروز هم در عرضه این موبایل های محبوب به بازار، دیجی‌کالا اولین فروشگاه آنلاین بوده است.<br>
+
+                کتاب و لوازم تحریر<br>
+                کتاب، لوازم تحریر و هنر در دیجی کالا یک مجموعه بی‌نظیر از محصولات فرهنگی و هنری است که به علاقه‌مندان به کتابخوانی، هنر و نوشتن کمک می‌کند تا دنیای خود را گسترش دهند. از کتاب‌های چاپی و کتاب‌های صوتی گرفته تا مجلات خارجی و داخلی و آثار معروف‌ترین نویسندگان مثل سعدی، حافظ، مولانا و فروغ فرخزاد، تمامی نیازهای کتابخوان‌ها را پوشش می‌دهد. همچنین با مجموعه‌ای از لوازم تحریر، ابزار نقاشی و رنگ‌آمیزی، آلبوم‌های عکس و فرش‌های دستبافت، به شما این امکان را می‌دهد تا دنیای هنر و خلاقیت خود را به بهترین نحو پرورش دهید. همچنین خر سال تقریبا همزمان با تهران و نمایشگاه بین المللی کتاب، دیجی کالا نمایشگاه مجازی کتاب خود را برگزار می‌کند تا آنها که فرصت حضور در نمایشگاه را ندارند، بتوانند مجازی از کتاب ها بازدید و خرید کنند.<br>
+
+                <!-- ادامه متن کامل شامل تمام بخش‌های آرایشی، طلا، اسباب‌بازی، لوازم خانگی، سوپرمارکت، پوشاک، تجهیزات پزشکی، ورزشی و خرید کالاهای کارکرده ... -->
+                
+                در آخر باید گفت خرید از دیجی کالا به دلیل تنوع بالای محصولات، خدمات ارسال سریع، تخفیف‌های ویژه، و امکان خرید آنلاین کالاهای متنوع از برندهای معتبر، یکی از بهترین انتخاب‌ها برای خریداران آنلاین در ایران است. با استفاده از خدمات دیجی کالا، خریدی مطمئن، سریع و راحت را تجربه خواهید کرد.
+            </p>
+        </div>
+        
+        <button id="toggleTextButton" class="btn font-bold p-0 text-blue-600 flex items-center gap-1 mt-2">
+            مشاهده بیشتر <span>&#9664;</span>
+        </button>
+    </div>
+
+<div class="w-full text-center mt-5 pt-3 border-t border-gray-300">
+    <p class="text-gray-500 mb-0 text-xs">
+        برای استفاده از مطالب وب‌سایت دیجی‌کالا دانش‌نامه، صرفاً غیرتجاری و ذکر منبع بلامانع است. تمامی حقوق این وب‌سایت نیز برای شرکت نوآوران فن آوران تجارت الکترونیک دیجی‌کالا است.
+    </p>
+</div>
+
+</div>
+
+<script>
+    const toggleButton = document.getElementById('toggleTextButton');
+    const fullText = document.getElementById('digikalaFullText');
+
+    toggleButton.addEventListener('click', () => {
+        const isHidden = fullText.classList.toggle('hidden'); // نمایش/مخفی کردن
+        if (isHidden) {
+            toggleButton.innerHTML = 'مشاهده بیشتر <span>&#9664;</span>';
+        } else {
+            toggleButton.innerHTML = 'بستن <span>&#9650;</span>';
+        }
+    });
+</script>
+
+            
+
+    <script>
+ // جاوااسکریپت برای تغییر متن دکمه "مشاهده بیشتر" به "بستن" و برعکس
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggleButton = document.getElementById('toggleTextButton');
+            var collapseElement = document.getElementById('digikalaFullText');
+
+            if (toggleButton && collapseElement) {
+                collapseElement.addEventListener('show.bs.collapse', function () {
+                    toggleButton.innerHTML = 'بستن <span class="ms-1">&#9650;</span>'; // آیکون فلش رو به بالا
+                });
+                collapseElement.addEventListener('hide.bs.collapse', function () {
+                    toggleButton.innerHTML = 'مشاهده بیشتر <span class="ms-1">&#9664;</span>'; // آیکون فلش رو به چپ
+                });
+            }
+        });
+    </script>
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+<section class="digikala-services-section">
+    <div class="full-width-content"> 
+        <div class="services-row">
+            <a href="#" class="service-item bordered-item">
+                <img src="picture/down/diginext.svg" alt="دیجی‌نکست" class="service-logo">
+            </a>
+            <a href="#" class="service-item bordered-item">
+                <img src="picture/down/digiMehr.svg" alt="دیجی‌مهر" class="service-logo">
+            </a>
+            <a href="#" class="service-item bordered-item">
+                <img src="picture/down/jet.svg" alt="دیجی‌کالا جت" class="service-logo">
+            </a>
+            <a href="#" class="service-item digiclub-item bordered-item">
+                <span class="service-text">digiclub</span>
+            </a>
+            <a href="#" class="service-item digiplus-item bordered-item">
+                <span class="service-text">plus</span>
+            </a>
+            <a href="#" class="service-item bordered-item">
+                <img src="picture/down/digistyle.svg" alt="دیجی‌استایل" class="service-logo">
+            </a>
+            <a href="#" class="service-item bordered-item">
+                <img src="picture/down/digipay.svg" alt="دیجی‌پی" class="service-logo">
+            </a>
+            <a href="#" class="service-item bordered-item">
+                <img src="picture/down/digimag.svg" alt="دیجی‌کالا مگ" class="service-logo">
+            </a>
+        </div>
+
+        <div class="services-row bottom-row">
+            <a href="#" class="service-item digikala-service-item bordered-item">
+                <img src="picture/down/digikala-service.svg" alt="دیجی‌کالا سرویس" class="service-logo">
+            </a>
+            <a href="#" class="service-item digikala-business-item bordered-item">
+                <img src="picture/down/digikala-business.svg" alt="دیجی‌کالا بیزینس" class="service-logo">
+            </a>
+            <a href="#" class="service-item smarttech-item bordered-item">
+                <img src="picture/down/smartech.svg" alt="اسمارت تک" class="service-logo">
+            </a>
+            <a href="#" class="service-item bordered-item">
+                <img src="picture/down/digify.svg" alt="دیجی‌فای" class="service-logo">
+            </a>
+            <a href="#" class="service-item bordered-item">
+                <img src="picture/down/ganjeh.svg" alt="گنجینه" class="service-logo">
+            </a>
+            <a href="#" class="service-item bordered-item">
+                <img src="picture/down/digiexpress.svg" alt="دیجی‌اکسپرس" class="service-logo">
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<a href="#" class="support-fixed-button">
+    <img src="picture/Screenshot 2025-06-03 013534.png" alt="پشتیبانی" />
+</a>
+
+<a href="#" class="support-fixed-button">
+    <img src="picture/100x100bb.jpg" alt="پشتیبانی" />
+</a>
+
+
+<a href="#" class="fixed-supermarket-button">
+    <img src="picture/Screenshot 2025-06-03 021927.png" alt="سوپرمارکت" />
+    <span>سوپرمارکت</span>
+</a>
+
+
+
+</body>
+</html>
+<!-- ----------------------------------------------------------------------------------------------------------------------------------------------------- -->
+

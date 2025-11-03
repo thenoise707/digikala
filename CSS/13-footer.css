@@ -1,0 +1,98 @@
+/* ----------------------------------------------------------------------------------------------------------------
+   Footer
+-------------------------------------------------------------------------------------------------------------------- */
+.footer-section {
+  width: 100%;
+  background-color: var(--dk-bg-extra-light);
+  padding: 40px 60px;
+  box-sizing: border-box;
+  color: var(--dk-text-dark);
+  margin-top: 50px;
+  border-top: 1px solid var(--dk-border-light);
+}
+
+.footer-section > .container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+}
+
+.footer-icons {
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--dk-border-light);
+  padding-bottom: 20px;
+}
+
+.footer-icons img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+}
+
+.footer-icons p {
+  font-size: 13px;
+  color: var(--dk-text-medium);
+}
+
+.footer-columns h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: var(--dk-text-dark);
+}
+
+.footer-columns ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-columns li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--dk-text-light);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.footer-columns li:hover {
+  color: var(--dk-red);
+}
+
+.newsletter {
+  margin-bottom: 30px;
+  text-align: right;
+}
+
+.newsletter button {
+  background-color: var(--dk-red);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.newsletter button:hover {
+  background-color: var(--dk-dark-red);
+}
+
+.social-icons {
+  text-align: right;
+}
+
+.social-icons .icons a {
+  margin: 0 8px;
+  display: inline-block;
+}
+
+.social-icons .icons img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.social-icons .icons img:hover {
+  transform: scale(1.1);
+}
+
+

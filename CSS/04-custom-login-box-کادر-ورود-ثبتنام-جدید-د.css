@@ -1,0 +1,26 @@
+/* ----------------------------------------------------------------------------------------------------------------
+   Custom Login Box (کادر ورود | ثبت‌نام جدید در هدر)
+-------------------------------------------------------------------------------------------------------------------- */
+.custom-login-box {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 5px 10px;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--dk-text-dark);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.custom-login-box:hover {
+    background-color: #f0f0f0;
+    border-color: #a0a0a0;
+}
+
+.custom-login-box img {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+}
+
+

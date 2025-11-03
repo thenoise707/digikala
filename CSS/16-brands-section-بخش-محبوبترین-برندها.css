@@ -1,0 +1,100 @@
+/* ----------------------------------------------------------------------------------------------------------------
+   Brands Section (بخش محبوب‌ترین برندها)
+-------------------------------------------------------------------------------------------------------------------- */
+.brands-section {
+  /* max-width و margin: auto را حذف می‌کنیم زیرا container آن را مدیریت می‌کند */
+  margin: 50px 0; /* فقط مارجین بالا و پایین را حفظ می‌کنیم */
+  /* padding را حذف می‌کنیم زیرا روی کانتینر داخل اعمال می‌شود */
+}
+/* حالا استایل‌های پس‌زمینه و سایه را به کانتینر داخلی اعمال می‌کنیم */
+.brands-section .container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 20px; /* پدینگ داخلی کانتینر، برای محتوای داخل */
+}
+
+.brands-scroll-wrapper {
+  overflow: hidden; /* پنهان کردن هر چیزی که از کانتینر خارج می‌شود */
+  position: relative;
+}
+
+#brandsContainer {
+  overflow-x: auto; /* فعال کردن اسکرول افقی */
+  -webkit-overflow-scrolling: touch; /* اسکرول نرم‌تر در iOS */
+  scroll-behavior: smooth; /* اسکرول نرم هنگام کلیک روی دکمه‌ها */
+  /* استایل‌های مربوط به اسکرول بار (اختیاری) */
+  scrollbar-width: none; /* برای فایرفاکس */
+  -ms-overflow-style: none;  /* برای IE و Edge */
+}
+
+#brandsContainer::-webkit-scrollbar {
+  display: none; /* پنهان کردن اسکرول بار برای وب‌کیت (کروم، سافاری) */
+}
+
+.brand-logo-card {
+  min-width: 140px; /* عرض ثابت برای هر کارت لوگو */
+  height: 100px; /* ارتفاع ثابت برای هر کارت لوگو */
+  display: flex; /* برای وسط چین کردن تصویر لوگو */
+  align-items: center; /* وسط چین افقی */
+  justify-content: center; /* وسط چین عمودی */
+  flex-shrink: 0; /* جلوگیری از کوچک شدن کارت‌ها */
+  background-color: white;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* سایه کمی برای زیبایی */
+}
+
+.brand-logo-card:hover {
+  transform: translateY(-5px); /* افکت هاور */
+}
+
+.brand-logo-card img {
+  max-width: 80%; /* حداکثر عرض تصویر در کارت */
+  max-height: 80%; /* حداکثر ارتفاع تصویر در کارت */
+  object-fit: contain; /* حفظ نسبت ابعاد */
+}
+
+/* دکمه‌های اسکرول برای بخش برندها */
+.brands-scroll-wrapper .scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.8); /* کمی شفافیت برای بهتر دیده شدن */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.brands-scroll-wrapper .scroll-btn:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.brands-scroll-wrapper .scroll-btn-left {
+  left: 0;
+}
+
+.brands-scroll-wrapper .scroll-btn-right {
+  right: 0;
+}
+
+/* Media Queries برای دکمه‌های اسکرول در موبایل */
+@media (max-width: 767.98px) {
+  .brands-scroll-wrapper .scroll-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    margin-top: 20px !important;
+  }
+}
+
+

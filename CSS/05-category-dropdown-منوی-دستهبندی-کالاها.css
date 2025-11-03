@@ -1,0 +1,249 @@
+/* ----------------------------------------------------------------------------------------------------------------
+   Category Dropdown (منوی دسته‌بندی کالاها)
+-------------------------------------------------------------------------------------------------------------------- */
+.category-dropdown-container {
+ position: relative;
+}
+
+.category-dropdown-btn {
+background-color: transparent;
+color: var(--dk-text-medium);
+padding: 8px 12px;
+ font-size: 14px;
+ font-weight: bold;
+ border-radius: 6px;
+ transition: background-color 0.2s ease;
+ border: none;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+}
+
+.category-dropdown-btn:hover {
+ background-color: #f0f0f0;
+}
+
+.category-dropdown-content {
+ position: absolute;
+ background-color: var(--dk-bg-extra-light);
+ min-width: 900px;
+ box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+ z-index: 1001;
+ right: 0;
+ border-radius: 8px;
+ overflow: hidden;
+ visibility: hidden; /* پیش‌فرض پنهان */
+ opacity: 0; /* پیش‌فرض شفافیت صفر */
+ transition: visibility 0s, opacity 0.3s ease-in-out;
+ display: flex;
+ flex-direction: row;
+ text-align: right;
+ border: 1px solid var(--dk-border-light);
+ top: calc(100% + 5px);
+ pointer-events: none;
+}
+
+/* این کلاس توسط جاوا اسکریپت اضافه/حذف می‌شود */
+.category-dropdown-content.show {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: 0s;
+}
+
+.category-main-list {
+ width: 250px;
+ background-color: white;
+ border-left: 1px solid var(--dk-border-light);
+ list-style: none;
+ padding: 0;
+ margin: 0;
+ flex-shrink: 0;
+}
+
+.category-main-list li {
+ padding: 10px 15px;
+ cursor: pointer;
+ white-space: nowrap;
+ transition: background-color 0.2s ease, color 0.2s ease;
+ display: flex;
+ align-items: center;
+}
+
+.category-main-list li img {
+ width: 20px;
+ height: 20px;
+ margin-left: 8px;
+}
+
+.category-main-list li:hover,
+.category-main-list li.active {
+ background-color: var(--dk-red);
+ color: white;
+}
+.category-main-list li:hover img,
+.category-main-list li.active img {
+ filter: brightness(0) invert(1);
+}
+
+.category-sub-content {
+ flex-grow: 1;
+ padding: 15px;
+ background-color: var(--dk-bg-extra-light);
+ align-content: flex-start;
+ max-height: 400px;
+ overflow-y: auto;
+ position: relative;
+ display: flex;
+ flex-wrap: wrap;
+align-items: flex-start;
+}
+
+.category-sub-content::-webkit-scrollbar {
+width: 8px;
+}
+.category-sub-content::-webkit-scrollbar-track {
+ background: #f1f1f1;
+ border-radius: 10px;
+}
+.category-sub-content::-webkit-scrollbar-thumb {
+background: #888;
+ border-radius: 10px;
+}
+.category-sub-content::-webkit-scrollbar-thumb:hover {
+ background: #555;
+}
+
+.sub-category-content-item {
+ display: none;
+ width: 100%;
+ position: absolute;
+ top: 0;
+ left: 0;
+ padding: 15px;
+ background-color: var(--dk-bg-extra-light);
+ overflow-y: auto;
+ box-sizing: border-box;
+}
+
+.category-sub-group {
+margin: 8px;
+ box-sizing: border-box;
+min-width: 180px;
+flex-basis: auto;
+flex-shrink: 0;
+flex-grow: 1;
+}
+
+.category-sub-group h4 {
+font-size: 14px;
+font-weight: bold;
+margin-bottom: 10px;
+color: var(--dk-text-dark);
+border-bottom: 1px solid var(--dk-border-light);
+padding-bottom: 5px;
+}
+
+.category-sub-group ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.category-sub-group li {
+padding: 4px 0;
+}
+
+.category-sub-group a {
+color: var(--dk-text-light);
+font-size: 13px;
+transition: color 0.2s ease;
+text-decoration: none;
+display: block;
+white-space: normal;
+ word-wrap: break-word;
+ min-width: 0;
+}
+
+.category-sub-group a:hover {
+ color: var(--dk-red);
+}
+
+.default-sub-message {
+ text-align: center;
+ color: #888;
+ font-size: 14px;
+ padding: 50px 0;
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background-color: var(--dk-bg-extra-light);
+ z-index: 1;
+}
+
+@media (max-width: 991.98px) {
+ .category-sub-group {
+ min-width: 160px;
+ margin: 6px;
+ }
+}
+
+@media (max-width: 767.98px) {
+ .category-sub-group {
+ min-width: 140px;
+ margin: 4px;
+ }
+ .category-sub-group h4 {
+ font-size: 13px;
+ }
+.category-sub-group a {
+ font-size: 12px;
+}
+}
+
+.category-sub-group a:hover {
+  color: var(--dk-red);
+}
+
+.default-sub-message {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  padding: 50px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dk-bg-extra-light);
+  z-index: 1;
+}
+
+/* Media Queries برای زیرمجموعه‌ها - اگر بوت‌استرپ کافی نبود */
+@media (max-width: 991.98px) { /* Tablet size */
+    .category-sub-group {
+        min-width: 160px; /* Adjust min-width for tablets */
+        margin: 6px; /* Adjust margin */
+    }
+}
+
+@media (max-width: 767.98px) { /* Mobile size */
+    .category-sub-group {
+        min-width: 140px; /* Adjust min-width for mobiles */
+        margin: 4px; /* Adjust margin */
+    }
+    .category-sub-group h4 {
+        font-size: 13px; /* Smaller font for mobile titles */
+    }
+    .category-sub-group a {
+        font-size: 12px; /* Smaller font for mobile links */
+    }
+}

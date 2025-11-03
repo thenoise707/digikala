@@ -1,0 +1,2588 @@
+/* style.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dk-red: #ef394e;
+  --dk-dark-red: #d32f2f;
+  --dk-text-dark: #333;
+  --dk-text-medium: #555;
+  --dk-text-light: #666;
+  --dk-border-light: #eee;
+  --dk-bg-light: #f5f5f5;
+  --dk-bg-extra-light: #f9f9f9;
+}
+
+/* **تغییرات مهم**: تنظیمات عمومی برای html و body */
+body, html {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-y: scroll !important; /* تضمین نمایش نوار اسکرول و جلوگیری از تغییر عرض */
+  overflow-x: hidden !important; /* جلوگیری از اسکرول افقی ناخواسته و مهم برای اسلایدر تمام عرض */
+}
+
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  direction: rtl;
+  text-align: right;
+  /* background-color: #f8f9fa; */
+  background-color: #ffffff; /* همون رنگ کارت‌ها */
+  /* padding-top در media query مدیریت می‌شود */
+  color: var(--dk-text-dark);
+  font-family: 'Vazirmatn', sans-serif;
+  padding-top: 160px !important;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Common Styles (استایل‌های مشترک)
+-------------------------------------------------------------------------------------------------------------------- */
+.button-group-custom a,
+.main-nav-links a,
+.category-sub-group a {
+  text-decoration: none;
+}
+
+.category-dropdown-btn,
+.controls button,
+.newsletter button,
+#scrollLeft,
+#scrollRight {
+  border: none;
+  cursor: pointer;
+}
+
+.category-main-list,
+.category-sub-group ul,
+.footer-columns ul {
+  list-style: none;
+  padding: 0;
+}
+
+.newsletter p,
+.social-icons p {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: var(--dk-text-dark);
+}
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Top Bar (نوار بالای صفحه برای پیام‌های متحرک)
+-------------------------------------------------------------------------------------------------------------------- */
+#top-bar {
+  background-color: rgb(222, 199, 166);
+  color: #000;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px; /* ثابت نگه دارید */
+  line-height: 35px;
+  z-index: 1002;
+  transition: top 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Fixed Header (هدر اصلی ثابت)
+-------------------------------------------------------------------------------------------------------------------- */
+#fixed-header {
+  position: fixed;
+  top: 60px; /* دقیقاً زیر top-bar */
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  width: 100%;
+  height: auto;  /* یک ارتفاع ثابت برای هدر تعیین کنید تا padding-top بدنه دقیق باشد */
+  display: block;
+
+}
+
+.logo-container-custom {
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+#fixed-header .form-control {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: right;
+}
+
+.button-group-custom a {
+  color: var(--dk-text-dark);
+  font-size: 14px;
+}
+
+.button-group-custom a:hover {
+  background-color: #f0f0f0;
+}
+
+.main-nav-links a {
+  color: var(--dk-text-medium);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.main-nav-links a:hover {
+  color: var(--dk-red);
+}
+
+#fixed-header nav img {
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
+}
+
+
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Custom Login Box (کادر ورود | ثبت‌نام جدید در هدر)
+-------------------------------------------------------------------------------------------------------------------- */
+.custom-login-box {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 5px 10px;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--dk-text-dark);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.custom-login-box:hover {
+    background-color: #f0f0f0;
+    border-color: #a0a0a0;
+}
+
+.custom-login-box img {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+}
+
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Category Dropdown (منوی دسته‌بندی کالاها)
+-------------------------------------------------------------------------------------------------------------------- */
+.category-dropdown-container {
+ position: relative;
+}
+
+.category-dropdown-btn {
+background-color: transparent;
+color: var(--dk-text-medium);
+padding: 8px 12px;
+ font-size: 14px;
+ font-weight: bold;
+ border-radius: 6px;
+ transition: background-color 0.2s ease;
+ border: none;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+}
+
+.category-dropdown-btn:hover {
+ background-color: #f0f0f0;
+}
+
+.category-dropdown-content {
+ position: absolute;
+ background-color: var(--dk-bg-extra-light);
+ min-width: 900px;
+ box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+ z-index: 1001;
+ right: 0;
+ border-radius: 8px;
+ overflow: hidden;
+ visibility: hidden; /* پیش‌فرض پنهان */
+ opacity: 0; /* پیش‌فرض شفافیت صفر */
+ transition: visibility 0s, opacity 0.3s ease-in-out;
+ display: flex;
+ flex-direction: row;
+ text-align: right;
+ border: 1px solid var(--dk-border-light);
+ top: calc(100% + 5px);
+ pointer-events: none;
+}
+
+/* این کلاس توسط جاوا اسکریپت اضافه/حذف می‌شود */
+.category-dropdown-content.show {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: 0s;
+}
+
+.category-main-list {
+ width: 250px;
+ background-color: white;
+ border-left: 1px solid var(--dk-border-light);
+ list-style: none;
+ padding: 0;
+ margin: 0;
+ flex-shrink: 0;
+}
+
+.category-main-list li {
+ padding: 10px 15px;
+ cursor: pointer;
+ white-space: nowrap;
+ transition: background-color 0.2s ease, color 0.2s ease;
+ display: flex;
+ align-items: center;
+}
+
+.category-main-list li img {
+ width: 20px;
+ height: 20px;
+ margin-left: 8px;
+}
+
+.category-main-list li:hover,
+.category-main-list li.active {
+ background-color: var(--dk-red);
+ color: white;
+}
+.category-main-list li:hover img,
+.category-main-list li.active img {
+ filter: brightness(0) invert(1);
+}
+
+.category-sub-content {
+ flex-grow: 1;
+ padding: 15px;
+ background-color: var(--dk-bg-extra-light);
+ align-content: flex-start;
+ max-height: 400px;
+ overflow-y: auto;
+ position: relative;
+ display: flex;
+ flex-wrap: wrap;
+align-items: flex-start;
+}
+
+.category-sub-content::-webkit-scrollbar {
+width: 8px;
+}
+.category-sub-content::-webkit-scrollbar-track {
+ background: #f1f1f1;
+ border-radius: 10px;
+}
+.category-sub-content::-webkit-scrollbar-thumb {
+background: #888;
+ border-radius: 10px;
+}
+.category-sub-content::-webkit-scrollbar-thumb:hover {
+ background: #555;
+}
+
+.sub-category-content-item {
+ display: none;
+ width: 100%;
+ position: absolute;
+ top: 0;
+ left: 0;
+ padding: 15px;
+ background-color: var(--dk-bg-extra-light);
+ overflow-y: auto;
+ box-sizing: border-box;
+}
+
+.category-sub-group {
+margin: 8px;
+ box-sizing: border-box;
+min-width: 180px;
+flex-basis: auto;
+flex-shrink: 0;
+flex-grow: 1;
+}
+
+.category-sub-group h4 {
+font-size: 14px;
+font-weight: bold;
+margin-bottom: 10px;
+color: var(--dk-text-dark);
+border-bottom: 1px solid var(--dk-border-light);
+padding-bottom: 5px;
+}
+
+.category-sub-group ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.category-sub-group li {
+padding: 4px 0;
+}
+
+.category-sub-group a {
+color: var(--dk-text-light);
+font-size: 13px;
+transition: color 0.2s ease;
+text-decoration: none;
+display: block;
+white-space: normal;
+ word-wrap: break-word;
+ min-width: 0;
+}
+
+.category-sub-group a:hover {
+ color: var(--dk-red);
+}
+
+.default-sub-message {
+ text-align: center;
+ color: #888;
+ font-size: 14px;
+ padding: 50px 0;
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background-color: var(--dk-bg-extra-light);
+ z-index: 1;
+}
+
+@media (max-width: 991.98px) {
+ .category-sub-group {
+ min-width: 160px;
+ margin: 6px;
+ }
+}
+
+@media (max-width: 767.98px) {
+ .category-sub-group {
+ min-width: 140px;
+ margin: 4px;
+ }
+ .category-sub-group h4 {
+ font-size: 13px;
+ }
+.category-sub-group a {
+ font-size: 12px;
+}
+}
+
+.category-sub-group a:hover {
+  color: var(--dk-red);
+}
+
+.default-sub-message {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  padding: 50px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--dk-bg-extra-light);
+  z-index: 1;
+}
+
+/* Media Queries برای زیرمجموعه‌ها - اگر بوت‌استرپ کافی نبود */
+@media (max-width: 991.98px) { /* Tablet size */
+    .category-sub-group {
+        min-width: 160px; /* Adjust min-width for tablets */
+        margin: 6px; /* Adjust margin */
+    }
+}
+
+@media (max-width: 767.98px) { /* Mobile size */
+    .category-sub-group {
+        min-width: 140px; /* Adjust min-width for mobiles */
+        margin: 4px; /* Adjust margin */
+    }
+    .category-sub-group h4 {
+        font-size: 13px; /* Smaller font for mobile titles */
+    }
+    .category-sub-group a {
+        font-size: 12px; /* Smaller font for mobile links */
+    }
+}
+/* ----------------------------------------------------------------------------------------------------------------
+   Story Circles Section (بخش دایره‌های استوری زیر هدر)
+-------------------------------------------------------------------------------------------------------------------- */
+.story-circles-section {
+  background-color: white; /* پس‌زمینه سفید برای کل بخش */
+  padding: 15px 0; /* پدینگ بالا و پایین */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* سایه کوچک */
+  margin-top: 30px; /* فاصله از هدر. مقدار دقیق را تنظیم کنید. */
+  border-radius: 8px; /* گوشه‌های گرد برای کل بخش */
+}
+
+.story-scroll-wrapper {
+  position: relative;
+  overflow: hidden; /* پنهان کردن دکمه‌ها اگر از کانتینر خارج شوند */
+}
+
+.story-container {
+  display: flex; /* تغییر از grid به flex برای تراز بهتر */
+  flex-wrap: nowrap; /* جلوگیری از شکستن خط آیتم‌ها */
+  overflow-x: auto; /* فعال کردن اسکرول افقی */
+  -webkit-overflow-scrolling: touch; /* اسکرول نرم‌تر در iOS */
+  scroll-behavior: smooth; /* اسکرول نرم هنگام کلیک روی دکمه‌ها */
+  scrollbar-width: none; /* مخفی کردن اسکرول برای فایرفاکس */
+  -ms-overflow-style: none; /* مخفی کردن اسکرول برای IE و Edge */
+  gap: 15px; /* فاصله بین دایره‌ها */
+  padding-bottom: 10px; /* فضای پایین برای جلوگیری از بریده شدن احتمالی سایه یا متن */
+  align-items: flex-start; /* آیتم‌ها از بالا تراز شوند */
+}
+
+.story-container::-webkit-scrollbar {
+  display: none; /* پنهان کردن اسکرول بار برای وب‌کیت (کروم، سافاری) */
+}
+
+.story-circle-item {
+  min-width: 80px; /* حداقل عرض برای هر آیتم (برای اینکه دایره‌ها کوچک نشوند) */
+  flex-shrink: 0; /* جلوگیری از کوچک شدن آیتم‌ها */
+  flex-grow: 0; /* جلوگیری از رشد آیتم‌ها */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* محتوای داخلی آیتم از بالا تراز شود */
+  text-decoration: none;
+  color: var(--dk-text-dark); /* رنگ متن پیش‌فرض */
+  transition: transform 0.2s ease;
+  /* **تغییر: افزایش ارتفاع ثابت برای هر آیتم** */
+  height: 140px; /* مقدار را از 120px به 140px افزایش دادیم */
+}
+
+.story-circle-item:hover {
+  transform: translateY(-3px); /* افکت کوچک هاور */
+}
+
+.circle-image-wrapper {
+  width: 70px; /* عرض دایره */
+  height: 70px; /* ارتفاع دایره */
+  border-radius: 50%; /* ایجاد دایره */
+  background-color: var(--dk-bg-extra-light); /* پس‌زمینه داخل دایره */
+  border: 2px solid transparent; /* بوردر شفاف برای گرادیان */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* پنهان کردن تصویر اضافی */
+  position: relative; /* برای موقعیت‌یابی گرادیان */
+  flex-shrink: 0; /* جلوگیری از کوچک شدن در فلکس‌باکس */
+}
+
+/* گرادیان برای بوردر دایره */
+.circle-image-wrapper .gradient-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* این گرادیان را می‌توانید بر اساس رنگ دقیق دیجی‌کالا تغییر دهید */
+    background: linear-gradient(to top right, #ff0055, #ee00ee); /* صورتی تا بنفش */
+    padding: 3px; /* ضخامت بوردر گرادیان */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 1; /* بالاتر از تصویر */
+}
+
+
+.circle-image-wrapper img {
+  max-width: 80%; /* اندازه تصویر داخل دایره */
+  max-height: 80%;
+  object-fit: contain;
+  border-radius: 50%; /* برای تصاویر گرد شده داخل دایره */
+  position: relative; /* برای قرار گرفتن زیر گرادیان */
+  z-index: 2; /* بالاتر از پس‌زمینه و زیر گرادیان */
+}
+
+.story-circle-item p {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: normal; /* **تغییر: اجازه شکستن خط را می‌دهیم** */
+  overflow: hidden;
+  text-overflow: ellipsis; /* اضافه کردن ... اگر متن جا نشد */
+  max-width: 80px; /* محدود کردن عرض متن برای هم‌اندازی با دایره */
+  text-align: center; /* متن زیر دایره وسط چین شود */
+  line-height: 1.3; /* **جدید: ارتفاع خط را کمی بیشتر می‌کنیم برای خوانایی بهتر** */
+  margin-top: 8px; /* **تغییر: فاصله بیشتری از دایره ایجاد می‌کنیم** */
+}
+
+.story-circle-item p.small { /* **جدید: استایل برای پاراگراف‌های کوچک‌تر** */
+    font-size: 10px; /* فونت کوچکتر برای متن‌های توضیحی */
+    color: var(--dk-text-light); /* رنگ کمی روشن‌تر */
+    margin-top: 2px; /* فاصله کمتر از پاراگراف بالایی */
+}
+
+
+/* دکمه‌های ناوبری (مشابه سایر اسلایدرها) */
+.story-scroll-wrapper .scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.story-scroll-wrapper .scroll-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.story-scroll-wrapper .scroll-btn-left {
+  left: 0;
+}
+
+.story-scroll-wrapper .scroll-btn-right {
+  right: 0;
+}
+
+
+/* Media Queries برای واکنش‌گرایی */
+@media (max-width: 991.98px) { /* تبلت */
+  .story-circles-section {
+    padding: 10px 0;
+    padding-top: 55px!important; /* اصلاح پدینگ در تبلت */
+  }
+  .circle-image-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+  .story-circle-item {
+    height: 120px; /* **تغییر: ارتفاع ثابت برای تبلت را به 120px افزایش دادیم** */
+  }
+  .story-circle-item p {
+    font-size: 11px;
+    max-width: 60px;
+  }
+  .story-scroll-wrapper .scroll-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767.98px) { /* موبایل */
+  .story-circles-section {
+    padding: 8px 0; /* پدینگ داخلی کمتر */
+    margin-top: 10px; /* فاصله از هدر ثابت موبایل */
+    margin-bottom: 10px; /* فاصله از اسلایدر اصلی (بنرها) */
+  }
+  .story-container {
+      padding: 0 5px; /* پدینگ کم در موبایل */
+  }
+  .circle-image-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+  .story-circle-item {
+    height: 110px; /* **تغییر: ارتفاع ثابت برای موبایل را به 110px افزایش دادیم** */
+  }
+  .story-circle-item p {
+    font-size: 10px;
+    max-width: 50px;
+    margin-top: 5px !important;
+  }
+  /* در موبایل دکمه‌های اسکرول را مخفی می‌کنیم و از کشیدن استفاده می‌کنیم */
+  .story-scroll-wrapper .scroll-btn {
+      display: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Slider (اسلایدشو تصاویر)
+-------------------------------------------------------------------------------------------------------------------- */
+#sliderContainer {
+  position: relative;
+  width: 100%; /* از 100% استفاده کنید نه 100vw برای جلوگیری از اسکرول افقی اضافی */
+  overflow: hidden;
+  margin-top: 20px; /* مقدار پیش‌فرض برای دسکتاپ. این مقدار در موبایل override می‌شود. */
+  background: white;
+  aspect-ratio: 4 / 1;
+  z-index: 3;
+  direction: rtl;
+  min-height: 300px;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* مطمئن شوید که تصویر کل فضا را پر کند */
+  opacity: 0;
+  transition: opacity 1s ease;
+  display: none;
+  z-index: 1;
+}
+
+.slide.active {
+  display: block;
+  opacity: 1;
+  z-index: 1;
+}
+
+.controls {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* افزایش پدینگ برای دکمه‌ها */
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.controls button {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #333;
+  border-radius: 50%;
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+
+/*section */
+.section {
+  display: flex;
+  align-items: center;
+  height: 153px;
+  .category {
+    height: 100%;
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    a {
+      width: 82px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .img-holder-dots {
+        .circle-dots {
+          width: 50px;
+          height: 50px;
+          border-radius: 100%;
+          background-color: #f0f0f1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .three-dots {
+            width: 32px;
+            height: 32px;
+          }
+        }
+      }
+
+      .img-holder {
+        width: 100%;
+        height: 46%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          width: 50px;
+        }
+      }
+      span {
+        text-align: center;
+        font-weight: bold;
+        line-height: 22px;
+        font-size: 11px;
+        color: #313248;
+        width: 100%;
+        padding: 0 16px;
+        height: 50%;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Wrapper (محتوای اصلی)
+-------------------------------------------------------------------------------------------------------------------- */
+.wrapper {
+  width: 85%;
+  max-width: 1440px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: right;
+  margin-top: 20px;
+}
+
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Product Section (بخش محصولات - پیشنهاد شگفت‌انگیز)
+-------------------------------------------------------------------------------------------------------------------- */
+.product-scroll-wrapper {
+  position: relative;
+  padding: 20px 0;
+}
+
+#productContainer {
+  overflow-x: auto;
+  display: flex; /* برای چیدمان افقی کارت‌ها */
+  flex-wrap: nowrap; /* جلوگیری از شکستن خط کارت‌ها */
+  background-color: #dc3545; /* این رنگ قرمز کادر کلی است */
+  padding: 1rem;
+  border-radius: 1rem;
+  scroll-behavior: smooth;
+}
+
+/* مخفی کردن اسکرول‌بار پیش‌فرض در وب‌کیت (کروم، سافاری) */
+#productContainer::-webkit-scrollbar {
+  display: none;
+}
+#productContainer {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.special-offer-product-card {
+    background-color: transparent !important; /* از !important استفاده کنید تا بر بوت‌استرپ غلبه کند */
+    box-shadow: none !important; /* سایه را هم حذف کنید */
+}
+
+
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 10px;
+  width: 100%; /* Ensures the card takes up the full width of its parent column */
+  height: 100%; /* Ensures all cards in a row have the same height */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.product-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+
+.product-card .title {
+  font-size: 13px;
+  margin: 10px 0;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2; /* رفع خطای compatibility */
+}
+
+.product-card .price {
+  font-weight: bold;
+  color: #d32f2f;
+  margin-top: 5px;
+}
+
+.product-card .discount {
+  background-color: #ef394e;
+  color: white;
+  padding: 2px 6px;
+  font-size: 12px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Special Offer Product Card (اسلاید ویژه پیشنهاد شگفت‌انگیز در ProductContainer)
+-------------------------------------------------------------------------------------------------------------------- */
+.special-offer-product-card {
+    background-color: transparent; /* پس‌زمینه شفاف شود تا رنگ قرمز والد دیده شود */
+    color: white; /* رنگ متن پیش‌فرض کارت سفید شود */
+    min-width: 180px;
+    width: 180px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 10px;
+    margin-left: 15px;
+    border-radius: 8px;
+    box-shadow: none; /* سایه حذف شود */
+}
+
+.special-offer-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 5px;
+    color: white; /* اطمینان از رنگ متن سفید برای محتوا */
+}
+
+.special-offer-product-card .offer-title {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: white; /* عنوان به رنگ سفید */
+}
+
+.special-offer-product-card .timer {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+    direction: ltr;
+    color: white; /* رنگ کولون‌ها (:) هم سفید شود */
+}
+
+.special-offer-product-card .timer span {
+    background-color: white; /* پس‌زمینه سفید برای اعداد */
+    color: var(--dk-red); /* رنگ متن قرمز دیجی‌کالا */
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.special-offer-product-card .percentage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.special-offer-product-card .percent-sign {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1;
+    color: white; /* علامت درصد به رنگ سفید */
+}
+
+.special-offer-product-card .smile {
+    width: 60px;
+    height: 5px;
+    background-color: white; /* رنگ لبخند به سفید */
+    border-radius: 5px;
+    margin-top: 5px;
+    position: relative;
+}
+
+.special-offer-product-card .view-all {
+    color: white; /* رنگ "مشاهده همه" به سفید */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+.special-offer-product-card .view-all:hover {
+    text-decoration: underline;
+}
+
+
+/* دکمه‌های فلش برای اسکرول محصولات */
+#scrollLeft, #scrollRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+#scrollLeft:hover, #scrollRight:hover {
+  background-color: #f0f0f0;
+}
+
+#scrollLeft {
+  left: 0;
+}
+
+#scrollRight {
+  right: 0;
+}
+/* ----------------------------------------------------------------------------------------------------------------
+   Digikala Fresh Header
+-------------------------------------------------------------------------------------------------------------------- */
+.fresh-header-custom {
+  max-width: 85%;
+  margin: 30px auto 15px auto;
+  border-bottom: 1px solid var(--dk-border-light);
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.fresh-header-custom img {
+  height: 40px;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Category Section
+-------------------------------------------------------------------------------------------------------------------- */
+ .category-section {
+  /* max-width و margin: auto را حذف می‌کنیم زیرا container آن را مدیریت می‌کند */
+  margin: 50px 0; /* فقط مارجین بالا و پایین را حفظ می‌کنیم */
+  /* padding را حذف می‌کنیم زیرا روی کانتینر داخل اعمال می‌شود */
+}
+/* حالا استایل‌های پس‌زمینه و سایه را به کانتینر داخلی اعمال می‌کنیم */
+.category-section .container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 20px; /* پدینگ داخلی کانتینر، برای محتوای داخل */
+}
+
+.category-section h5 {
+  margin-bottom: 30px;
+  color: var(--dk-text-dark);
+}
+
+.category-scroll-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.category-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, 160px); /* 2 ردیف با ارتفاع 160px */
+  gap: 15px 2px; /* گپ عمودی 15px، گپ افقی 20px */
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0; /* پدینگ بالا و پایین برای اسکرول کانتینر */
+  scrollbar-width: none; /* مخفی کردن اسکرول برای فایرفاکس */
+}
+
+.category-container::-webkit-scrollbar {
+  display: none; /* مخفی کردن اسکرول برای وب‌کیت */
+}
+
+.category-item-card {
+  width: 140px; /* عرض ثابت هر کارت */
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  text-decoration: none;
+  color: black;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.category-item-card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid var(--dk-border-light); /* استفاده از متغیر */
+  padding: 8px;
+  margin-bottom: 8px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.category-item-card img:hover {
+  transform: scale(1.05);
+}
+
+.category-item-card p {
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* دکمه های اسکرول (استایل‌های مشترک با Brands Section) */
+.category-scroll-wrapper .scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+.category-scroll-wrapper .scroll-btn:hover {
+  background-color: rgba(255,255,255,1);
+}
+.category-scroll-wrapper .scroll-btn-left {
+  left: 0;
+}
+.category-scroll-wrapper .scroll-btn-right {
+  right: 0;
+}
+
+/* واکنش‌گرایی موبایل برای بخش دسته‌بندی */
+@media (max-width: 767.98px) {
+  .category-container {
+    grid-template-rows: repeat(2, 130px); /* ارتفاع ردیف کمتر در موبایل */
+    gap: 10px 15px; /* گپ کمتر در موبایل */
+    padding: 5px 0; /* پدینگ کمتر */
+  }
+  .category-item-card {
+    width: 110px; /* عرض کمتر در موبایل */
+    padding: 10px;
+  }
+  .category-item-card img {
+    width: 60px;
+    height: 60px;
+    padding: 6px;
+    margin-bottom: 5px;
+  }
+  .category-item-card p {
+    font-size: 12px;
+  }
+  /* دکمه‌های اسکرول در موبایل (کلاس‌های مشترک) */
+  .category-scroll-wrapper .scroll-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+}
+/* ----------------------------------------------------------------------------------------------------------------
+   Footer
+-------------------------------------------------------------------------------------------------------------------- */
+.footer-section {
+  width: 100%;
+  background-color: var(--dk-bg-extra-light);
+  padding: 40px 60px;
+  box-sizing: border-box;
+  color: var(--dk-text-dark);
+  margin-top: 50px;
+  border-top: 1px solid var(--dk-border-light);
+}
+
+.footer-section > .container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+}
+
+.footer-icons {
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--dk-border-light);
+  padding-bottom: 20px;
+}
+
+.footer-icons img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+}
+
+.footer-icons p {
+  font-size: 13px;
+  color: var(--dk-text-medium);
+}
+
+.footer-columns h4 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  color: var(--dk-text-dark);
+}
+
+.footer-columns ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-columns li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--dk-text-light);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.footer-columns li:hover {
+  color: var(--dk-red);
+}
+
+.newsletter {
+  margin-bottom: 30px;
+  text-align: right;
+}
+
+.newsletter button {
+  background-color: var(--dk-red);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.newsletter button:hover {
+  background-color: var(--dk-dark-red);
+}
+
+.social-icons {
+  text-align: right;
+}
+
+.social-icons .icons a {
+  margin: 0 8px;
+  display: inline-block;
+}
+
+.social-icons .icons img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.social-icons .icons img:hover {
+  transform: scale(1.1);
+}
+
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Mobile Bottom Navigation (نوار ناوبری پایین برای موبایل)
+-------------------------------------------------------------------------------------------------------------------- */
+#mobile-bottom-nav {
+  height: 60px; /* ارتفاع ثابت برای نوار پایین */
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+  z-index: 1010; /* مطمئن شوید که روی بقیه محتوا قرار می‌گیرد */
+  background-color: white; /* پس‌زمینه سفید */
+  border-top: 1px solid var(--dk-border-light); /* خط بالا */
+}
+
+#mobile-bottom-nav a {
+  flex: 1; /* توزیع فضای یکنواخت بین آیتم‌ها */
+  text-align: center;
+  color: var(--dk-text-medium);
+  transition: color 0.2s ease;
+  padding-top: 5px; /* برای فاصله دادن آیکون از بالا */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px; /* اندازه فونت کوچک برای متن */
+}
+
+#mobile-bottom-nav a:hover,
+#mobile-bottom-nav a.active-nav-item {
+  color: var(--dk-red);
+}
+
+#mobile-bottom-nav a img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 2px; /* فاصله بین آیکون و متن */
+  /* فیلتر برای تغییر رنگ آیکون‌ها به خاکستری تیره */
+  filter: brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(259deg) brightness(1%) contrast(100%);
+}
+
+#mobile-bottom-nav a.active-nav-item img {
+  /* فیلتر برای تغییر رنگ آیکون فعال به قرمز دیجی‌کالا */
+  filter: brightness(0) saturate(100%) invert(29%) sepia(87%) saturate(6328%) hue-rotate(338deg) brightness(97%) contrast(98%);
+}
+
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Media Queries (فقط برای استایل‌های غیرقابل جایگزینی با بوت‌استرپ)
+-------------------------------------------------------------------------------------------------------------------- */
+
+/* Tablet and Mobile (کمتر از 991.98px) */
+@media (max-width: 991.98px) {
+  body {
+    /* (top-bar height) + (fixed-header height in mobile) + (mobile-bottom-nav height) */
+    /* ارتفاع هدر در موبایل بسته به محتوا متغیر است، بنابراین آن را حدودی در نظر می‌گیریم */
+    padding-top: calc(60px + 60px) !important; /* 60px (top-bar) + 60px (header تقریباً) */
+    padding-bottom: 60px !important; /* ارتفاع نوار پایین موبایل */
+  }
+  #top-bar {
+    height: 60px; /* ارتفاع top-bar ثابت نگه داشته می‌شود */
+    line-height: 35px; /* برای وسط چین کردن متن */
+    padding: 10px 15px; /* پدینگ کمتر در موبایل */
+  }
+  #fixed-header {
+    top: 60px; /* شروع fixed-header بلافاصله بعد از top-bar */
+    height: auto; /* ارتفاع را به محتوا بسپارید تا در موبایل فشرده شود */
+    padding-top: 5px; /* کمی پدینگ از بالا در هدر */
+    padding-bottom: 5px; /* کمی پدینگ از پایین در هدر */
+    position: fixed; /* همچنان fixed باقی می‌ماند */
+  }
+
+  /* **تغییر اصلی**: margin-top برای اسلایدر در حالت موبایل */
+  #sliderContainer {
+    aspect-ratio: 16 / 9;
+    width: 95vw;
+    margin-top: 20px !important;  /* کاهش margin-top و اضافه کردن margin-bottom در موبایل */
+    margin-top: calc(120px + 20px) !important; /* 120px (ارتفاع حدودی هدر ثابت) + 20px فاصله */
+    border-radius: 8px; /* گوشه‌های گرد در موبایل */
+  }
+  .controls {
+    padding: 0 5px;
+  }
+  .controls button {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+  .wrapper {
+    width: 95%;
+  }
+  .product-scroll-wrapper {
+    padding: 10px 0;
+  }
+  .product-card {
+    min-width: 140px;
+    width: 140px;
+  }
+  #scrollLeft, #scrollRight {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  /* برای موبایل ها (Specific for mobile breakpoint, usually < 768px) */
+  /* اینجا فقط استایل‌هایی که در موبایل کاملا متفاوت هستند را قرار می‌دهیم */
+  @media (max-width: 767.98px) {
+    /* #fixed-header دیگر position: static نمی‌شود، بلکه fixed باقی می‌ماند */
+    /* ارتفاع fixed-header در موبایل به محتوا بستگی دارد. */
+    /* padding-top در body به درستی محاسبه شود */
+    body {
+        padding-top: calc(60px + 60px) !important; /* 60px (top-bar) + 60px (header تقریباً) */
+    }
+
+    #fixed-header header {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      padding: 10px; /* پدینگ کلی هدر در موبایل */
+    }
+    
+    .button-group-custom {
+      display: none !important; /* دکمه‌های دسکتاپ هدر را مخفی می‌کند */
+    }
+    
+    .button-group-custom-mobile {
+      display: flex !important; /* دکمه‌های موبایل هدر را نمایش می‌دهد */
+      gap: 10px;
+      margin-right: auto; /* کشیدن به سمت راست (در RTL) */
+    }
+    
+    .logo-container-custom img {
+      height: 30px !important; /* لوگو کوچکتر در موبایل */
+    }
+    
+    .header-search-box-container {
+        width: 100% !important;
+        margin-top: 10px; /* فاصله از لوگو در موبایل */
+        margin-bottom: 0px; /* فاصله از نوار ناوبری (اگر بود) */
+        margin-left: 0 !important; /* اطمینان از حذف margin-left بوت استرپ */
+    }
+
+    .header-search-box-container input {
+      width: 100% !important;
+    }
+    
+    /* nav اصلی (d-none d-lg-flex) دیگر در موبایل نمایش داده نمی‌شود پس نیازی به override نیست */
+    /* #fixed-header nav {
+        display: none !important;
+    } */
+
+    /* **تغییر اصلی**: margin-top برای اسلایدر در حالت موبایل‌های کوچکتر */
+    #sliderContainer {
+         margin-top: 0 !important; /* ارتفاع top-bar + ارتفاع هدر موبایل + فاصله */
+         /* margin-bottom: 20px !important; */
+         aspect-ratio: 2 / 1;
+    }
+  }
+}
+
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Brands Section (بخش محبوب‌ترین برندها)
+-------------------------------------------------------------------------------------------------------------------- */
+.brands-section {
+  /* max-width و margin: auto را حذف می‌کنیم زیرا container آن را مدیریت می‌کند */
+  margin: 50px 0; /* فقط مارجین بالا و پایین را حفظ می‌کنیم */
+  /* padding را حذف می‌کنیم زیرا روی کانتینر داخل اعمال می‌شود */
+}
+/* حالا استایل‌های پس‌زمینه و سایه را به کانتینر داخلی اعمال می‌کنیم */
+.brands-section .container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 20px; /* پدینگ داخلی کانتینر، برای محتوای داخل */
+}
+
+.brands-scroll-wrapper {
+  overflow: hidden; /* پنهان کردن هر چیزی که از کانتینر خارج می‌شود */
+  position: relative;
+}
+
+#brandsContainer {
+  overflow-x: auto; /* فعال کردن اسکرول افقی */
+  -webkit-overflow-scrolling: touch; /* اسکرول نرم‌تر در iOS */
+  scroll-behavior: smooth; /* اسکرول نرم هنگام کلیک روی دکمه‌ها */
+  /* استایل‌های مربوط به اسکرول بار (اختیاری) */
+  scrollbar-width: none; /* برای فایرفاکس */
+  -ms-overflow-style: none;  /* برای IE و Edge */
+}
+
+#brandsContainer::-webkit-scrollbar {
+  display: none; /* پنهان کردن اسکرول بار برای وب‌کیت (کروم، سافاری) */
+}
+
+.brand-logo-card {
+  min-width: 140px; /* عرض ثابت برای هر کارت لوگو */
+  height: 100px; /* ارتفاع ثابت برای هر کارت لوگو */
+  display: flex; /* برای وسط چین کردن تصویر لوگو */
+  align-items: center; /* وسط چین افقی */
+  justify-content: center; /* وسط چین عمودی */
+  flex-shrink: 0; /* جلوگیری از کوچک شدن کارت‌ها */
+  background-color: white;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* سایه کمی برای زیبایی */
+}
+
+.brand-logo-card:hover {
+  transform: translateY(-5px); /* افکت هاور */
+}
+
+.brand-logo-card img {
+  max-width: 80%; /* حداکثر عرض تصویر در کارت */
+  max-height: 80%; /* حداکثر ارتفاع تصویر در کارت */
+  object-fit: contain; /* حفظ نسبت ابعاد */
+}
+
+/* دکمه‌های اسکرول برای بخش برندها */
+.brands-scroll-wrapper .scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.8); /* کمی شفافیت برای بهتر دیده شدن */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.brands-scroll-wrapper .scroll-btn:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.brands-scroll-wrapper .scroll-btn-left {
+  left: 0;
+}
+
+.brands-scroll-wrapper .scroll-btn-right {
+  right: 0;
+}
+
+/* Media Queries برای دکمه‌های اسکرول در موبایل */
+@media (max-width: 767.98px) {
+  .brands-scroll-wrapper .scroll-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    margin-top: 20px !important;
+  }
+}
+
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Product Categories Grid (بخش دسته‌بندی محصولات با دو ردیف عکس)
+-------------------------------------------------------------------------------------------------------------------- */
+.product-categories-grid .category-grid-card {
+    border: 1px solid var(--dk-border-light); /* بوردر دور کارت‌های دسته‌بندی */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* سایه */
+}
+
+.product-categories-grid .category-grid-card h6 {
+    color: var(--dk-text-dark);
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.product-categories-grid .product-grid-items {
+    /* height: 280px; /* اگر می‌خواهید ارتفاع ثابتی داشته باشد */
+    /* overflow: hidden; /* اگر height ثابت باشد، محتوای اضافی پنهان شود */
+    gap: 15px; /* فاصله بین آیتم‌های محصول */
+}
+
+.product-categories-grid .grid-product-item {
+    flex-basis: calc(50% - 7.5px); /* برای نمایش 2 آیتم در هر ردیف (50% عرض، منهای نصف گپ) */
+    max-width: calc(50% - 7.5px); /* اطمینان از عدم تجاوز از 50% */
+    text-align: center;
+    transition: transform 0.2s ease;
+    padding: 5px; /* پدینگ داخلی آیتم برای محافظت از تصویر */
+}
+
+.product-categories-grid .grid-product-item:hover {
+    transform: translateY(-3px); /* افکت هاور */
+}
+
+.product-categories-grid .grid-product-item img {
+    width: 100%;
+    height: 120px; /* ارتفاع ثابت برای تصاویر محصول کوچک */
+    object-fit: contain; /* حفظ نسبت ابعاد و قرارگیری کامل تصویر */
+    border-radius: 8px; /* گوشه‌های گرد برای تصویر */
+}
+
+.product-categories-grid .grid-product-item .small-link {
+    font-size: 13px;
+    color: var(--dk-text-medium);
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.product-categories-grid .grid-product-item .small-link:hover {
+    color: var(--dk-red); /* تغییر رنگ در هاور */
+}
+
+/* Media Queries برای واکنش‌گرایی */
+@media (max-width: 767.98px) { /* موبایل */
+    .product-categories-grid .category-grid-card {
+        padding: 15px; /* پدینگ کمتر در موبایل */
+    }
+    .product-categories-grid .grid-product-item {
+        flex-basis: calc(50% - 7.5px); /* 2 آیتم در هر ردیف */
+        max-width: calc(50% - 7.5px);
+    }
+    .product-categories-grid .grid-product-item img {
+        height: 100px; /* ارتفاع کمتر تصاویر در موبایل */
+    }
+}
+
+@media (max-width: 575.98px) { /* موبایل‌های کوچک (زیر sm) */
+    .product-categories-grid .col-12 {
+        /* در این حالت هر دسته بندی یک ستون کامل میگیرد و در موبایل های کوچک دو ردیف را نمایش می دهد */
+    }
+}
+
+
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+/* بخش پرفروش‌ترین کالاها */
+/* متغیرهای عمومی (اگر در فایل جداگانه global/variables.css نیست، اینجا باید تعریف شوند) */
+/* متغیرهای عمومی (اگر در فایل جداگانه global/variables.css نیست، اینجا باید تعریف شوند) */
+/* متغیرهای عمومی (اگر در فایل جداگانه global/variables.css نیست، اینجا باید تعریف شوند) */
+:root {
+    --dk-text-dark: #333; /* مثال رنگ متن */
+    --dk-red: #ef394e;   /* مثال رنگ قرمز دیجی‌کالا */
+    --dk-border-light: #eee; /* مثال رنگ حاشیه روشن */
+}
+
+
+/* بخش پرفروش‌ترین کالاها */
+.best-selling-section {
+    margin: 50px 0;
+}
+
+.best-selling-section .container {
+    padding: 0;
+}
+
+.best-selling-section .d-flex.align-items-center.justify-content-between.mb-4 {
+    padding: 0 20px;
+}
+
+.best-selling-section h5 {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--dk-text-dark);
+    margin-bottom: 0;
+}
+
+.best-selling-section .view-all-link {
+    color: var(--dk-red);
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.best-selling-section .view-all-link:hover {
+    text-decoration: underline !important;
+}
+
+.best-selling-scroll-wrapper {
+    position: relative;
+    overflow: hidden; /* این برای اینکه دکمه‌ها از باکس خارج نشوند */
+}
+
+.best-selling-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, 100px); /* 3 ردیف با ارتفاع 100 پیکسل */
+    gap: 15px 20px; /* فاصله بین ردیف‌ها و ستون‌ها */
+    overflow-x: auto; /* برای فعال شدن اسکرول افقی */
+    scroll-behavior: smooth; /* اسکرول روان */
+    scrollbar-width: none; /* برای فایرفاکس */
+    -ms-overflow-style: none; /* برای اینترنت اکسپلورر و اج */
+    padding: 15px 60px; /* پدینگ را افزایش دهید تا فضای کافی برای دکمه‌ها در کناره‌ها باشد */
+    min-height: 350px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.best-selling-container::-webkit-scrollbar {
+    display: none; /* برای کروم، سافاری و اوپرا */
+}
+
+.best-selling-item {
+    width: 250px; /* عرض آیتم (می‌توانید تنظیم کنید) */
+    height: 100px;
+    flex-shrink: 0; /* جلوگیری از کوچک شدن آیتم‌ها */
+    background-color: #f9f9f9;
+    border: 1px solid var(--dk-border-light);
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--dk-text-dark);
+    position: relative;
+    box-sizing: border-box;
+    display: flex; /* استفاده از فلکس‌باکس برای چیدمان داخلی */
+    align-items: center; /* تراز عمودی عناصر داخلی (تصویر، عدد، متن) */
+}
+
+.best-selling-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.best-selling-item .item-number {
+    font-size: 18px; /* اندازه فونت برای عدد رتبه‌بندی */
+    font-weight: bold;
+    color: var(--dk-red);
+    opacity: 1;
+    margin-right: 8px; /* فاصله از تصویر (سمت چپ عدد) */
+    margin-left: 8px; /* فاصله از عنوان (سمت راست عدد) */
+    flex-shrink: 0; /* جلوگیری از فشرده شدن عدد در فضای کم */
+}
+
+.best-selling-item .item-img-wrapper {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.best-selling-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.best-selling-item .item-title {
+    font-size: 14px;
+    color: var(--dk-text-dark);
+    flex-grow: 1; /* اجازه می‌دهد متن فضای باقی‌مانده را پر کند */
+    line-height: 1.6; /* ارتفاع خط برای خوانایی بهتر */
+    margin-top: 0;
+    margin-bottom: 0;
+    
+    /* تنظیمات برای نمایش دو خط متن */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* محدود کردن به 2 خط */
+    -webkit-box-orient: vertical; /* جهت باکس برای برش عمودی */
+    
+    overflow: hidden; /* پنهان کردن متن اضافه */
+    text-overflow: ellipsis; /* اضافه کردن ... در انتهای متن بریده شده */
+    white-space: normal; /* اجازه می‌دهد متن به خط بعدی شکسته شود */
+}
+
+/* دکمه‌های اسکرول */
+.best-selling-scroll-wrapper .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20; /* اطمینان از قرار گرفتن بالای عناصر دیگر */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9); /* کمی شفافیت برای دید بهتر */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, opacity 0.3s ease; /* transition برای opacity */
+}
+
+.best-selling-scroll-wrapper .scroll-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.best-selling-scroll-wrapper .scroll-btn-left {
+    left: 0px; /* از لبه چپ کانتینر اصلی */
+    margin-left: 10px; /* فاصله از لبه چپ */
+}
+
+.best-selling-scroll-wrapper .scroll-btn-right {
+    right: 0px; /* از لبه راست کانتینر اصلی */
+    margin-right: 10px; /* فاصله از لبه راست */
+}
+
+/* Media Queries */
+@media (max-width: 991.98px) {
+    .best-selling-container {
+        grid-template-rows: repeat(3, 90px);
+        min-height: 300px;
+        gap: 10px 15px;
+        padding: 10px 50px; /* پدینگ برای تبلت */
+    }
+
+    .best-selling-item {
+        width: 220px; /* عرض آیتم برای تبلت */
+        height: 90px;
+        padding: 8px;
+    }
+
+    .best-selling-item .item-number {
+        font-size: 16px;
+        margin-right: 6px;
+        margin-left: 6px;
+    }
+
+    .best-selling-item .item-img-wrapper {
+        width: 45px;
+        height: 45px;
+    }
+
+    .best-selling-item .item-title {
+        font-size: 13px;
+        -webkit-line-clamp: 2; /* روی 2 خط تنظیم می‌شود */
+    }
+
+    .best-selling-scroll-wrapper .scroll-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+
+    .best-selling-scroll-wrapper .scroll-btn-left {
+        left: 0px;
+        margin-left: 5px;
+    }
+
+    .best-selling-scroll-wrapper .scroll-btn-right {
+        right: 0px;
+        margin-right: 5px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .best-selling-section .container {
+        padding: 0;
+    }
+
+    .best-selling-section .d-flex.align-items-center.justify-content-between.mb-4 {
+        padding: 0 15px;
+    }
+
+    .best-selling-container {
+        grid-template-rows: repeat(3, 85px);
+        min-height: 280px;
+        padding: 10px 40px; /* پدینگ برای موبایل */
+    }
+
+    .best-selling-item {
+        width: 180px; /* عرض آیتم برای موبایل */
+        height: 85px;
+    }
+
+    .best-selling-item .item-number {
+        font-size: 14px;
+        margin-right: 4px;
+        margin-left: 4px;
+    }
+
+    .best-selling-item .item-img-wrapper {
+        width: 40px;
+        height: 40px;
+    }
+
+    .best-selling-item .item-title {
+        font-size: 12px;
+        -webkit-line-clamp: 2; /* روی 2 خط تنظیم می‌شود */
+    }
+
+    .best-selling-scroll-wrapper .scroll-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    .best-selling-scroll-wrapper .scroll-btn-left {
+        left: 0px;
+        margin-left: 2px;
+    }
+
+    .best-selling-scroll-wrapper .scroll-btn-right {
+        right: 0px;
+        margin-right: 2px;
+    }
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* متغیرهای عمومی (اگر در فایل جداگانه global/variables.css نیست، اینجا باید تعریف شوند) */
+:root {
+    --dk-text-dark: #333; /* مثال رنگ متن */
+    --dk-red: #ef394e;    /* مثال رنگ قرمز دیجی‌کالا */
+    --dk-border-light: #eee; /* مثال رنگ حاشیه روشن */
+    --dk-gray-dark: #4a4a4a; /* رنگ متن برای این بخش، کمی تیره‌تر از تصویر شماست */
+    --dk-gray-light: #f5f5f5; /* پس‌زمینه ردیف‌ها */
+    --dk-border-medium: #e0e0e0; /* رنگ خط جداکننده */
+}
+
+/* برای فونت‌های فارسی: اگر فونت دیجی‌کالا (مثلاً ایران سنس) را دارید، اینجا آن را اضافه کنید. */
+/* مثال (با فرض داشتن فایل فونت): */
+/*
+@font-face {
+    font-family: 'IranSans';
+    src: url('path/to/iran-sans.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'IranSans', sans-serif;
+}
+*/
+
+.digikala-services-section {
+    width: 100%;
+    background-color: #fff;
+    padding: 20px 0; /* پدینگ بالا و پایین */
+    box-sizing: border-box; /* برای محاسبه صحیح ابعاد شامل پدینگ و بوردر */
+    direction: rtl; /* برای فارسی بودن */
+    text-align: center; /* برای وسط چین کردن محتوا در صورت نیاز */
+}
+
+/* Ensure full-width-content spans full width */
+.full-width-content {
+    max-width: 1200px; /* Adjust as needed, this creates the centered block */
+    margin: 0 auto; /* Centers the content block */
+    background-color: var(--dk-gray-light); /* Background for the entire block */
+    border-radius: 8px; /* Apply border-radius to the main wrapper */
+    overflow: hidden; /* Ensures inner borders/backgrounds don't spill out */
+    border: 1px solid var(--dk-border-medium); /* Add a border around the whole section */
+}
+
+.services-wrapper {
+    /* This wrapper now holds the rows and gets the border-radius */
+    border-radius: 8px; /* Apply border-radius to the main wrapper */
+    overflow: hidden; /* Ensure content inside respects border-radius */
+}
+
+.services-row {
+    display: flex;
+    /* justify-content: flex-start;  <-- Changed to space-around/between or remove */
+    justify-content: space-around; /* Distributes items evenly with space around them */
+    align-items: center; /* آیتم‌ها را در مرکز عمودی قرار می‌دهد */
+    flex-wrap: wrap; /* برای شکستن آیتم‌ها به خط بعدی در صفحات کوچک‌تر */
+    border-bottom: 1px solid var(--dk-border-medium); /* خط جداکننده */
+    padding: 15px 0; /* پدینگ داخل ردیف (عمودی) */
+    /* background-color: var(--dk-gray-light); <-- Moved to full-width-content */
+    min-height: 80px; /* حداقل ارتفاع برای هر ردیف */
+}
+
+.services-row:last-child {
+    border-bottom: none; /* خط پایین را حذف می‌کنیم */
+}
+
+.service-item {
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column; /* برای لوگو و متن زیر هم */
+    align-items: center; /* وسط چین افقی */
+    justify-content: center; /* وسط چین عمودی */
+    padding: 10px 0; /* Changed horizontal padding to 0 and manage with flexbox space */
+    text-decoration: none;
+    color: var(--dk-gray-dark);
+    font-size: 14px; /* اندازه فونت برای متن‌ها (اگر متنی هم زیر لوگوها باشد) */
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.2s ease;
+
+    flex-grow: 1; /* Allow items to grow */
+    flex-shrink: 1; /* Allow items to shrink */
+    flex-basis: 0; /* Crucial for distributing space evenly with flex-grow */
+
+    /* تنظیم عرض آیتم‌ها بر اساس تعداد در هر ردیف */
+    /* We will set specific widths for different rows */
+    width: auto; /* Reset width to let flexbox handle it */
+}
+
+/* Specific widths for items based on the number in each row */
+.services-row:first-child .service-item {
+    width: calc(100% / 8); /* 8 items in the first row */
+}
+
+.services-row.bottom-row .service-item {
+    width: calc(100% / 6); /* 6 items in the second row */
+}
+
+
+.digiclub-item .service-text,
+.digiplus-item .service-text {
+    font-size: 1.8em; /* بزرگ‌تر کردن فونت برای این دو مورد (می‌توانید مقدار را تغییر دهید) */
+    font-weight: 900; /* پررنگ‌تر کردن */
+    color: var(--dk-gray-dark); /* رنگ تیره‌تر */
+}
+
+.service-item:hover {
+    background-color: rgba(0, 0, 0, 0.03); /* تغییر رنگ پس‌زمینه هنگام هاور */
+}
+
+.service-item .service-text {
+    font-size: 13px; /* اندازه فونت برای متن‌ها */
+    color: #555; /* رنگ متن */
+    line-height: 1.5; /* ارتفاع خط */
+}
+
+/* این کلاس‌ها برای تصاویر (لوگوها) استفاده می‌شوند */
+.service-item .service-icon,
+.service-item .service-logo {
+    max-width: 100%; /* اطمینان از اینکه لوگو از عرض آیتم خود بزرگتر نشود */
+    height: auto; /* برای حفظ نسبت ابعاد */
+    display: block; /* برای حذف فضای اضافه زیر تصویر */
+    margin: 0 auto; /* وسط چین کردن لوگو */
+    filter: none; /* فیلتر را حذف می‌کنیم مگر اینکه نیاز باشد */
+    padding: 0 5px; /* Add some horizontal padding to the logos themselves to prevent them from touching edges of their item */
+}
+
+/* استایل‌های خاص برای لوگوها در ردیف دوم که ممکن است متن نداشته باشند */
+.digikala-business .service-logo,
+.smarttech-service .service-logo,
+.ganjine-service .service-logo {
+    max-width: 100px; /* ممکن است این لوگوها کمی بزرگتر باشند، اما همچنان در width آیتم خود جا می‌شوند */
+    height: auto;
+}
+
+/* استایل برای text 'MAG' در digikalaMAG (اگر هنوز متنی وجود دارد) */
+.mag-superscript {
+    font-size: 0.7em; /* کوچکتر از بقیه متن */
+    vertical-align: super; /* بالا بردن آن */
+    margin-left: 2px; /* فاصله از کلمه اصلی */
+}
+
+/* Media Queries برای ریسپانسیو بودن */
+@media (max-width: 991.98px) {
+    .services-row {
+        justify-content: space-around; /* In tablets, also distribute space */
+    }
+    .services-row:first-child .service-item {
+        width: calc(100% / 4); /* ردیف اول 4 آیتم (25%) برای تبلت */
+    }
+    .services-row.bottom-row .service-item {
+        width: calc(100% / 3); /* ردیف دوم 3 آیتم (33.33%) برای تبلت */
+    }
+    .service-item {
+        padding: 10px 0; /* Adjust padding */
+    }
+    .service-item .service-logo {
+        max-width: 80px;
+    }
+    .digiclub-item .service-text,
+    .digiplus-item .service-text {
+        font-size: 1.5em; /* کمی کوچکتر در تبلت (می‌توانید مقدار را تغییر دهید) */
+    }
+}
+
+@media (max-width: 767.98px) {
+    .services-row {
+        padding: 10px 0;
+        justify-content: space-around; /* In mobiles, also distribute space */
+    }
+    .services-row:first-child .service-item {
+        width: calc(100% / 3); /* ردیف اول 3 آیتم (33.33%) برای موبایل */
+    }
+    .services-row.bottom-row .service-item {
+        width: calc(100% / 2); /* ردیف دوم 2 آیتم (50%) برای موبایل */
+    }
+    .service-item {
+        font-size: 13px;
+        padding: 8px 0; /* Adjust padding */
+    }
+    .service-item .service-text {
+        font-size: 12px;
+    }
+    .service-item .service-icon {
+        width: 18px;
+        height: 18px;
+    }
+    .service-item .service-logo {
+        max-width: 70px;
+    }
+    /* Removed border-radius from individual rows, handled by services-wrapper */
+}
+
+@media (max-width: 575.98px) {
+    .services-row {
+        border: none; /* حذف بوردر ردیف در موبایل */
+        justify-content: center; /* In smallest size, center items */
+        padding: 0; /* No vertical padding on the row itself */
+    }
+    .services-row:first-child {
+        border-top: none;
+    }
+    .service-item {
+        width: 100%; /* In smallest size, each item takes full width */
+        margin: 5px 0; /* Add margin between items */
+        border-bottom: 1px solid var(--dk-border-medium); /* Line between items */
+        padding: 10px 0; /* Adjust padding */
+    }
+    .service-item:last-child {
+        border-bottom: none; /* No border for the last item in the smallest size */
+    }
+    .full-width-content {
+        border-radius: 0; /* No border-radius for the main container in very small screens */
+        border: none; /* No border for the main container in very small screens */
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+/* متغیرهای سفارشی (اگر نیاز باشد) */
+:root {
+    --dk-red-primary: #ef394e; /* رنگ اصلی تخفیف */
+    --dk-text-dark: #333;
+    --dk-text-muted: #888;
+    --dk-border-thin: #f0f0f0; /* **جدید: رنگ خط جداکننده نازک‌تر** */
+}
+
+/* فونت‌های فارسی (اگر می‌خواهید دقیقاً شبیه تصویر باشند) */
+/*
+@font-face {
+    font-family: 'IranSans';
+    src: url('path/to/iran-sans.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'IranSans', sans-serif;
+    direction: rtl; /* برای پشتیبانی از RTL */
+
+
+.products-section {
+    background-color: #f8f8f8; /* رنگ پس‌زمینه بخش، کمی روشن‌تر */
+}
+
+/* عنوان بخش */
+.product-section-header {
+    background-color: white; /* پس‌زمینه سفید برای باکس عنوان */
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* سایه کوچک */
+    margin-bottom: 20px !important; /* فاصله از محصولات زیر */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* شروع از سمت راست */
+}
+
+.product-section-header h5 {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--dk-text-dark);
+    margin-bottom: 0;
+    margin-left: 10px; /* فاصله از آیکون */
+}
+
+.product-section-header .header-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0.7); /* برای کمی کمرنگ کردن آیکون */
+}
+
+/* **جدید: ظرف اصلی برای شبکه محصولات** */
+.products-grid-container {
+    background-color: white; /* پس‌زمینه کل ظرف سفید */
+    border: 1px solid var(--dk-border-thin); /* مرز کلی ظرف */
+    border-radius: 8px; /* گوشه‌های گرد ظرف */
+    overflow: hidden; /* **مهم: برای اینکه مرزهای col داخلی از گوشه‌های گرد خارج نشوند** */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* سایه کلی ظرف */
+}
+
+/* **حذف گاتر از row بوت‌استرپ** */
+.products-grid-container .row {
+    margin-left: 0 !important; /* حذف margin-left بوت‌استرپ */
+    margin-right: 0 !important; /* حذف margin-right بوت‌استرپ */
+    --bs-gutter-x: 0; /* **حذف گاتر افقی بوت‌استرپ** */
+    --bs-gutter-y: 0; /* **حذف گاتر عمودی بوت‌استرپ** */
+}
+
+/* **اعمال مرزهای نازک روی col ها** */
+.product-col-border {
+    border-left: 1px solid var(--dk-border-thin); /* مرز سمت چپ */
+    border-bottom: 1px solid var(--dk-border-thin); /* مرز پایین */
+    /* **مهم: در RTL، اولین ستون از سمت راست نباید border-left داشته باشد** */
+    /* این را با انتخابگر :nth-child(6n+1) یا 6n+7 و ... (بسته به تعداد ستون) می‌توان کنترل کرد */
+    /* اما برای سادگی، فعلاً روی همه اعمال می‌کنیم و با overflow: hidden والد کنترل می‌شود */
+}
+
+/* **حذف مرز چپ از اولین ستون هر ردیف (در RTL اولین ستون از سمت راست است)** */
+.products-grid-container .row-cols-lg-6 > .product-col-border:nth-child(6n+1) { /* برای 6 ستون در lg */
+    border-left: none;
+}
+.products-grid-container .row-cols-md-4 > .product-col-border:nth-child(4n+1) { /* برای 4 ستون در md */
+    border-left: none;
+}
+.products-grid-container .row-cols-sm-3 > .product-col-border:nth-child(3n+1) { /* برای 3 ستون در sm */
+    border-left: none;
+}
+.products-grid-container .row-cols-2 > .product-col-border:nth-child(2n+1) { /* برای 2 ستون در xs */
+    border-left: none;
+}
+
+/* **حذف مرز پایین از آخرین ردیف (اگر تعداد آیتم‌ها مضربی از تعداد ستون‌ها باشد)** */
+/* این کمی پیچیده‌تر است و به تعداد دقیق آیتم‌ها بستگی دارد. */
+/* فعلاً روی همه مرز پایین را اعمال می‌کنیم و فقط مرز کلی ظرف نمایش داده می‌شود */
+
+
+/* کارت محصول (داخل col) */
+.product-card {
+    background-color: white; /* پس‌زمینه سفید برای هر آیتم */
+    /* border: 1px solid #eee; <--- حذف شد، حالا col ها مرز دارند */
+    border-radius: 0; /* حذف radius از کارت‌های داخلی برای چسبیدن */
+    box-shadow: none; /* حذف سایه از کارت‌های داخلی */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 10px; /* پدینگ داخل کارت */
+    height: 100%; 
+    display: flex;
+    flex-direction: column; 
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* سایه هنگام هاور باقی می‌ماند */
+}
+
+.product-image-wrapper {
+    height: 150px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+}
+
+.product-image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+}
+
+.product-details {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+}
+
+.discount-badge {
+    background-color: var(--dk-red-primary) !important;
+    font-size: 0.75em; 
+    padding: 0.3em 0.6em;
+}
+
+.old-price {
+    font-size: 0.8em; 
+    color: var(--dk-text-muted) !important;
+    text-decoration: line-through; 
+    margin-bottom: 0;
+}
+
+.current-price {
+    font-size: 1.1em; 
+    color: var(--dk-text-dark);
+    line-height: 1.2;
+    direction: rtl; 
+}
+
+.price-value {
+    font-size: 1.2em; 
+    font-weight: bolder;
+}
+
+.currency-unit {
+    font-size: 0.8em; 
+    margin-right: 2px; 
+}
+
+/* Media Queries برای ریسپانسیو بودن */
+@media (max-width: 991.98px) {
+    /* **تنظیم مرز چپ برای اولین ستون هر ردیف در رزولوشن‌های مختلف** */
+    .products-grid-container .row-cols-lg-6 > .product-col-border:nth-child(6n+1) { /* در lg غیرفعال می‌شود */
+        border-left: 1px solid var(--dk-border-thin); /* برگرداندن مرز اگر بیش از 6 ستون نباشد */
+    }
+    .products-grid-container .row-cols-md-4 > .product-col-border:nth-child(4n+1) {
+        border-left: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .products-grid-container .row-cols-md-4 > .product-col-border:nth-child(4n+1) { /* در md غیرفعال می‌شود */
+        border-left: 1px solid var(--dk-border-thin);
+    }
+    .products-grid-container .row-cols-sm-3 > .product-col-border:nth-child(3n+1) {
+        border-left: none;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .products-grid-container .row-cols-sm-3 > .product-col-border:nth-child(3n+1) { /* در sm غیرفعال می‌شود */
+        border-left: 1px solid var(--dk-border-thin);
+    }
+    .products-grid-container .row-cols-2 > .product-col-border:nth-child(2n+1) {
+        border-left: none;
+    }
+    .product-col-border {
+        border-left: none; /* در موبایل همه مرزهای چپ حذف شوند */
+    }
+}
+
+
+.bordered-item {
+    
+    border-radius: 8px;      /* گرد کردن گوشه ها */
+
+
+}
+
+
+
+  /* استایل‌های سفارشی برای بخش بالایی */
+        .top-navbar-custom {
+            background-color: #3f4064; /* رنگ آبی تیره دیجی‌کالا */
+        }
+        .download-button-custom {
+            background-color: #ef4056; /* رنگ قرمز دیجی‌کالا */
+            color: white;
+            border-radius: 0.5rem; /* گوشه‌های گرد */
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+        .download-button-custom .dropdown-toggle::after {
+            margin-right: 0.5rem; /* فاصله بین متن و آیکون دراپ‌داون */
+        }
+        .icon-more-menu {
+            font-size: 1.5rem; /* اندازه آیکون سه نقطه */
+        }
+        .badge-link {
+            text-decoration: none; /* حذف زیرخط از لینک‌ها */
+            color: inherit; /* حفظ رنگ متن والد */
+        }
+        .badge-item {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem; /* فاصله بین آیتم‌ها */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-width: 100px; /* حداقل عرض برای هر آیتم */
+            height: 100px; /* ارتفاع ثابت برای هر آیتم */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* سایه بسیار ملایم */
+        }
+        .badge-item img {
+            max-height: 40px; /* اندازه تصویر آیکون */
+            margin-bottom: 0.5rem; /* فاصله بین تصویر و متن */
+        }
+        .badge-item span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #333;
+        }
+        .info-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .view-more-link {
+            color: #4a90e2; /* رنگ آبی لینک */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer-text {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        /* استایل برای آیکون‌های SVG (برای نمایش صحیح در بوت‌استرپ خالی) */
+        .icon-download-arrow {
+            width: 1.25em;
+            height: 1.25em;
+            fill: currentColor;
+            margin-right: 0.5rem;
+        }
+         .icon-three-dots {
+            width: 1.5em; /* اندازه آیکون */
+            height: 1.5em;
+            fill: white;
+            margin-left: 0.5rem;
+            transform: rotate(90deg); /* چرخش 90 درجه برای سه نقطه افقی */
+         }
+
+        /* ریسپانسیو برای موبایل */
+        @media (max-width: 767.98px) {
+            .app-badges-section .row {
+                justify-content: center !important; /* وسط چین کردن آیتم‌ها در موبایل */
+            }
+            .app-badges-section .col-6 { /* برای اینکه دو ستون در هر ردیف در موبایل باشند */
+                flex: 0 0 auto;
+                width: 50%;
+            }
+             .badge-item {
+                margin: 0.25rem; /* فاصله کمتر بین آیتم‌ها در موبایل */
+                min-width: unset; /* حذف حداقل عرض */
+                width: calc(100% - 0.5rem); /* پر کردن عرض موجود */
+                height: 90px; /* کمی کوچکتر در موبایل */
+            }
+            .badge-item img {
+                max-height: 35px; /* تصویر کوچکتر در موبایل */
+            }
+            .badge-item span {
+                font-size: 0.7rem;
+            }
+             .info-card {
+                padding: 1rem; /* پدینگ کمتر در موبایل */
+            }
+            .info-card h2 {
+                font-size: 1.5rem !important; /* اندازه عنوان کوچکتر */
+            }
+            .info-card p {
+                font-size: 0.9rem !important; /* اندازه متن کوچکتر */
+            }
+        }
+
+
+        /* Adjustments for app store icons - to allow natural sizing and spacing */
+        .app-store-icons a img {
+            max-height: 30px; /* Limit height of app store icons */
+            width: auto;
+            object-fit: contain;
+        }
+        .app-store-icons .app-icon-wrapper {
+            padding: 0.5rem; /* Padding around each icon */
+            border-radius: 0.25rem; /* Small border-radius for the background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+ /* تنظیمات برای آیکون‌های اپ‌استور - برای نمایش طبیعی تصاویر */
+        .app-store-icons a img {
+            max-height: 30px; /* محدود کردن ارتفاع آیکون‌ها */
+            width: auto; /* عرض خودکار برای حفظ نسبت تصویر */
+            object-fit: contain; /* حفظ نسبت ابعاد */
+        }
+        /* حذف باکس‌های ثابت و استفاده از پدینگ و مارجین مستقیم روی لینک‌ها */
+        .app-store-icons .app-icon-link {
+            padding: 0.25rem 0.5rem; /* پدینگ اطراف هر آیکون */
+            border-radius: 0.25rem; /* گوشه‌های گرد کوچک */
+            display: flex; /* استفاده از فلکس‌باکس برای هم‌ترازی داخلی */
+            align-items: center; /* تراز عمودی در مرکز */
+            justify-content: center; /* تراز افقی در مرکز */
+            margin-left: 0.5rem; /* فاصله بین آیکون‌ها */
+        }
+
+        /* تنظیمات واکنش‌گرا برای بخش نمادهای اعتماد و متن */
+        @media (min-width: 992px) { /* در دسکتاپ (lg و بالاتر)، نمادها در سمت راست متن */
+            .digikala-intro-section .row {
+                flex-direction: row; /* جهت ردیف پیش‌فرض (کنار هم) */
+            }
+            /* اینجا برعکس می‌کنیم: text-content-col padding-left می‌گیرد و badges-col padding-right */
+            .text-content-col {
+                padding-left: 1.5rem !important; /* فاصله از نمادها */
+                padding-right: 0 !important; /* حذف پدینگ راست اضافی */
+            }
+            .badges-col {
+                padding-right: 1.5rem !important; /* فاصله از متن */
+                padding-left: 0 !important; /* حذف پدینگ چپ اضافی */
+            }
+        }
+        @media (max-width: 991.98px) { /* در تبلت/موبایل (زیر lg)، نمادها بالای متن قرار می‌گیرند */
+            .digikala-intro-section .row {
+                flex-direction: column-reverse !important; /* چیدمان عمودی (نمادها بالای متن) */
+            }
+            .trusted-badges-container {
+                margin-bottom: 1.5rem !important; /* اضافه کردن فاصله زیر نمادها در موبایل */
+            }
+            .trusted-badge-item { /* برای هر نماد در موبایل */
+                width: 50%; /* 2 نماد در هر ردیف */
+                flex: 0 0 50%;
+                max-width: 50%;
+                padding: 0.25rem !important; /* پدینگ کمتر برای فاصله بین نمادها */
+            }
+            .trusted-badge-item > a > div { /* باکس داخلی نماد */
+                padding: 0.75rem !important; /* پدینگ داخلی کمتر */
+            }
+        }
+        
+        /* تنظیمات کلی برای تراز متن */
+        .text-justify {
+            text-align: justify;
+        }
+
+        /* تنظیمات جزئی اندازه فونت برای واکنش‌گرایی در صفحه‌نمایش‌های کوچک‌تر */
+        @media (max-width: 767.98px) { /* تنظیمات برای صفحه‌نمایش‌های بسیار کوچک */
+            .download-button-mobile {
+                font-size: 0.8rem !important;
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+            }
+            .download-button-mobile svg {
+                width: 1em !important;
+                height: 1em !important;
+            }
+            .digikala-intro-text {
+                font-size: 0.9rem !important;
+            }
+            .view-more-button {
+                font-size: 0.9rem !important;
+            }
+            .footer-text {
+                font-size: 0.75rem !important;
+            }
+        }
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* استایل برای دکمه پشتیبانی ثابت */
+.support-fixed-button {
+    position: fixed; /* ثابت کردن موقعیت نسبت به viewport */
+    bottom: 20px;    /* 20 پیکسل از پایین صفحه فاصله داشته باشد */
+    right: 20px;     /* 20 پیکسل از راست صفحه فاصله داشته باشد */
+    background-color: transparent; /* پس‌زمینه دکمه را شفاف می‌کنیم */
+    border-radius: 50%; /* برای دکمه والد هم دایره‌ای می‌کنیم */
+    width: 56px;       /* عرض دکمه */
+    height: 56px;      /* ارتفاع دکمه */
+    display: flex;     /* برای وسط چین کردن آیکون داخل دکمه */
+    align-items: center; /* وسط چین عمودی */
+    justify-content: center; /* وسط چین افقی */
+    box-shadow: none; /* سایه را حذف می‌کنیم چون دکمه خودش پشت‌زمینه ندارد */
+    z-index: 1000;     /* اطمینان از نمایش روی بقیه محتوا */
+    text-decoration: none; /* حذف زیرخط از لینک */
+    transition: transform 0.3s ease; /* فقط انیمیشن transform در هاور */
+    overflow: hidden; /* **مهم: برای اینکه اگر عکس پس‌زمینه مربعی دارد، بریده شود و فقط دایره دیده شود** */
+}
+
+.support-fixed-button:hover {
+    transform: translateY(-3px); /* حرکت کوچک به سمت بالا در هاور */
+}
+
+.support-fixed-button img {
+    /* **آیکون شما باید خودش دایره‌ای باشد و پس‌زمینه آیکون اصلی را داشته باشد.** */
+    /* **یعنی اگر فایل Call.svg یا PNG شما یک دایره قرمز با هدست سفید است، آن را اینجا قرار دهید.** */
+    width: 100%; /* عرض تصویر، کل فضای دکمه را اشغال کند */
+    height: 100%; /* ارتفاع تصویر، کل فضای دکمه را اشغال کند */
+    object-fit: contain; /* مطمئن می‌شود تصویر در داخل کانتینر جا شود */
+    filter: none; /* **فیلتر رنگ را از اینجا حذف می‌کنیم، چون فرض می‌کنیم آیکون اصلی رنگی است.** */
+    border-radius: 50%; /* **مهم: تصویر را دایره‌ای می‌کنیم** */
+}
+
+/* اگر می‌خواهید آیکون پشتیبانی شما حتماً سفید باشد، و عکس اصلی شما رنگی است،
+   و عکس اصلی شما یک آیکون تک‌رنگ است (نه یک عکس با جزئیات زیاد)،
+   می‌توانید فیلتر را نگه دارید تا آیکون به سفید تبدیل شود:
+*/
+/*
+.support-fixed-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    filter: brightness(0) invert(1); // اگر آیکون شما به صورت پیش‌فرض مشکی است، این آن را سفید می‌کند
+}
+*/
+
+
+/* برای موبایل: کمی کوچکتر شود و Z-index را تنظیم کند تا روی نوار ناوبری پایین موبایل نباشد */
+@media (max-width: 767.98px) {
+    .support-fixed-button {
+        bottom: 75px; /* بالاتر از نوار ناوبری پایین موبایل (حدوداً 60px ارتفاع نوار + 15px فاصله) */
+        width: 50px;
+        height: 50px;
+        z-index: 999; /* پایین‌تر از نوار ناوبری پایین موبایل */
+    }
+    .support-fixed-button img {
+        /* در موبایل نیز 100% عرض و ارتفاع والد خود را بگیرد */
+    }
+}
+
+
+/* ---------------------- */
+
+/* استایل برای دکمه سوپرمارکت ثابت در سمت چپ */
+.fixed-supermarket-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* موقعیت سمت چپ */
+    background-color: #029A49; /* **پس‌زمینه دکمه همیشه سبز باشد (مطابق تصویر آپلود شده)** */
+    color: white; /* رنگ پیش‌فرض متن در دکمه */
+    border-radius: 28px; /* گوشه‌های گرد برای دکمه مستطیلی */
+    padding: 10px 18px; /* پدینگ داخلی برای ایجاد فضای کافی */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* سایه را نگه می‌داریم تا دکمه برجسته شود */
+    z-index: 1000;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    white-space: nowrap; /* جلوگیری از شکستن متن به خط بعدی */
+}
+
+/* افکت هاور: وقتی ماوس روی دکمه می‌رود، سبز تیره‌تر شود */
+.fixed-supermarket-button:hover {
+    background-color: #029A49; /* رنگ سبز تیره‌تر در هاور */
+    transform: translateY(-3px);
+}
+
+.fixed-supermarket-button img {
+    width: 24px; /* اندازه آیکون سبد خرید */
+    height: 24px;
+    margin-left: 8px; /* فاصله از متن */
+    /* **فیلتر را حذف می‌کنیم، چون فرض می‌کنیم `basket-icon.svg` شما از قبل سفید و شفاف است.** */
+    filter: none;
+    /* اگر `basket-icon.svg` شما مشکی و شفاف است و می‌خواهید سفید شود، از این خط استفاده کنید: */
+    /* filter: brightness(0) invert(1); */
+}
+
+.fixed-supermarket-button span {
+    font-size: 15px; /* اندازه فونت متن */
+    font-weight: bold;
+    color: white; /* **متن سفید باشد** */
+    filter: none; /* اطمینان حاصل می‌کنیم که هیچ فیلتری روی متن اعمال نشده باشد. */
+}
+
+/* برای موبایل: همانند قبل */
+@media (max-width: 767.98px) {
+    .fixed-supermarket-button {
+        bottom: 75px;
+        padding: 8px 14px;
+        z-index: 999;
+    }
+    .fixed-supermarket-button img {
+        width: 20px;
+        height: 20px;
+        margin-left: 6px;
+    }
+    .fixed-supermarket-button span {
+        font-size: 13px;
+    }
+}
+
+
+/* برای پنهان کردن دکمه‌های شناور در حالت موبایل */
+@media (max-width: 767.98px) {
+    .support-fixed-button {
+        display: none !important; /* دکمه پشتیبانی در موبایل پنهان شود */
+    }
+
+    .fixed-supermarket-button {
+        display: none !important; /* دکمه سوپرمارکت در موبایل پنهان شود */
+    }
+}

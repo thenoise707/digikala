@@ -1,0 +1,32 @@
+/* ----------------------------------------------------------------------------------------------------------------
+   Common Styles (استایل‌های مشترک)
+-------------------------------------------------------------------------------------------------------------------- */
+.button-group-custom a,
+.main-nav-links a,
+.category-sub-group a {
+  text-decoration: none;
+}
+
+.category-dropdown-btn,
+.controls button,
+.newsletter button,
+#scrollLeft,
+#scrollRight {
+  border: none;
+  cursor: pointer;
+}
+
+.category-main-list,
+.category-sub-group ul,
+.footer-columns ul {
+  list-style: none;
+  padding: 0;
+}
+
+.newsletter p,
+.social-icons p {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: var(--dk-text-dark);
+}
+

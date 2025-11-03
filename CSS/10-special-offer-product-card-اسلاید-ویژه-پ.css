@@ -1,0 +1,122 @@
+/* ----------------------------------------------------------------------------------------------------------------
+   Special Offer Product Card (اسلاید ویژه پیشنهاد شگفت‌انگیز در ProductContainer)
+-------------------------------------------------------------------------------------------------------------------- */
+.special-offer-product-card {
+    background-color: transparent; /* پس‌زمینه شفاف شود تا رنگ قرمز والد دیده شود */
+    color: white; /* رنگ متن پیش‌فرض کارت سفید شود */
+    min-width: 180px;
+    width: 180px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 10px;
+    margin-left: 15px;
+    border-radius: 8px;
+    box-shadow: none; /* سایه حذف شود */
+}
+
+.special-offer-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 5px;
+    color: white; /* اطمینان از رنگ متن سفید برای محتوا */
+}
+
+.special-offer-product-card .offer-title {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: white; /* عنوان به رنگ سفید */
+}
+
+.special-offer-product-card .timer {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+    direction: ltr;
+    color: white; /* رنگ کولون‌ها (:) هم سفید شود */
+}
+
+.special-offer-product-card .timer span {
+    background-color: white; /* پس‌زمینه سفید برای اعداد */
+    color: var(--dk-red); /* رنگ متن قرمز دیجی‌کالا */
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.special-offer-product-card .percentage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.special-offer-product-card .percent-sign {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1;
+    color: white; /* علامت درصد به رنگ سفید */
+}
+
+.special-offer-product-card .smile {
+    width: 60px;
+    height: 5px;
+    background-color: white; /* رنگ لبخند به سفید */
+    border-radius: 5px;
+    margin-top: 5px;
+    position: relative;
+}
+
+.special-offer-product-card .view-all {
+    color: white; /* رنگ "مشاهده همه" به سفید */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+.special-offer-product-card .view-all:hover {
+    text-decoration: underline;
+}
+
+
+/* دکمه‌های فلش برای اسکرول محصولات */
+#scrollLeft, #scrollRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+#scrollLeft:hover, #scrollRight:hover {
+  background-color: #f0f0f0;
+}
+
+#scrollLeft {
+  left: 0;
+}
+
+#scrollRight {
+  right: 0;
+}

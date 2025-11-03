@@ -1,0 +1,1103 @@
+/* ----------------------------------------------------------------------------------------------------------------
+   Product Categories Grid (بخش دسته‌بندی محصولات با دو ردیف عکس)
+-------------------------------------------------------------------------------------------------------------------- */
+.product-categories-grid .category-grid-card {
+    border: 1px solid var(--dk-border-light); /* بوردر دور کارت‌های دسته‌بندی */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* سایه */
+}
+
+.product-categories-grid .category-grid-card h6 {
+    color: var(--dk-text-dark);
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.product-categories-grid .product-grid-items {
+    /* height: 280px; /* اگر می‌خواهید ارتفاع ثابتی داشته باشد */
+    /* overflow: hidden; /* اگر height ثابت باشد، محتوای اضافی پنهان شود */
+    gap: 15px; /* فاصله بین آیتم‌های محصول */
+}
+
+.product-categories-grid .grid-product-item {
+    flex-basis: calc(50% - 7.5px); /* برای نمایش 2 آیتم در هر ردیف (50% عرض، منهای نصف گپ) */
+    max-width: calc(50% - 7.5px); /* اطمینان از عدم تجاوز از 50% */
+    text-align: center;
+    transition: transform 0.2s ease;
+    padding: 5px; /* پدینگ داخلی آیتم برای محافظت از تصویر */
+}
+
+.product-categories-grid .grid-product-item:hover {
+    transform: translateY(-3px); /* افکت هاور */
+}
+
+.product-categories-grid .grid-product-item img {
+    width: 100%;
+    height: 120px; /* ارتفاع ثابت برای تصاویر محصول کوچک */
+    object-fit: contain; /* حفظ نسبت ابعاد و قرارگیری کامل تصویر */
+    border-radius: 8px; /* گوشه‌های گرد برای تصویر */
+}
+
+.product-categories-grid .grid-product-item .small-link {
+    font-size: 13px;
+    color: var(--dk-text-medium);
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.product-categories-grid .grid-product-item .small-link:hover {
+    color: var(--dk-red); /* تغییر رنگ در هاور */
+}
+
+/* Media Queries برای واکنش‌گرایی */
+@media (max-width: 767.98px) { /* موبایل */
+    .product-categories-grid .category-grid-card {
+        padding: 15px; /* پدینگ کمتر در موبایل */
+    }
+    .product-categories-grid .grid-product-item {
+        flex-basis: calc(50% - 7.5px); /* 2 آیتم در هر ردیف */
+        max-width: calc(50% - 7.5px);
+    }
+    .product-categories-grid .grid-product-item img {
+        height: 100px; /* ارتفاع کمتر تصاویر در موبایل */
+    }
+}
+
+@media (max-width: 575.98px) { /* موبایل‌های کوچک (زیر sm) */
+    .product-categories-grid .col-12 {
+        /* در این حالت هر دسته بندی یک ستون کامل میگیرد و در موبایل های کوچک دو ردیف را نمایش می دهد */
+    }
+}
+
+
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+/* بخش پرفروش‌ترین کالاها */
+/* متغیرهای عمومی (اگر در فایل جداگانه global/variables.css نیست، اینجا باید تعریف شوند) */
+/* متغیرهای عمومی (اگر در فایل جداگانه global/variables.css نیست، اینجا باید تعریف شوند) */
+/* متغیرهای عمومی (اگر در فایل جداگانه global/variables.css نیست، اینجا باید تعریف شوند) */
+:root {
+    --dk-text-dark: #333; /* مثال رنگ متن */
+    --dk-red: #ef394e;   /* مثال رنگ قرمز دیجی‌کالا */
+    --dk-border-light: #eee; /* مثال رنگ حاشیه روشن */
+}
+
+
+/* بخش پرفروش‌ترین کالاها */
+.best-selling-section {
+    margin: 50px 0;
+}
+
+.best-selling-section .container {
+    padding: 0;
+}
+
+.best-selling-section .d-flex.align-items-center.justify-content-between.mb-4 {
+    padding: 0 20px;
+}
+
+.best-selling-section h5 {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--dk-text-dark);
+    margin-bottom: 0;
+}
+
+.best-selling-section .view-all-link {
+    color: var(--dk-red);
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.best-selling-section .view-all-link:hover {
+    text-decoration: underline !important;
+}
+
+.best-selling-scroll-wrapper {
+    position: relative;
+    overflow: hidden; /* این برای اینکه دکمه‌ها از باکس خارج نشوند */
+}
+
+.best-selling-container {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(3, 100px); /* 3 ردیف با ارتفاع 100 پیکسل */
+    gap: 15px 20px; /* فاصله بین ردیف‌ها و ستون‌ها */
+    overflow-x: auto; /* برای فعال شدن اسکرول افقی */
+    scroll-behavior: smooth; /* اسکرول روان */
+    scrollbar-width: none; /* برای فایرفاکس */
+    -ms-overflow-style: none; /* برای اینترنت اکسپلورر و اج */
+    padding: 15px 60px; /* پدینگ را افزایش دهید تا فضای کافی برای دکمه‌ها در کناره‌ها باشد */
+    min-height: 350px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.best-selling-container::-webkit-scrollbar {
+    display: none; /* برای کروم، سافاری و اوپرا */
+}
+
+.best-selling-item {
+    width: 250px; /* عرض آیتم (می‌توانید تنظیم کنید) */
+    height: 100px;
+    flex-shrink: 0; /* جلوگیری از کوچک شدن آیتم‌ها */
+    background-color: #f9f9f9;
+    border: 1px solid var(--dk-border-light);
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--dk-text-dark);
+    position: relative;
+    box-sizing: border-box;
+    display: flex; /* استفاده از فلکس‌باکس برای چیدمان داخلی */
+    align-items: center; /* تراز عمودی عناصر داخلی (تصویر، عدد، متن) */
+}
+
+.best-selling-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.best-selling-item .item-number {
+    font-size: 18px; /* اندازه فونت برای عدد رتبه‌بندی */
+    font-weight: bold;
+    color: var(--dk-red);
+    opacity: 1;
+    margin-right: 8px; /* فاصله از تصویر (سمت چپ عدد) */
+    margin-left: 8px; /* فاصله از عنوان (سمت راست عدد) */
+    flex-shrink: 0; /* جلوگیری از فشرده شدن عدد در فضای کم */
+}
+
+.best-selling-item .item-img-wrapper {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.best-selling-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.best-selling-item .item-title {
+    font-size: 14px;
+    color: var(--dk-text-dark);
+    flex-grow: 1; /* اجازه می‌دهد متن فضای باقی‌مانده را پر کند */
+    line-height: 1.6; /* ارتفاع خط برای خوانایی بهتر */
+    margin-top: 0;
+    margin-bottom: 0;
+    
+    /* تنظیمات برای نمایش دو خط متن */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* محدود کردن به 2 خط */
+    -webkit-box-orient: vertical; /* جهت باکس برای برش عمودی */
+    
+    overflow: hidden; /* پنهان کردن متن اضافه */
+    text-overflow: ellipsis; /* اضافه کردن ... در انتهای متن بریده شده */
+    white-space: normal; /* اجازه می‌دهد متن به خط بعدی شکسته شود */
+}
+
+/* دکمه‌های اسکرول */
+.best-selling-scroll-wrapper .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20; /* اطمینان از قرار گرفتن بالای عناصر دیگر */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9); /* کمی شفافیت برای دید بهتر */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, opacity 0.3s ease; /* transition برای opacity */
+}
+
+.best-selling-scroll-wrapper .scroll-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.best-selling-scroll-wrapper .scroll-btn-left {
+    left: 0px; /* از لبه چپ کانتینر اصلی */
+    margin-left: 10px; /* فاصله از لبه چپ */
+}
+
+.best-selling-scroll-wrapper .scroll-btn-right {
+    right: 0px; /* از لبه راست کانتینر اصلی */
+    margin-right: 10px; /* فاصله از لبه راست */
+}
+
+/* Media Queries */
+@media (max-width: 991.98px) {
+    .best-selling-container {
+        grid-template-rows: repeat(3, 90px);
+        min-height: 300px;
+        gap: 10px 15px;
+        padding: 10px 50px; /* پدینگ برای تبلت */
+    }
+
+    .best-selling-item {
+        width: 220px; /* عرض آیتم برای تبلت */
+        height: 90px;
+        padding: 8px;
+    }
+
+    .best-selling-item .item-number {
+        font-size: 16px;
+        margin-right: 6px;
+        margin-left: 6px;
+    }
+
+    .best-selling-item .item-img-wrapper {
+        width: 45px;
+        height: 45px;
+    }
+
+    .best-selling-item .item-title {
+        font-size: 13px;
+        -webkit-line-clamp: 2; /* روی 2 خط تنظیم می‌شود */
+    }
+
+    .best-selling-scroll-wrapper .scroll-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+
+    .best-selling-scroll-wrapper .scroll-btn-left {
+        left: 0px;
+        margin-left: 5px;
+    }
+
+    .best-selling-scroll-wrapper .scroll-btn-right {
+        right: 0px;
+        margin-right: 5px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .best-selling-section .container {
+        padding: 0;
+    }
+
+    .best-selling-section .d-flex.align-items-center.justify-content-between.mb-4 {
+        padding: 0 15px;
+    }
+
+    .best-selling-container {
+        grid-template-rows: repeat(3, 85px);
+        min-height: 280px;
+        padding: 10px 40px; /* پدینگ برای موبایل */
+    }
+
+    .best-selling-item {
+        width: 180px; /* عرض آیتم برای موبایل */
+        height: 85px;
+    }
+
+    .best-selling-item .item-number {
+        font-size: 14px;
+        margin-right: 4px;
+        margin-left: 4px;
+    }
+
+    .best-selling-item .item-img-wrapper {
+        width: 40px;
+        height: 40px;
+    }
+
+    .best-selling-item .item-title {
+        font-size: 12px;
+        -webkit-line-clamp: 2; /* روی 2 خط تنظیم می‌شود */
+    }
+
+    .best-selling-scroll-wrapper .scroll-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    .best-selling-scroll-wrapper .scroll-btn-left {
+        left: 0px;
+        margin-left: 2px;
+    }
+
+    .best-selling-scroll-wrapper .scroll-btn-right {
+        right: 0px;
+        margin-right: 2px;
+    }
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* متغیرهای عمومی (اگر در فایل جداگانه global/variables.css نیست، اینجا باید تعریف شوند) */
+:root {
+    --dk-text-dark: #333; /* مثال رنگ متن */
+    --dk-red: #ef394e;    /* مثال رنگ قرمز دیجی‌کالا */
+    --dk-border-light: #eee; /* مثال رنگ حاشیه روشن */
+    --dk-gray-dark: #4a4a4a; /* رنگ متن برای این بخش، کمی تیره‌تر از تصویر شماست */
+    --dk-gray-light: #f5f5f5; /* پس‌زمینه ردیف‌ها */
+    --dk-border-medium: #e0e0e0; /* رنگ خط جداکننده */
+}
+
+/* برای فونت‌های فارسی: اگر فونت دیجی‌کالا (مثلاً ایران سنس) را دارید، اینجا آن را اضافه کنید. */
+/* مثال (با فرض داشتن فایل فونت): */
+/*
+@font-face {
+    font-family: 'IranSans';
+    src: url('path/to/iran-sans.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'IranSans', sans-serif;
+}
+*/
+
+.digikala-services-section {
+    width: 100%;
+    background-color: #fff;
+    padding: 20px 0; /* پدینگ بالا و پایین */
+    box-sizing: border-box; /* برای محاسبه صحیح ابعاد شامل پدینگ و بوردر */
+    direction: rtl; /* برای فارسی بودن */
+    text-align: center; /* برای وسط چین کردن محتوا در صورت نیاز */
+}
+
+/* Ensure full-width-content spans full width */
+.full-width-content {
+    max-width: 1200px; /* Adjust as needed, this creates the centered block */
+    margin: 0 auto; /* Centers the content block */
+    background-color: var(--dk-gray-light); /* Background for the entire block */
+    border-radius: 8px; /* Apply border-radius to the main wrapper */
+    overflow: hidden; /* Ensures inner borders/backgrounds don't spill out */
+    border: 1px solid var(--dk-border-medium); /* Add a border around the whole section */
+}
+
+.services-wrapper {
+    /* This wrapper now holds the rows and gets the border-radius */
+    border-radius: 8px; /* Apply border-radius to the main wrapper */
+    overflow: hidden; /* Ensure content inside respects border-radius */
+}
+
+.services-row {
+    display: flex;
+    /* justify-content: flex-start;  <-- Changed to space-around/between or remove */
+    justify-content: space-around; /* Distributes items evenly with space around them */
+    align-items: center; /* آیتم‌ها را در مرکز عمودی قرار می‌دهد */
+    flex-wrap: wrap; /* برای شکستن آیتم‌ها به خط بعدی در صفحات کوچک‌تر */
+    border-bottom: 1px solid var(--dk-border-medium); /* خط جداکننده */
+    padding: 15px 0; /* پدینگ داخل ردیف (عمودی) */
+    /* background-color: var(--dk-gray-light); <-- Moved to full-width-content */
+    min-height: 80px; /* حداقل ارتفاع برای هر ردیف */
+}
+
+.services-row:last-child {
+    border-bottom: none; /* خط پایین را حذف می‌کنیم */
+}
+
+.service-item {
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column; /* برای لوگو و متن زیر هم */
+    align-items: center; /* وسط چین افقی */
+    justify-content: center; /* وسط چین عمودی */
+    padding: 10px 0; /* Changed horizontal padding to 0 and manage with flexbox space */
+    text-decoration: none;
+    color: var(--dk-gray-dark);
+    font-size: 14px; /* اندازه فونت برای متن‌ها (اگر متنی هم زیر لوگوها باشد) */
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.2s ease;
+
+    flex-grow: 1; /* Allow items to grow */
+    flex-shrink: 1; /* Allow items to shrink */
+    flex-basis: 0; /* Crucial for distributing space evenly with flex-grow */
+
+    /* تنظیم عرض آیتم‌ها بر اساس تعداد در هر ردیف */
+    /* We will set specific widths for different rows */
+    width: auto; /* Reset width to let flexbox handle it */
+}
+
+/* Specific widths for items based on the number in each row */
+.services-row:first-child .service-item {
+    width: calc(100% / 8); /* 8 items in the first row */
+}
+
+.services-row.bottom-row .service-item {
+    width: calc(100% / 6); /* 6 items in the second row */
+}
+
+
+.digiclub-item .service-text,
+.digiplus-item .service-text {
+    font-size: 1.8em; /* بزرگ‌تر کردن فونت برای این دو مورد (می‌توانید مقدار را تغییر دهید) */
+    font-weight: 900; /* پررنگ‌تر کردن */
+    color: var(--dk-gray-dark); /* رنگ تیره‌تر */
+}
+
+.service-item:hover {
+    background-color: rgba(0, 0, 0, 0.03); /* تغییر رنگ پس‌زمینه هنگام هاور */
+}
+
+.service-item .service-text {
+    font-size: 13px; /* اندازه فونت برای متن‌ها */
+    color: #555; /* رنگ متن */
+    line-height: 1.5; /* ارتفاع خط */
+}
+
+/* این کلاس‌ها برای تصاویر (لوگوها) استفاده می‌شوند */
+.service-item .service-icon,
+.service-item .service-logo {
+    max-width: 100%; /* اطمینان از اینکه لوگو از عرض آیتم خود بزرگتر نشود */
+    height: auto; /* برای حفظ نسبت ابعاد */
+    display: block; /* برای حذف فضای اضافه زیر تصویر */
+    margin: 0 auto; /* وسط چین کردن لوگو */
+    filter: none; /* فیلتر را حذف می‌کنیم مگر اینکه نیاز باشد */
+    padding: 0 5px; /* Add some horizontal padding to the logos themselves to prevent them from touching edges of their item */
+}
+
+/* استایل‌های خاص برای لوگوها در ردیف دوم که ممکن است متن نداشته باشند */
+.digikala-business .service-logo,
+.smarttech-service .service-logo,
+.ganjine-service .service-logo {
+    max-width: 100px; /* ممکن است این لوگوها کمی بزرگتر باشند، اما همچنان در width آیتم خود جا می‌شوند */
+    height: auto;
+}
+
+/* استایل برای text 'MAG' در digikalaMAG (اگر هنوز متنی وجود دارد) */
+.mag-superscript {
+    font-size: 0.7em; /* کوچکتر از بقیه متن */
+    vertical-align: super; /* بالا بردن آن */
+    margin-left: 2px; /* فاصله از کلمه اصلی */
+}
+
+/* Media Queries برای ریسپانسیو بودن */
+@media (max-width: 991.98px) {
+    .services-row {
+        justify-content: space-around; /* In tablets, also distribute space */
+    }
+    .services-row:first-child .service-item {
+        width: calc(100% / 4); /* ردیف اول 4 آیتم (25%) برای تبلت */
+    }
+    .services-row.bottom-row .service-item {
+        width: calc(100% / 3); /* ردیف دوم 3 آیتم (33.33%) برای تبلت */
+    }
+    .service-item {
+        padding: 10px 0; /* Adjust padding */
+    }
+    .service-item .service-logo {
+        max-width: 80px;
+    }
+    .digiclub-item .service-text,
+    .digiplus-item .service-text {
+        font-size: 1.5em; /* کمی کوچکتر در تبلت (می‌توانید مقدار را تغییر دهید) */
+    }
+}
+
+@media (max-width: 767.98px) {
+    .services-row {
+        padding: 10px 0;
+        justify-content: space-around; /* In mobiles, also distribute space */
+    }
+    .services-row:first-child .service-item {
+        width: calc(100% / 3); /* ردیف اول 3 آیتم (33.33%) برای موبایل */
+    }
+    .services-row.bottom-row .service-item {
+        width: calc(100% / 2); /* ردیف دوم 2 آیتم (50%) برای موبایل */
+    }
+    .service-item {
+        font-size: 13px;
+        padding: 8px 0; /* Adjust padding */
+    }
+    .service-item .service-text {
+        font-size: 12px;
+    }
+    .service-item .service-icon {
+        width: 18px;
+        height: 18px;
+    }
+    .service-item .service-logo {
+        max-width: 70px;
+    }
+    /* Removed border-radius from individual rows, handled by services-wrapper */
+}
+
+@media (max-width: 575.98px) {
+    .services-row {
+        border: none; /* حذف بوردر ردیف در موبایل */
+        justify-content: center; /* In smallest size, center items */
+        padding: 0; /* No vertical padding on the row itself */
+    }
+    .services-row:first-child {
+        border-top: none;
+    }
+    .service-item {
+        width: 100%; /* In smallest size, each item takes full width */
+        margin: 5px 0; /* Add margin between items */
+        border-bottom: 1px solid var(--dk-border-medium); /* Line between items */
+        padding: 10px 0; /* Adjust padding */
+    }
+    .service-item:last-child {
+        border-bottom: none; /* No border for the last item in the smallest size */
+    }
+    .full-width-content {
+        border-radius: 0; /* No border-radius for the main container in very small screens */
+        border: none; /* No border for the main container in very small screens */
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------------------------- */
+
+/* متغیرهای سفارشی (اگر نیاز باشد) */
+:root {
+    --dk-red-primary: #ef394e; /* رنگ اصلی تخفیف */
+    --dk-text-dark: #333;
+    --dk-text-muted: #888;
+    --dk-border-thin: #f0f0f0; /* **جدید: رنگ خط جداکننده نازک‌تر** */
+}
+
+/* فونت‌های فارسی (اگر می‌خواهید دقیقاً شبیه تصویر باشند) */
+/*
+@font-face {
+    font-family: 'IranSans';
+    src: url('path/to/iran-sans.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'IranSans', sans-serif;
+    direction: rtl; /* برای پشتیبانی از RTL */
+
+
+.products-section {
+    background-color: #f8f8f8; /* رنگ پس‌زمینه بخش، کمی روشن‌تر */
+}
+
+/* عنوان بخش */
+.product-section-header {
+    background-color: white; /* پس‌زمینه سفید برای باکس عنوان */
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* سایه کوچک */
+    margin-bottom: 20px !important; /* فاصله از محصولات زیر */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* شروع از سمت راست */
+}
+
+.product-section-header h5 {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--dk-text-dark);
+    margin-bottom: 0;
+    margin-left: 10px; /* فاصله از آیکون */
+}
+
+.product-section-header .header-icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0.7); /* برای کمی کمرنگ کردن آیکون */
+}
+
+/* **جدید: ظرف اصلی برای شبکه محصولات** */
+.products-grid-container {
+    background-color: white; /* پس‌زمینه کل ظرف سفید */
+    border: 1px solid var(--dk-border-thin); /* مرز کلی ظرف */
+    border-radius: 8px; /* گوشه‌های گرد ظرف */
+    overflow: hidden; /* **مهم: برای اینکه مرزهای col داخلی از گوشه‌های گرد خارج نشوند** */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* سایه کلی ظرف */
+}
+
+/* **حذف گاتر از row بوت‌استرپ** */
+.products-grid-container .row {
+    margin-left: 0 !important; /* حذف margin-left بوت‌استرپ */
+    margin-right: 0 !important; /* حذف margin-right بوت‌استرپ */
+    --bs-gutter-x: 0; /* **حذف گاتر افقی بوت‌استرپ** */
+    --bs-gutter-y: 0; /* **حذف گاتر عمودی بوت‌استرپ** */
+}
+
+/* **اعمال مرزهای نازک روی col ها** */
+.product-col-border {
+    border-left: 1px solid var(--dk-border-thin); /* مرز سمت چپ */
+    border-bottom: 1px solid var(--dk-border-thin); /* مرز پایین */
+    /* **مهم: در RTL، اولین ستون از سمت راست نباید border-left داشته باشد** */
+    /* این را با انتخابگر :nth-child(6n+1) یا 6n+7 و ... (بسته به تعداد ستون) می‌توان کنترل کرد */
+    /* اما برای سادگی، فعلاً روی همه اعمال می‌کنیم و با overflow: hidden والد کنترل می‌شود */
+}
+
+/* **حذف مرز چپ از اولین ستون هر ردیف (در RTL اولین ستون از سمت راست است)** */
+.products-grid-container .row-cols-lg-6 > .product-col-border:nth-child(6n+1) { /* برای 6 ستون در lg */
+    border-left: none;
+}
+.products-grid-container .row-cols-md-4 > .product-col-border:nth-child(4n+1) { /* برای 4 ستون در md */
+    border-left: none;
+}
+.products-grid-container .row-cols-sm-3 > .product-col-border:nth-child(3n+1) { /* برای 3 ستون در sm */
+    border-left: none;
+}
+.products-grid-container .row-cols-2 > .product-col-border:nth-child(2n+1) { /* برای 2 ستون در xs */
+    border-left: none;
+}
+
+/* **حذف مرز پایین از آخرین ردیف (اگر تعداد آیتم‌ها مضربی از تعداد ستون‌ها باشد)** */
+/* این کمی پیچیده‌تر است و به تعداد دقیق آیتم‌ها بستگی دارد. */
+/* فعلاً روی همه مرز پایین را اعمال می‌کنیم و فقط مرز کلی ظرف نمایش داده می‌شود */
+
+
+/* کارت محصول (داخل col) */
+.product-card {
+    background-color: white; /* پس‌زمینه سفید برای هر آیتم */
+    /* border: 1px solid #eee; <--- حذف شد، حالا col ها مرز دارند */
+    border-radius: 0; /* حذف radius از کارت‌های داخلی برای چسبیدن */
+    box-shadow: none; /* حذف سایه از کارت‌های داخلی */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 10px; /* پدینگ داخل کارت */
+    height: 100%; 
+    display: flex;
+    flex-direction: column; 
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* سایه هنگام هاور باقی می‌ماند */
+}
+
+.product-image-wrapper {
+    height: 150px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+}
+
+.product-image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; 
+}
+
+.product-details {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+}
+
+.discount-badge {
+    background-color: var(--dk-red-primary) !important;
+    font-size: 0.75em; 
+    padding: 0.3em 0.6em;
+}
+
+.old-price {
+    font-size: 0.8em; 
+    color: var(--dk-text-muted) !important;
+    text-decoration: line-through; 
+    margin-bottom: 0;
+}
+
+.current-price {
+    font-size: 1.1em; 
+    color: var(--dk-text-dark);
+    line-height: 1.2;
+    direction: rtl; 
+}
+
+.price-value {
+    font-size: 1.2em; 
+    font-weight: bolder;
+}
+
+.currency-unit {
+    font-size: 0.8em; 
+    margin-right: 2px; 
+}
+
+/* Media Queries برای ریسپانسیو بودن */
+@media (max-width: 991.98px) {
+    /* **تنظیم مرز چپ برای اولین ستون هر ردیف در رزولوشن‌های مختلف** */
+    .products-grid-container .row-cols-lg-6 > .product-col-border:nth-child(6n+1) { /* در lg غیرفعال می‌شود */
+        border-left: 1px solid var(--dk-border-thin); /* برگرداندن مرز اگر بیش از 6 ستون نباشد */
+    }
+    .products-grid-container .row-cols-md-4 > .product-col-border:nth-child(4n+1) {
+        border-left: none;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .products-grid-container .row-cols-md-4 > .product-col-border:nth-child(4n+1) { /* در md غیرفعال می‌شود */
+        border-left: 1px solid var(--dk-border-thin);
+    }
+    .products-grid-container .row-cols-sm-3 > .product-col-border:nth-child(3n+1) {
+        border-left: none;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .products-grid-container .row-cols-sm-3 > .product-col-border:nth-child(3n+1) { /* در sm غیرفعال می‌شود */
+        border-left: 1px solid var(--dk-border-thin);
+    }
+    .products-grid-container .row-cols-2 > .product-col-border:nth-child(2n+1) {
+        border-left: none;
+    }
+    .product-col-border {
+        border-left: none; /* در موبایل همه مرزهای چپ حذف شوند */
+    }
+}
+
+
+.bordered-item {
+    
+    border-radius: 8px;      /* گرد کردن گوشه ها */
+
+
+}
+
+
+
+  /* استایل‌های سفارشی برای بخش بالایی */
+        .top-navbar-custom {
+            background-color: #3f4064; /* رنگ آبی تیره دیجی‌کالا */
+        }
+        .download-button-custom {
+            background-color: #ef4056; /* رنگ قرمز دیجی‌کالا */
+            color: white;
+            border-radius: 0.5rem; /* گوشه‌های گرد */
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+        .download-button-custom .dropdown-toggle::after {
+            margin-right: 0.5rem; /* فاصله بین متن و آیکون دراپ‌داون */
+        }
+        .icon-more-menu {
+            font-size: 1.5rem; /* اندازه آیکون سه نقطه */
+        }
+        .badge-link {
+            text-decoration: none; /* حذف زیرخط از لینک‌ها */
+            color: inherit; /* حفظ رنگ متن والد */
+        }
+        .badge-item {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem; /* فاصله بین آیتم‌ها */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-width: 100px; /* حداقل عرض برای هر آیتم */
+            height: 100px; /* ارتفاع ثابت برای هر آیتم */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* سایه بسیار ملایم */
+        }
+        .badge-item img {
+            max-height: 40px; /* اندازه تصویر آیکون */
+            margin-bottom: 0.5rem; /* فاصله بین تصویر و متن */
+        }
+        .badge-item span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #333;
+        }
+        .info-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .view-more-link {
+            color: #4a90e2; /* رنگ آبی لینک */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer-text {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        /* استایل برای آیکون‌های SVG (برای نمایش صحیح در بوت‌استرپ خالی) */
+        .icon-download-arrow {
+            width: 1.25em;
+            height: 1.25em;
+            fill: currentColor;
+            margin-right: 0.5rem;
+        }
+         .icon-three-dots {
+            width: 1.5em; /* اندازه آیکون */
+            height: 1.5em;
+            fill: white;
+            margin-left: 0.5rem;
+            transform: rotate(90deg); /* چرخش 90 درجه برای سه نقطه افقی */
+         }
+
+        /* ریسپانسیو برای موبایل */
+        @media (max-width: 767.98px) {
+            .app-badges-section .row {
+                justify-content: center !important; /* وسط چین کردن آیتم‌ها در موبایل */
+            }
+            .app-badges-section .col-6 { /* برای اینکه دو ستون در هر ردیف در موبایل باشند */
+                flex: 0 0 auto;
+                width: 50%;
+            }
+             .badge-item {
+                margin: 0.25rem; /* فاصله کمتر بین آیتم‌ها در موبایل */
+                min-width: unset; /* حذف حداقل عرض */
+                width: calc(100% - 0.5rem); /* پر کردن عرض موجود */
+                height: 90px; /* کمی کوچکتر در موبایل */
+            }
+            .badge-item img {
+                max-height: 35px; /* تصویر کوچکتر در موبایل */
+            }
+            .badge-item span {
+                font-size: 0.7rem;
+            }
+             .info-card {
+                padding: 1rem; /* پدینگ کمتر در موبایل */
+            }
+            .info-card h2 {
+                font-size: 1.5rem !important; /* اندازه عنوان کوچکتر */
+            }
+            .info-card p {
+                font-size: 0.9rem !important; /* اندازه متن کوچکتر */
+            }
+        }
+
+
+        /* Adjustments for app store icons - to allow natural sizing and spacing */
+        .app-store-icons a img {
+            max-height: 30px; /* Limit height of app store icons */
+            width: auto;
+            object-fit: contain;
+        }
+        .app-store-icons .app-icon-wrapper {
+            padding: 0.5rem; /* Padding around each icon */
+            border-radius: 0.25rem; /* Small border-radius for the background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+ /* تنظیمات برای آیکون‌های اپ‌استور - برای نمایش طبیعی تصاویر */
+        .app-store-icons a img {
+            max-height: 30px; /* محدود کردن ارتفاع آیکون‌ها */
+            width: auto; /* عرض خودکار برای حفظ نسبت تصویر */
+            object-fit: contain; /* حفظ نسبت ابعاد */
+        }
+        /* حذف باکس‌های ثابت و استفاده از پدینگ و مارجین مستقیم روی لینک‌ها */
+        .app-store-icons .app-icon-link {
+            padding: 0.25rem 0.5rem; /* پدینگ اطراف هر آیکون */
+            border-radius: 0.25rem; /* گوشه‌های گرد کوچک */
+            display: flex; /* استفاده از فلکس‌باکس برای هم‌ترازی داخلی */
+            align-items: center; /* تراز عمودی در مرکز */
+            justify-content: center; /* تراز افقی در مرکز */
+            margin-left: 0.5rem; /* فاصله بین آیکون‌ها */
+        }
+
+        /* تنظیمات واکنش‌گرا برای بخش نمادهای اعتماد و متن */
+        @media (min-width: 992px) { /* در دسکتاپ (lg و بالاتر)، نمادها در سمت راست متن */
+            .digikala-intro-section .row {
+                flex-direction: row; /* جهت ردیف پیش‌فرض (کنار هم) */
+            }
+            /* اینجا برعکس می‌کنیم: text-content-col padding-left می‌گیرد و badges-col padding-right */
+            .text-content-col {
+                padding-left: 1.5rem !important; /* فاصله از نمادها */
+                padding-right: 0 !important; /* حذف پدینگ راست اضافی */
+            }
+            .badges-col {
+                padding-right: 1.5rem !important; /* فاصله از متن */
+                padding-left: 0 !important; /* حذف پدینگ چپ اضافی */
+            }
+        }
+        @media (max-width: 991.98px) { /* در تبلت/موبایل (زیر lg)، نمادها بالای متن قرار می‌گیرند */
+            .digikala-intro-section .row {
+                flex-direction: column-reverse !important; /* چیدمان عمودی (نمادها بالای متن) */
+            }
+            .trusted-badges-container {
+                margin-bottom: 1.5rem !important; /* اضافه کردن فاصله زیر نمادها در موبایل */
+            }
+            .trusted-badge-item { /* برای هر نماد در موبایل */
+                width: 50%; /* 2 نماد در هر ردیف */
+                flex: 0 0 50%;
+                max-width: 50%;
+                padding: 0.25rem !important; /* پدینگ کمتر برای فاصله بین نمادها */
+            }
+            .trusted-badge-item > a > div { /* باکس داخلی نماد */
+                padding: 0.75rem !important; /* پدینگ داخلی کمتر */
+            }
+        }
+        
+        /* تنظیمات کلی برای تراز متن */
+        .text-justify {
+            text-align: justify;
+        }
+
+        /* تنظیمات جزئی اندازه فونت برای واکنش‌گرایی در صفحه‌نمایش‌های کوچک‌تر */
+        @media (max-width: 767.98px) { /* تنظیمات برای صفحه‌نمایش‌های بسیار کوچک */
+            .download-button-mobile {
+                font-size: 0.8rem !important;
+                padding-left: 0.75rem !important;
+                padding-right: 0.75rem !important;
+            }
+            .download-button-mobile svg {
+                width: 1em !important;
+                height: 1em !important;
+            }
+            .digikala-intro-text {
+                font-size: 0.9rem !important;
+            }
+            .view-more-button {
+                font-size: 0.9rem !important;
+            }
+            .footer-text {
+                font-size: 0.75rem !important;
+            }
+        }
+
+/* ------------------------------------------------------------------------------------------------------------------------------- */
+/* استایل برای دکمه پشتیبانی ثابت */
+.support-fixed-button {
+    position: fixed; /* ثابت کردن موقعیت نسبت به viewport */
+    bottom: 20px;    /* 20 پیکسل از پایین صفحه فاصله داشته باشد */
+    right: 20px;     /* 20 پیکسل از راست صفحه فاصله داشته باشد */
+    background-color: transparent; /* پس‌زمینه دکمه را شفاف می‌کنیم */
+    border-radius: 50%; /* برای دکمه والد هم دایره‌ای می‌کنیم */
+    width: 56px;       /* عرض دکمه */
+    height: 56px;      /* ارتفاع دکمه */
+    display: flex;     /* برای وسط چین کردن آیکون داخل دکمه */
+    align-items: center; /* وسط چین عمودی */
+    justify-content: center; /* وسط چین افقی */
+    box-shadow: none; /* سایه را حذف می‌کنیم چون دکمه خودش پشت‌زمینه ندارد */
+    z-index: 1000;     /* اطمینان از نمایش روی بقیه محتوا */
+    text-decoration: none; /* حذف زیرخط از لینک */
+    transition: transform 0.3s ease; /* فقط انیمیشن transform در هاور */
+    overflow: hidden; /* **مهم: برای اینکه اگر عکس پس‌زمینه مربعی دارد، بریده شود و فقط دایره دیده شود** */
+}
+
+.support-fixed-button:hover {
+    transform: translateY(-3px); /* حرکت کوچک به سمت بالا در هاور */
+}
+
+.support-fixed-button img {
+    /* **آیکون شما باید خودش دایره‌ای باشد و پس‌زمینه آیکون اصلی را داشته باشد.** */
+    /* **یعنی اگر فایل Call.svg یا PNG شما یک دایره قرمز با هدست سفید است، آن را اینجا قرار دهید.** */
+    width: 100%; /* عرض تصویر، کل فضای دکمه را اشغال کند */
+    height: 100%; /* ارتفاع تصویر، کل فضای دکمه را اشغال کند */
+    object-fit: contain; /* مطمئن می‌شود تصویر در داخل کانتینر جا شود */
+    filter: none; /* **فیلتر رنگ را از اینجا حذف می‌کنیم، چون فرض می‌کنیم آیکون اصلی رنگی است.** */
+    border-radius: 50%; /* **مهم: تصویر را دایره‌ای می‌کنیم** */
+}
+
+/* اگر می‌خواهید آیکون پشتیبانی شما حتماً سفید باشد، و عکس اصلی شما رنگی است،
+   و عکس اصلی شما یک آیکون تک‌رنگ است (نه یک عکس با جزئیات زیاد)،
+   می‌توانید فیلتر را نگه دارید تا آیکون به سفید تبدیل شود:
+*/
+/*
+.support-fixed-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    filter: brightness(0) invert(1); // اگر آیکون شما به صورت پیش‌فرض مشکی است، این آن را سفید می‌کند
+}
+*/
+
+
+/* برای موبایل: کمی کوچکتر شود و Z-index را تنظیم کند تا روی نوار ناوبری پایین موبایل نباشد */
+@media (max-width: 767.98px) {
+    .support-fixed-button {
+        bottom: 75px; /* بالاتر از نوار ناوبری پایین موبایل (حدوداً 60px ارتفاع نوار + 15px فاصله) */
+        width: 50px;
+        height: 50px;
+        z-index: 999; /* پایین‌تر از نوار ناوبری پایین موبایل */
+    }
+    .support-fixed-button img {
+        /* در موبایل نیز 100% عرض و ارتفاع والد خود را بگیرد */
+    }
+}
+
+
+/* ---------------------- */
+
+/* استایل برای دکمه سوپرمارکت ثابت در سمت چپ */
+.fixed-supermarket-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* موقعیت سمت چپ */
+    background-color: #029A49; /* **پس‌زمینه دکمه همیشه سبز باشد (مطابق تصویر آپلود شده)** */
+    color: white; /* رنگ پیش‌فرض متن در دکمه */
+    border-radius: 28px; /* گوشه‌های گرد برای دکمه مستطیلی */
+    padding: 10px 18px; /* پدینگ داخلی برای ایجاد فضای کافی */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* سایه را نگه می‌داریم تا دکمه برجسته شود */
+    z-index: 1000;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    white-space: nowrap; /* جلوگیری از شکستن متن به خط بعدی */
+}
+
+/* افکت هاور: وقتی ماوس روی دکمه می‌رود، سبز تیره‌تر شود */
+.fixed-supermarket-button:hover {
+    background-color: #029A49; /* رنگ سبز تیره‌تر در هاور */
+    transform: translateY(-3px);
+}
+
+.fixed-supermarket-button img {
+    width: 24px; /* اندازه آیکون سبد خرید */
+    height: 24px;
+    margin-left: 8px; /* فاصله از متن */
+    /* **فیلتر را حذف می‌کنیم، چون فرض می‌کنیم `basket-icon.svg` شما از قبل سفید و شفاف است.** */
+    filter: none;
+    /* اگر `basket-icon.svg` شما مشکی و شفاف است و می‌خواهید سفید شود، از این خط استفاده کنید: */
+    /* filter: brightness(0) invert(1); */
+}
+
+.fixed-supermarket-button span {
+    font-size: 15px; /* اندازه فونت متن */
+    font-weight: bold;
+    color: white; /* **متن سفید باشد** */
+    filter: none; /* اطمینان حاصل می‌کنیم که هیچ فیلتری روی متن اعمال نشده باشد. */
+}
+
+/* برای موبایل: همانند قبل */
+@media (max-width: 767.98px) {
+    .fixed-supermarket-button {
+        bottom: 75px;
+        padding: 8px 14px;
+        z-index: 999;
+    }
+    .fixed-supermarket-button img {
+        width: 20px;
+        height: 20px;
+        margin-left: 6px;
+    }
+    .fixed-supermarket-button span {
+        font-size: 13px;
+    }
+}
+
+
+/* برای پنهان کردن دکمه‌های شناور در حالت موبایل */
+@media (max-width: 767.98px) {
+    .support-fixed-button {
+        display: none !important; /* دکمه پشتیبانی در موبایل پنهان شود */
+    }
+
+    .fixed-supermarket-button {
+        display: none !important; /* دکمه سوپرمارکت در موبایل پنهان شود */
+    }
+}

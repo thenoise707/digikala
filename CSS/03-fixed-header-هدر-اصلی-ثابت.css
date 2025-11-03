@@ -1,0 +1,56 @@
+/* ----------------------------------------------------------------------------------------------------------------
+   Fixed Header (هدر اصلی ثابت)
+-------------------------------------------------------------------------------------------------------------------- */
+#fixed-header {
+  position: fixed;
+  top: 60px; /* دقیقاً زیر top-bar */
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  width: 100%;
+  height: auto;  /* یک ارتفاع ثابت برای هدر تعیین کنید تا padding-top بدنه دقیق باشد */
+  display: block;
+
+}
+
+.logo-container-custom {
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+#fixed-header .form-control {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: right;
+}
+
+.button-group-custom a {
+  color: var(--dk-text-dark);
+  font-size: 14px;
+}
+
+.button-group-custom a:hover {
+  background-color: #f0f0f0;
+}
+
+.main-nav-links a {
+  color: var(--dk-text-medium);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.main-nav-links a:hover {
+  color: var(--dk-red);
+}
+
+#fixed-header nav img {
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
+}
+
+
+

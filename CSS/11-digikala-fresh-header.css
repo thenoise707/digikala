@@ -1,0 +1,16 @@
+/* ----------------------------------------------------------------------------------------------------------------
+   Digikala Fresh Header
+-------------------------------------------------------------------------------------------------------------------- */
+.fresh-header-custom {
+  max-width: 85%;
+  margin: 30px auto 15px auto;
+  border-bottom: 1px solid var(--dk-border-light);
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.fresh-header-custom img {
+  height: 40px;
+}
+

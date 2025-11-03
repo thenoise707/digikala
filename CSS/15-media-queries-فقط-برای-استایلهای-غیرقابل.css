@@ -1,0 +1,113 @@
+/* ----------------------------------------------------------------------------------------------------------------
+   Media Queries (فقط برای استایل‌های غیرقابل جایگزینی با بوت‌استرپ)
+-------------------------------------------------------------------------------------------------------------------- */
+
+/* Tablet and Mobile (کمتر از 991.98px) */
+@media (max-width: 991.98px) {
+  body {
+    /* (top-bar height) + (fixed-header height in mobile) + (mobile-bottom-nav height) */
+    /* ارتفاع هدر در موبایل بسته به محتوا متغیر است، بنابراین آن را حدودی در نظر می‌گیریم */
+    padding-top: calc(60px + 60px) !important; /* 60px (top-bar) + 60px (header تقریباً) */
+    padding-bottom: 60px !important; /* ارتفاع نوار پایین موبایل */
+  }
+  #top-bar {
+    height: 60px; /* ارتفاع top-bar ثابت نگه داشته می‌شود */
+    line-height: 35px; /* برای وسط چین کردن متن */
+    padding: 10px 15px; /* پدینگ کمتر در موبایل */
+  }
+  #fixed-header {
+    top: 60px; /* شروع fixed-header بلافاصله بعد از top-bar */
+    height: auto; /* ارتفاع را به محتوا بسپارید تا در موبایل فشرده شود */
+    padding-top: 5px; /* کمی پدینگ از بالا در هدر */
+    padding-bottom: 5px; /* کمی پدینگ از پایین در هدر */
+    position: fixed; /* همچنان fixed باقی می‌ماند */
+  }
+
+  /* **تغییر اصلی**: margin-top برای اسلایدر در حالت موبایل */
+  #sliderContainer {
+    aspect-ratio: 16 / 9;
+    width: 95vw;
+    margin-top: 20px !important;  /* کاهش margin-top و اضافه کردن margin-bottom در موبایل */
+    margin-top: calc(120px + 20px) !important; /* 120px (ارتفاع حدودی هدر ثابت) + 20px فاصله */
+    border-radius: 8px; /* گوشه‌های گرد در موبایل */
+  }
+  .controls {
+    padding: 0 5px;
+  }
+  .controls button {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+  .wrapper {
+    width: 95%;
+  }
+  .product-scroll-wrapper {
+    padding: 10px 0;
+  }
+  .product-card {
+    min-width: 140px;
+    width: 140px;
+  }
+  #scrollLeft, #scrollRight {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  /* برای موبایل ها (Specific for mobile breakpoint, usually < 768px) */
+  /* اینجا فقط استایل‌هایی که در موبایل کاملا متفاوت هستند را قرار می‌دهیم */
+  @media (max-width: 767.98px) {
+    /* #fixed-header دیگر position: static نمی‌شود، بلکه fixed باقی می‌ماند */
+    /* ارتفاع fixed-header در موبایل به محتوا بستگی دارد. */
+    /* padding-top در body به درستی محاسبه شود */
+    body {
+        padding-top: calc(60px + 60px) !important; /* 60px (top-bar) + 60px (header تقریباً) */
+    }
+
+    #fixed-header header {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      padding: 10px; /* پدینگ کلی هدر در موبایل */
+    }
+    
+    .button-group-custom {
+      display: none !important; /* دکمه‌های دسکتاپ هدر را مخفی می‌کند */
+    }
+    
+    .button-group-custom-mobile {
+      display: flex !important; /* دکمه‌های موبایل هدر را نمایش می‌دهد */
+      gap: 10px;
+      margin-right: auto; /* کشیدن به سمت راست (در RTL) */
+    }
+    
+    .logo-container-custom img {
+      height: 30px !important; /* لوگو کوچکتر در موبایل */
+    }
+    
+    .header-search-box-container {
+        width: 100% !important;
+        margin-top: 10px; /* فاصله از لوگو در موبایل */
+        margin-bottom: 0px; /* فاصله از نوار ناوبری (اگر بود) */
+        margin-left: 0 !important; /* اطمینان از حذف margin-left بوت استرپ */
+    }
+
+    .header-search-box-container input {
+      width: 100% !important;
+    }
+    
+    /* nav اصلی (d-none d-lg-flex) دیگر در موبایل نمایش داده نمی‌شود پس نیازی به override نیست */
+    /* #fixed-header nav {
+        display: none !important;
+    } */
+
+    /* **تغییر اصلی**: margin-top برای اسلایدر در حالت موبایل‌های کوچکتر */
+    #sliderContainer {
+         margin-top: 0 !important; /* ارتفاع top-bar + ارتفاع هدر موبایل + فاصله */
+         /* margin-bottom: 20px !important; */
+         aspect-ratio: 2 / 1;
+    }
+  }
+}
+
+

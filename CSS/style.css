@@ -1,0 +1,175 @@
+/* style.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dk-red: #ef394e;
+  --dk-dark-red: #d32f2f;
+  --dk-text-dark: #333;
+  --dk-text-medium: #555;
+  --dk-text-light: #666;
+  --dk-border-light: #eee;
+  --dk-bg-light: #f5f5f5;
+  --dk-bg-extra-light: #f9f9f9;
+}
+
+/* **تغییرات مهم**: تنظیمات عمومی برای html و body */
+body, html {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-y: scroll !important; /* تضمین نمایش نوار اسکرول و جلوگیری از تغییر عرض */
+  overflow-x: hidden !important; /* جلوگیری از اسکرول افقی ناخواسته و مهم برای اسلایدر تمام عرض */
+}
+
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  direction: rtl;
+  text-align: right;
+  /* background-color: #f8f9fa; */
+  background-color: #ffffff; /* همون رنگ کارت‌ها */
+  /* padding-top در media query مدیریت می‌شود */
+  color: var(--dk-text-dark);
+  font-family: 'Vazirmatn', sans-serif;
+  padding-top: 160px !important;
+  font-family: 'Vazirmatn', sans-serif;
+
+
+}
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Common Styles (استایل‌های مشترک)
+-------------------------------------------------------------------------------------------------------------------- */
+.button-group-custom a,
+.main-nav-links a,
+.category-sub-group a {
+  text-decoration: none;
+}
+
+.category-dropdown-btn,
+.controls button,
+.newsletter button,
+#scrollLeft,
+#scrollRight {
+  border: none;
+  cursor: pointer;
+}
+
+.category-main-list,
+.category-sub-group ul,
+.footer-columns ul {
+  list-style: none;
+  padding: 0;
+}
+
+.newsletter p,
+.social-icons p {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: var(--dk-text-dark);
+}
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Top Bar (نوار بالای صفحه برای پیام‌های متحرک)
+-------------------------------------------------------------------------------------------------------------------- */
+#top-bar {
+  background-color: rgb(222, 199, 166);
+  color: #000;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px; /* ثابت نگه دارید */
+  line-height: 35px;
+  z-index: 1002;
+  transition: top 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Fixed Header (هدر اصلی ثابت)
+-------------------------------------------------------------------------------------------------------------------- */
+#fixed-header {
+  position: fixed;
+  top: 60px; /* دقیقاً زیر top-bar */
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  width: 100%;
+  height: auto;  /* یک ارتفاع ثابت برای هدر تعیین کنید تا padding-top بدنه دقیق باشد */
+  display: block;
+
+}
+
+.logo-container-custom {
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+#fixed-header .form-control {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: right;
+}
+
+.button-group-custom a {
+  color: var(--dk-text-dark);
+  font-size: 14px;
+}
+
+.button-group-custom a:hover {
+  background-color: #f0f0f0;
+}
+
+.main-nav-links a {
+  color: var(--dk-text-medium);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.main-nav-links a:hover {
+  color: var(--dk-red);
+}
+
+#fixed-header nav img {
+  width: 18px;
+  height: 18px;
+  margin-left: 6px;
+}
+
+
+
+/* ----------------------------------------------------------------------------------------------------------------
+   Custom Login Box (کادر ورود | ثبت‌نام جدید در هدر)
+-------------------------------------------------------------------------------------------------------------------- */
+.custom-login-box {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 5px 10px;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--dk-text-dark);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.custom-login-box:hover {
+    background-color: #f0f0f0;
+    border-color: #a0a0a0;
+}
+
+.custom-login-box img {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+}
+
+

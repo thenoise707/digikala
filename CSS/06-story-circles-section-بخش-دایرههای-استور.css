@@ -1,0 +1,208 @@
+/* ----------------------------------------------------------------------------------------------------------------
+   Story Circles Section (بخش دایره‌های استوری زیر هدر)
+-------------------------------------------------------------------------------------------------------------------- */
+.story-circles-section {
+  background-color: white; /* پس‌زمینه سفید برای کل بخش */
+  padding: 15px 0; /* پدینگ بالا و پایین */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* سایه کوچک */
+  margin-top: 30px; /* فاصله از هدر. مقدار دقیق را تنظیم کنید. */
+  border-radius: 8px; /* گوشه‌های گرد برای کل بخش */
+}
+
+.story-scroll-wrapper {
+  position: relative;
+  overflow: hidden; /* پنهان کردن دکمه‌ها اگر از کانتینر خارج شوند */
+}
+
+.story-container {
+  display: flex; /* تغییر از grid به flex برای تراز بهتر */
+  flex-wrap: nowrap; /* جلوگیری از شکستن خط آیتم‌ها */
+  overflow-x: auto; /* فعال کردن اسکرول افقی */
+  -webkit-overflow-scrolling: touch; /* اسکرول نرم‌تر در iOS */
+  scroll-behavior: smooth; /* اسکرول نرم هنگام کلیک روی دکمه‌ها */
+  scrollbar-width: none; /* مخفی کردن اسکرول برای فایرفاکس */
+  -ms-overflow-style: none; /* مخفی کردن اسکرول برای IE و Edge */
+  gap: 15px; /* فاصله بین دایره‌ها */
+  padding-bottom: 10px; /* فضای پایین برای جلوگیری از بریده شدن احتمالی سایه یا متن */
+  align-items: flex-start; /* آیتم‌ها از بالا تراز شوند */
+}
+
+.story-container::-webkit-scrollbar {
+  display: none; /* پنهان کردن اسکرول بار برای وب‌کیت (کروم، سافاری) */
+}
+
+.story-circle-item {
+  min-width: 80px; /* حداقل عرض برای هر آیتم (برای اینکه دایره‌ها کوچک نشوند) */
+  flex-shrink: 0; /* جلوگیری از کوچک شدن آیتم‌ها */
+  flex-grow: 0; /* جلوگیری از رشد آیتم‌ها */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* محتوای داخلی آیتم از بالا تراز شود */
+  text-decoration: none;
+  color: var(--dk-text-dark); /* رنگ متن پیش‌فرض */
+  transition: transform 0.2s ease;
+  /* **تغییر: افزایش ارتفاع ثابت برای هر آیتم** */
+  height: 140px; /* مقدار را از 120px به 140px افزایش دادیم */
+}
+
+.story-circle-item:hover {
+  transform: translateY(-3px); /* افکت کوچک هاور */
+}
+
+.circle-image-wrapper {
+  width: 70px; /* عرض دایره */
+  height: 70px; /* ارتفاع دایره */
+  border-radius: 50%; /* ایجاد دایره */
+  background-color: var(--dk-bg-extra-light); /* پس‌زمینه داخل دایره */
+  border: 2px solid transparent; /* بوردر شفاف برای گرادیان */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* پنهان کردن تصویر اضافی */
+  position: relative; /* برای موقعیت‌یابی گرادیان */
+  flex-shrink: 0; /* جلوگیری از کوچک شدن در فلکس‌باکس */
+}
+
+/* گرادیان برای بوردر دایره */
+.circle-image-wrapper .gradient-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* این گرادیان را می‌توانید بر اساس رنگ دقیق دیجی‌کالا تغییر دهید */
+    background: linear-gradient(to top right, #ff0055, #ee00ee); /* صورتی تا بنفش */
+    padding: 3px; /* ضخامت بوردر گرادیان */
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 1; /* بالاتر از تصویر */
+}
+
+
+.circle-image-wrapper img {
+  max-width: 80%; /* اندازه تصویر داخل دایره */
+  max-height: 80%;
+  object-fit: contain;
+  border-radius: 50%; /* برای تصاویر گرد شده داخل دایره */
+  position: relative; /* برای قرار گرفتن زیر گرادیان */
+  z-index: 2; /* بالاتر از پس‌زمینه و زیر گرادیان */
+}
+
+.story-circle-item p {
+  font-size: 12px;
+  font-weight: 500;
+  white-space: normal; /* **تغییر: اجازه شکستن خط را می‌دهیم** */
+  overflow: hidden;
+  text-overflow: ellipsis; /* اضافه کردن ... اگر متن جا نشد */
+  max-width: 80px; /* محدود کردن عرض متن برای هم‌اندازی با دایره */
+  text-align: center; /* متن زیر دایره وسط چین شود */
+  line-height: 1.3; /* **جدید: ارتفاع خط را کمی بیشتر می‌کنیم برای خوانایی بهتر** */
+  margin-top: 8px; /* **تغییر: فاصله بیشتری از دایره ایجاد می‌کنیم** */
+}
+
+.story-circle-item p.small { /* **جدید: استایل برای پاراگراف‌های کوچک‌تر** */
+    font-size: 10px; /* فونت کوچکتر برای متن‌های توضیحی */
+    color: var(--dk-text-light); /* رنگ کمی روشن‌تر */
+    margin-top: 2px; /* فاصله کمتر از پاراگراف بالایی */
+}
+
+
+/* دکمه‌های ناوبری (مشابه سایر اسلایدرها) */
+.story-scroll-wrapper .scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.story-scroll-wrapper .scroll-btn:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.story-scroll-wrapper .scroll-btn-left {
+  left: 0;
+}
+
+.story-scroll-wrapper .scroll-btn-right {
+  right: 0;
+}
+
+
+/* Media Queries برای واکنش‌گرایی */
+@media (max-width: 991.98px) { /* تبلت */
+  .story-circles-section {
+    padding: 10px 0;
+    padding-top: 55px!important; /* اصلاح پدینگ در تبلت */
+  }
+  .circle-image-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+  .story-circle-item {
+    height: 120px; /* **تغییر: ارتفاع ثابت برای تبلت را به 120px افزایش دادیم** */
+  }
+  .story-circle-item p {
+    font-size: 11px;
+    max-width: 60px;
+  }
+  .story-scroll-wrapper .scroll-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767.98px) { /* موبایل */
+  .story-circles-section {
+    padding: 8px 0; /* پدینگ داخلی کمتر */
+    margin-top: 10px; /* فاصله از هدر ثابت موبایل */
+    margin-bottom: 10px; /* فاصله از اسلایدر اصلی (بنرها) */
+  }
+  .story-container {
+      padding: 0 5px; /* پدینگ کم در موبایل */
+  }
+  .circle-image-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+  .story-circle-item {
+    height: 110px; /* **تغییر: ارتفاع ثابت برای موبایل را به 110px افزایش دادیم** */
+  }
+  .story-circle-item p {
+    font-size: 10px;
+    max-width: 50px;
+    margin-top: 5px !important;
+  }
+  /* در موبایل دکمه‌های اسکرول را مخفی می‌کنیم و از کشیدن استفاده می‌کنیم */
+  .story-scroll-wrapper .scroll-btn {
+      display: none !important;
+  }
+}
+
+
+
+
+
+
+
+

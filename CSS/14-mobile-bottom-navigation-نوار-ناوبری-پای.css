@@ -1,0 +1,43 @@
+/* ----------------------------------------------------------------------------------------------------------------
+   Mobile Bottom Navigation (نوار ناوبری پایین برای موبایل)
+-------------------------------------------------------------------------------------------------------------------- */
+#mobile-bottom-nav {
+  height: 60px; /* ارتفاع ثابت برای نوار پایین */
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+  z-index: 1010; /* مطمئن شوید که روی بقیه محتوا قرار می‌گیرد */
+  background-color: white; /* پس‌زمینه سفید */
+  border-top: 1px solid var(--dk-border-light); /* خط بالا */
+}
+
+#mobile-bottom-nav a {
+  flex: 1; /* توزیع فضای یکنواخت بین آیتم‌ها */
+  text-align: center;
+  color: var(--dk-text-medium);
+  transition: color 0.2s ease;
+  padding-top: 5px; /* برای فاصله دادن آیکون از بالا */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px; /* اندازه فونت کوچک برای متن */
+}
+
+#mobile-bottom-nav a:hover,
+#mobile-bottom-nav a.active-nav-item {
+  color: var(--dk-red);
+}
+
+#mobile-bottom-nav a img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 2px; /* فاصله بین آیکون و متن */
+  /* فیلتر برای تغییر رنگ آیکون‌ها به خاکستری تیره */
+  filter: brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(259deg) brightness(1%) contrast(100%);
+}
+
+#mobile-bottom-nav a.active-nav-item img {
+  /* فیلتر برای تغییر رنگ آیکون فعال به قرمز دیجی‌کالا */
+  filter: brightness(0) saturate(100%) invert(29%) sepia(87%) saturate(6328%) hue-rotate(338deg) brightness(97%) contrast(98%);
+}
+
+
